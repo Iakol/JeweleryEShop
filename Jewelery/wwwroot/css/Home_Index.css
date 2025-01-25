@@ -1,0 +1,34 @@
+﻿.top__image__container {
+    background-color: rebeccapurple; 
+}
+
+
+
+.top__image__container p {
+    font-size: 30px;
+    padding: 5% 5%;
+    padding-bottom: 0%;
+
+    font-family: "Playfair Display SC", serif;
+}
+
+.top__image__container p + p {
+    font-size: 14px;
+    padding: 0% 5%;
+    font-family: "Playfair Display SC", serif;
+}
+
+.Carusel__wraper {
+    margin-top: 5%;
+}
+
+.Carusel {
+    overflow: hidden;
+}
+.Carusel .slick-slide {
+    display: inline-block;
+    margin: 0% 0.1%;
+    height:400px;
+    width:100px;
+    background-color:brown;
+}

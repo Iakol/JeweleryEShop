@@ -1,0 +1,61 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutCSM.cshtml";
+}
+
+<link rel="stylesheet" href="~/scss/CMSMain.css" asp-append-version="true" />
+
+     
+    <div class="Content">
+        <h1>Ви знаходитися В CMS магазину</h1>
+        <div class="CSMMain__img--theme">
+            <div class="row d-flex justify-content-center">
+                <div class="col-3">
+                    <a asp-controller="Product" asp-action="ProductCMS">
+                        <img src="~/SVG/jewelry-store-luxury-goods-expensive-item-svgrepo-com.svg" alt="SVG Image">
+                        <h4>Товари</h4>
+                        <p>Додавання та редагування <br /> товарів в онлайн-магазину.</p>
+                    </a>
+                </div>
+                <div class="col-3">
+                    <a asp-controller="Category" asp-action="CategoryCMS">
+                        <img src="~/SVG/category-svgrepo-com.svg" alt="SVG Image">
+                        <h4>Категорії</h4>
+                        <p>Додавання та редагування <br /> категорій в онлайн-магазину.</p>
+                    </a>
+                </div>
+                <div class="col-3">
+                    <a asp-controller="" asp-action="">
+                        <img src="~/SVG/users-group-svgrepo-com.svg" alt="SVG Image">
+                        <h4>Користувачі</h4>
+                        <p>Додавання та редагування <br /> користувачів в CMS системі.</p>
+                    </a>
+                </div>
+            </div>
+            <div class="row d-flex justify-content-center">
+                <div class="col-3">
+                    <a asp-controller="" asp-action="">
+                        <img src="~/SVG/delivery-cart-svgrepo-com.svg" alt="SVG Image">
+                        <h4>Замовлення</h4>
+                        <p>Управління замовленнями <br /> в онлайн-магазину.</p>
+                    </a>
+                </div>
+                <div class="col-3">
+                    <a asp-controller="" asp-action="">
+                        <img src="~/SVG/analytics-graph-chart-svgrepo-com.svg" alt="SVG Image">
+                        <h4>Аналітика</h4>
+                        <p>Перегляд аналітики </p>
+                    </a>
+                </div>
+                <div class="col-3 ">
+                    <a asp-controller="" asp-action="">
+                        <img src="~/SVG/back-return-svgrepo-com.svg" alt="SVG Image">
+                        <h4>Назад</h4>
+                        <p>До магазину</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+

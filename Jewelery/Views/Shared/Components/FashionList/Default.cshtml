@@ -1,0 +1,13 @@
+﻿@using Jewelery.Models.Review;
+@model List<Fashion>
+
+
+<div class="FashionCarousel">
+    <div class="CaruselFashion" id="carosel">
+            @foreach (var item in Model)
+            {
+                <img class="FashionItem" src="@item.Image" />  
+            }           
+        </div>
+</div>
+

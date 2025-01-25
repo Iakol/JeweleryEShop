@@ -1,0 +1,103 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    int CultureInt = 1;//Context.Request.Cookies["Culture"].Equals("uk") ? 1 : 2;
+
+    //ViewBag.Title = ResourceHelper.GetString("str0002");
+}
+
+<link rel="stylesheet" href="~/scss/HomeStyle.css" />
+
+
+<div class="HomeContainer container-fluid m-0 p-0">
+    <div class="top__image__container">
+        <a asp-action="" asp-controller="">
+            <div class="top__image__strings">
+                <p class="top__image__string">Margo Jewelery</p>
+                <p class="top__image__string">Авторські прикраси</p>
+            </div>
+            <div class="top__image__button">
+                <p>Go see</p>
+            </div>          
+        </a> 
+    </div>
+
+    <section class="TopProductSection">
+        <h3>Popular Product</h3>
+        @await Component.InvokeAsync("ProductTopMain", new {lang = CultureInt})
+        <div class="TopProductSectionViewAllButton">
+            <a class="btn">View All</a>
+        </div>
+    </section>
+
+    <section class="CategoryMainPageSection">
+        @await Component.InvokeAsync("CategoryTopMain", new {lang = CultureInt})
+    </section>
+
+    <section class="OurHistorySection" id="OurHistorySection">
+        <div class="AboutBrendText">
+            <div>
+                <h3>
+                    About Brend
+                </h3>
+            </div>
+            <div>
+                <p>
+                    sit amet. Nullam facilisis tempus elit ac mattis. Nullam non fermentum tortor, at faucibus.
+                </p>
+                <p>
+                    congue, mattis mattis nisl maximus. Praesent bibendum dignissim scelerisque. Nunc feugiat efficitur tortor, non euismod mauris tempor
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aliquam nibh at eros tempus iaculis. Pellentesque vehicula magna a tortor
+                </p>
+            </div>
+            <div class="AboutBrendTextButton">
+                <a class="btn">сторінка бренду</a>
+            </div>
+        </div>
+        <div class="AboutBrendImage">
+            <img src="~/image/Constant/AboutBrand.png" />
+        </div>
+    </section>
+
+    <section class="VideoSection">
+        <p>Here Video</p>
+    </section>
+
+    <section class="FaqSection" id="FaqSection">
+        @await Component.InvokeAsync("FAQList", new {lang = CultureInt})
+    </section>
+
+    <section class="FeedbackSection">
+        <div class="FeedbackText">
+            <div class="FeedBackLabel">
+                <h3>
+                    Ви і Lamari Jewelry
+                </h3>
+                <a class="nav-link text-dark" target="_blank" href="https://www.instagram.com/margojewellery?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">
+                                <i class="bi bi-instagram"></i>
+                </a>
+            </div>
+            <div class="FeedBackParagraf">
+                <p>
+                    Діліться своїми образами, відзначайте нас у Instagram, і ми із задоволенням додамо ваші фото
+                </p>
+            </div>            
+        </div>
+        @await Component.InvokeAsync("FashionList")
+        <div class="FeedBaclButton">
+            <a class="btn">
+                Наш instagram
+            </a>
+        </div>
+    </section>
+    
+    
+</div>
+
+@section Scripts {
+    <script src="~/js/SearchDisplay.js"></script>
+    <script src="~/js/Carusel.js"></script>
+
+
+}

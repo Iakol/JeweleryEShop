@@ -1,0 +1,72 @@
+﻿<link rel="stylesheet" href="~/scss//FooterStyle.css" />
+
+
+
+<footer class="FooterClass">
+    <div class="FooterContainer"> 
+        <div class="FooterMain">
+            <div class="FooterLogo">
+                <div class="FooterLogoContainer">
+                    <span class="LogoMargo">Margo <sub>Jewelery</sub></span>
+                </div>
+                <div class="FooterPhone">
+                    <a href="tel:1234567890">+1234567890</a>
+                </div>
+                <div class="FooterEmail">
+                    <a href="mailto:margo@gmail.com">margo@gmail.com</a>
+                </div>
+                <div class="FooterPaymentImg">
+                    <img src="~/SVG/brandbook_mc.svg" />
+                    <img src="~/SVG/brandbook_visa_new.svg" />
+
+                </div>
+                <div class="MediaButtun">
+                    <a>
+                        <i class="bi bi-instagram"></i>
+                    </a>
+                    <a>
+                        <i class="bi bi-telegram"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="FooterInfo">
+                <div class="FooterCatalog">
+                    <h4>Catalog</h4>
+                    <ul class="FooterCatalogList">
+                        @await Component.InvokeAsync("FooterCatalog", new {lang = 1 })
+                    </ul>
+                </div>
+                <div class="FooterGeneralInfoContainer">
+                    <h4>
+                        Info
+                    </h4>
+                    <ul class="FooterInfoList">
+                        <li>
+                            <a>Про бренд</a>
+                        </li>
+                        <li>
+                            <a>Догляд за виробами</a>
+                        </li>
+                        <li>
+                            <a>Доставка і оплата</a>
+                        </li>
+                        <li>
+                            <a>Повернення та обмін</a>
+                        </li>
+                        <li>
+                            <a>Контакти</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>        
+        </div>
+        <div class="FooterPolitics">
+            <a>
+                Публічна оферта
+            </a>
+            <a>
+                Політика обробки даних
+            </a>
+        </div>
+    </div>
+</footer>

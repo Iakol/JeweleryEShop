@@ -1,0 +1,83 @@
+﻿@using Jewelery.ViewModels.DTO.Product;
+@model List<ProductCMSDTO>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+<script src="~/js/CMS/CMSProductListLanguageChanger.js"></script>
+@foreach(var item in Model)
+{
+    <div class="ProductContainerForOne">
+        <div class="ProductImageContainer">
+            @if (item.Images != null && item.Images.Count > 0)
+            {
+                <img class="ProductImage" src="@item.Images[0].Url" />
+            }
+        </div>
+        <div class="ProductCredContainer">
+            <div class="ProductNameAndDescriptionContainer">                
+                <div class="Name_Description" id="UKR-Name-Description-@item.Product_id">
+                    <h4 class="ProductName">
+                        <span>@item.Name_UKR</span>
+                    </h4>
+                    <div class="ProductDescription">
+                        <span>@item.Description_UKR</span>
+                    </div>
+                </div>
+                <div class="Name_Description" id="ENG-Name-Description-@item.Product_id">
+                    <h4 class="ProductName">
+                        <span>@item.Name_ENG</span>
+                    </h4>
+                    <div class="ProductDescription">
+                        <span>@item.Description_ENG</span>
+                    </div>
+
+                </div>
+                <ul class="TabsList">
+                    <li class="TabButtonLI"><a class="TabButton" href="#UKR-Name-Description-@item.Product_id">UKR</a></li>
+                    <li class="TabButtonLI"><a class="TabButton" href="#ENG-Name-Description-@item.Product_id">ENG</a></li>
+
+                </ul>
+            </div>
+            <div class="ProductCredInfoContainer">
+                <div>
+                    <span>Articul: @item.Articul</span>
+                </div>
+                <div>
+                    <span>is Exist: @item.isExist</span>
+                </div>
+                <div>
+                    <span>is Display: @item.isDisplay</span>
+                </div>
+            </div>
+        </div>
+        <div class="ProductButtonsAndPrice">
+            <div class="ProductPricesContainer">
+                <div>
+                    <span>Ціна: @item.Price ГРН</span>
+                </div>
+                <div>
+                    @if (@item.isPromotion)
+                    {
+                        <span class="PromotionPrice">Акційна Ціна: @item.Promotion_Price ГРН</span>
+                    }
+                    else
+                    {
+                        <span> Product Haven`t Promotion </span>
+                    }
+                </div>
+            </div>
+            <div class="ProductButtons">
+                <a class="ButtonProductContainer" asp-action="EditProduct" asp-controller="Product" asp-route-id="@item.Product_id">
+                    <div class="ProductButton"><img class="EditButtonSVG" src="~/SVG/edit-svgrepo-com.svg" /></div>
+                </a>
+                <a class="ButtonProductContainer DeleteButton" asp-action="Delete" asp-controller="Product" asp-route-id="@item.Product_id">
+                    <div class="ProductButton" >X</div>
+                </a>
+            </div>
+        </div>
+        
+    </div>
+    <hr />
+
+}

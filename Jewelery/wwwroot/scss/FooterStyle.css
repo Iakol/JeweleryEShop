@@ -1,0 +1,112 @@
+﻿.FooterClass {
+  width: 100%;
+  bottom: 0;
+  background-color: #1B1B1B;
+  color: white;
+  padding: 10vh 8vw;
+  height: 80vh;
+}
+.FooterClass .FooterContainer {
+  flex-direction: column;
+  justify-content: space-between;
+}
+.FooterClass .FooterContainer .FooterMain {
+  display: flex;
+  justify-content: space-between;
+}
+.FooterClass .FooterContainer .FooterMain .FooterLogo {
+  width: 40%;
+}
+.FooterClass .FooterContainer .FooterMain .FooterLogo div {
+  margin-bottom: 5vh;
+}
+.FooterClass .FooterContainer .FooterMain .FooterLogo .FooterLogoContainer .LogoMargo {
+  font-size: 32px;
+}
+.FooterClass .FooterContainer .FooterMain .FooterLogo .FooterPhone a {
+  text-decoration: none;
+  font-size: 24px;
+  color: white;
+}
+.FooterClass .FooterContainer .FooterMain .FooterLogo .FooterPhone a:visited {
+  color: white;
+}
+.FooterClass .FooterContainer .FooterMain .FooterLogo .FooterEmail a {
+  text-decoration: none;
+  font-size: 16px;
+  color: white;
+}
+.FooterClass .FooterContainer .FooterMain .FooterLogo .FooterEmail a:visited {
+  color: white;
+}
+.FooterClass .FooterContainer .FooterMain .FooterLogo .FooterPaymentImg img {
+  width: 4vw;
+  height: 8vh;
+}
+.FooterClass .FooterContainer .FooterMain .FooterLogo .MediaButtun {
+  width: 20%;
+  display: flex;
+  justify-content: space-between;
+}
+.FooterClass .FooterContainer .FooterMain .FooterLogo .MediaButtun a {
+  display: flex;
+  width: 3vw;
+  height: 6vh;
+  background-color: white;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+.FooterClass .FooterContainer .FooterMain .FooterLogo .MediaButtun a i {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 8vw;
+  height: 16vh;
+  color: black;
+}
+.FooterClass .FooterContainer .FooterMain .FooterInfo {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+}
+.FooterClass .FooterContainer .FooterMain .FooterInfo .FooterCatalog {
+  font-family: "Montserrat", sans-serif;
+}
+.FooterClass .FooterContainer .FooterMain .FooterInfo .FooterCatalog h4 {
+  margin-bottom: 5vh;
+}
+.FooterClass .FooterContainer .FooterMain .FooterInfo .FooterCatalog .FooterCatalogList {
+  padding: 0;
+  display: flex;
+  list-style: none;
+  flex-wrap: wrap;
+  flex-direction: column;
+  height: 60%;
+  margin-bottom: 12px;
+  align-content: space-between;
+}
+.FooterClass .FooterContainer .FooterMain .FooterInfo .FooterCatalog .FooterCatalogList li {
+  margin-right: 2vw;
+  margin-bottom: 1vh;
+}
+.FooterClass .FooterContainer .FooterMain .FooterInfo .FooterGeneralInfoContainer {
+  font-family: "Montserrat", sans-serif;
+}
+.FooterClass .FooterContainer .FooterMain .FooterInfo .FooterGeneralInfoContainer h4 {
+  margin-bottom: 5vh;
+}
+.FooterClass .FooterContainer .FooterMain .FooterInfo .FooterGeneralInfoContainer .FooterInfoList {
+  padding: 0;
+  display: flex;
+  list-style: none;
+  flex-wrap: wrap;
+  flex-direction: column;
+  height: 60%;
+  margin-bottom: 12px;
+  align-content: space-between;
+}
+.FooterClass .FooterContainer .FooterMain .FooterInfo .FooterGeneralInfoContainer .FooterInfoList li {
+  margin-right: 2vw;
+  margin-bottom: 1vh;
+}

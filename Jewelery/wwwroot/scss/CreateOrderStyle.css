@@ -1,0 +1,46 @@
+﻿.DropListElement {
+  position: absolute;
+  background-color: #F7F4F2;
+  width: 20vw;
+  font-family: "Montserrat", sans-serif;
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+.DropListElement li {
+  margin: 15px 15px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+}
+.DropListElement li:hover {
+  background-color: #F7F4F2;
+}
+.DropListElement li:hover div {
+  color: #a98d74;
+  opacity: 0.5;
+}
+
+.CreateOrderMain {
+  margin-bottom: 200px;
+}
+.CreateOrderMain .CreateOrderContainer .CreateOrderForm .Cred {
+  display: flex;
+  justify-content: space-between;
+}
+.CreateOrderMain .CreateOrderContainer .CreateOrderForm .Cred .OrderCred div {
+  display: flex;
+  justify-content: space-between;
+}
+.CreateOrderMain .CreateOrderContainer .CreateOrderForm .Cred .DeliveryCred {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.CreateOrderMain .CreateOrderContainer .CreateOrderForm .Cred .DeliveryCred .TypeOfDelivery {
+  display: flex;
+  flex-direction: column;
+}
+.CreateOrderMain .CreateOrderContainer .CreateOrderForm .Cred .DeliveryCred .TypeOfDelivery div {
+  width: 15%;
+}

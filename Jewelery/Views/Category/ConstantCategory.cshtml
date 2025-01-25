@@ -1,0 +1,28 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutCSM.cshtml";
+    var Search = ViewData["SearchTerm"] as string ?? "";
+
+}
+
+@model Jewelery.ViewModels.DTO.Category.ConfigurationData
+
+<script src="~/js/CMS/GetCategoryForConstantCategory.js"></script>
+
+<div>
+
+    @using (Html.BeginForm("ConstantCategory", "Category", FormMethod.Post))
+    {
+        <label for="Sales">Вибрати катогорію яка відповідає за акції</label>
+        <select name="Sales" data-sales="@Model.CategoryDisplay.Sales" id="Sales">
+            
+        </select>
+
+        <label for="Sertificat">Вибрати катогорію яка відповідає за сертифікати</label>
+        <select name="Sertificat" data-sertificat="@Model.CategoryDisplay.Sertificat" id="Sertificat">
+
+        </select>
+    
+        <button type="submit">Submit</button>
+    }
+    
+</div>

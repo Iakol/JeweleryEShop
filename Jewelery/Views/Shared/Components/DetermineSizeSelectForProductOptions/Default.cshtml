@@ -1,0 +1,22 @@
+﻿@using Jewelery.ViewModels.DTO.DetermineTheSizeEditor
+
+
+@{
+    int? SelectedDetermineList = ViewData["SelectedDetermineList"] != null ? ViewData["SelectedDetermineList"] as int? : null;
+}
+
+@model List<DetermineSizeSelectList>
+
+
+<option value="">Визначити розмір</option>
+@foreach (var item in Model)
+{
+    if (SelectedDetermineList != null && item.DetermineSize_Id == SelectedDetermineList.Value)
+    {
+        <option class="SelectDeterminesizeOption" value="@item.DetermineSize_Id" selected>@item.Name</option>
+    }
+    else 
+    {
+        <option class="SelectDeterminesizeOption" value="@item.DetermineSize_Id">@item.Name</option>
+    }
+}

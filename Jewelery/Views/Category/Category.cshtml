@@ -1,0 +1,28 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutCSM.cshtml";
+    var Search = ViewData["SearchTerm"] as string ?? "";
+
+}
+<link rel="stylesheet" href="~/scss/CSMCategoryListStyle.css" />
+<div class="CategoryList">
+    <h3>Категорії</h3>
+    <div class="CategoryButtonsAndSearchFiltering">
+        <div class="CategoryButtons">
+            <a class="CategoryButton" asp-action="AddCategory" asp-controller="Category">Додати Категорію</a>
+            <a class="CategoryButton" asp-action="UpdateViewOrder" asp-controller="Category">Обновити Порядок Відображення</a>
+            <a class="CategoryButton" asp-action="ConstantCategory" asp-controller="Category">Обновити Категорії які є константи</a>
+        </div>
+        <div class="CategorySearchFilterContainer">
+            @using (Html.BeginForm("Category", "Category", FormMethod.Post,new { id = "CategorySearchForm"}))
+            {
+                <div class="InputSearchContainer">
+                    <input placeholder="Search" type="text" id="Search" name="SearchTerm" />
+                    <button id="SearchButtonSubmit" type="submit">GO</button>
+                </div>
+            }
+        </div>
+    </div>
+    <div class="CategoryCMSListContainer">      
+        @await Component.InvokeAsync("CategoryCMSList",new {Search})
+    </div>
+</div>

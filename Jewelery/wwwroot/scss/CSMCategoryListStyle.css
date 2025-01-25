@@ -1,0 +1,171 @@
+﻿.CategoryList {
+  padding-top: 3vh;
+}
+.CategoryList .CategoryButtonsAndSearchFiltering .CategoryButtons {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 2vh;
+}
+.CategoryList .CategoryButtonsAndSearchFiltering .CategoryButtons .CategoryButton {
+  border-radius: 1500px;
+  text-decoration: none;
+  color: black;
+  border: 1px solid green;
+  background-color: lawngreen;
+  min-width: 30%;
+  text-align: center;
+  padding: 2vh 0.5vh;
+  font-weight: 700;
+}
+.CategoryList .CategoryButtonsAndSearchFiltering .CategorySearchFilterContainer {
+  margin-bottom: 2vh;
+}
+.CategoryList .CategoryButtonsAndSearchFiltering .CategorySearchFilterContainer #CategorySearchForm .InputSearchContainer {
+  border: 1px solid black;
+  display: inline-block;
+  height: 7vh;
+  border-radius: 3px;
+  width: 20vw;
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 0px;
+}
+.CategoryList .CategoryButtonsAndSearchFiltering .CategorySearchFilterContainer #CategorySearchForm .InputSearchContainer #Search {
+  border: none;
+  height: 100%;
+  max-width: 100%;
+  min-width: 85%;
+  padding: 0px;
+  padding-left: 5px;
+}
+.CategoryList .CategoryButtonsAndSearchFiltering .CategorySearchFilterContainer #CategorySearchForm .InputSearchContainer #Search:focus-visible {
+  border: none;
+  outline: none;
+}
+.CategoryList .CategoryButtonsAndSearchFiltering .CategorySearchFilterContainer #CategorySearchForm .InputSearchContainer #SearchButtonSubmit {
+  background: none;
+  border: none;
+  font-weight: 700;
+  height: 100%;
+  min-width: 15%;
+}
+.CategoryList .CategoryCMSListContainer #accordionFlushExample .accordion-item .accordion-collapse .accordion-body .CategoryInformationAndSubcategories {
+  border-bottom: 1vh solid rgb(200, 200, 200);
+}
+.CategoryList .CategoryCMSListContainer #accordionFlushExample .accordion-item .accordion-collapse .accordion-body .CategoryInformationAndSubcategories .CategoryCred {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 15vw 60vw 25vw;
+  grid-column-gap: 1vh;
+  margin-bottom: 3vh;
+}
+.CategoryList .CategoryCMSListContainer #accordionFlushExample .accordion-item .accordion-collapse .accordion-body .CategoryInformationAndSubcategories .CategoryCred .CategoryDescription {
+  padding: 1vh;
+  display: grid;
+  border: 1px solid grey;
+}
+.CategoryList .CategoryCMSListContainer #accordionFlushExample .accordion-item .accordion-collapse .accordion-body .CategoryInformationAndSubcategories .CategoryCred .CategoryImage {
+  height: 15vw;
+  width: 15vw;
+}
+.CategoryList .CategoryCMSListContainer #accordionFlushExample .accordion-item .accordion-collapse .accordion-body .CategoryInformationAndSubcategories .CategoryCred .AcordionBodyCategoryButtons {
+  display: flex;
+  width: 10%;
+  height: 100%;
+  justify-content: space-evenly;
+  margin-bottom: 5vh;
+  flex-direction: column;
+}
+.CategoryList .CategoryCMSListContainer #accordionFlushExample .accordion-item .accordion-collapse .accordion-body .CategoryInformationAndSubcategories .CategoryCred .AcordionBodyCategoryButtons .AnchorButton {
+  height: 50px;
+  width: 50px;
+  align-content: center;
+  text-align: center;
+  background-color: greenyellow;
+  border-radius: 5px;
+  border: 1px solid forestgreen;
+  color: black;
+  font-weight: 700;
+  text-decoration: none;
+}
+.CategoryList .CategoryCMSListContainer #accordionFlushExample .accordion-item .accordion-collapse .accordion-body .CategoryInformationAndSubcategories .CategoryCred .AcordionBodyCategoryButtons .DeleteButton {
+  background-color: red;
+  border: 1px solid darkred;
+}
+.CategoryList .CategoryCMSListContainer #accordionFlushExample .accordion-item .accordion-collapse .accordion-body .CategoryInformationAndSubcategories .CatagorySubcategortContainer {
+  padding: 3vh 0vh;
+}
+.CategoryList .CategoryCMSListContainer #accordionFlushExample .accordion-item .accordion-collapse .accordion-body .CategoryInformationAndSubcategories .CatagorySubcategortContainer .AddSubCategoryButtonContainer {
+  margin-bottom: 3vh;
+}
+.CategoryList .CategoryCMSListContainer #accordionFlushExample .accordion-item .accordion-collapse .accordion-body .CategoryInformationAndSubcategories .CatagorySubcategortContainer .AddSubCategoryButtonContainer .AddSubCategoryButton {
+  border-radius: 1500px;
+  text-decoration: none;
+  color: black;
+  border: 1px solid green;
+  background-color: lawngreen;
+  min-width: 50%;
+  text-align: center;
+  padding: 2vh 8vh;
+  font-weight: 700;
+}
+.CategoryList .CategoryCMSListContainer #accordionFlushExample .accordion-item .accordion-collapse .accordion-body .CategoryInformationAndSubcategories .CatagorySubcategortContainer .CatagorySubcategortContainerList {
+  border: 1px solid black;
+  padding: 1vh;
+}
+.CategoryList .CategoryCMSListContainer #accordionFlushExample .accordion-item .accordion-collapse .accordion-body .CategoryInformationAndSubcategories .CatagorySubcategortContainer .CatagorySubcategortContainerList .TitleAndUpdateOrderSubcategoryContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 3vh;
+}
+.CategoryList .CategoryCMSListContainer #accordionFlushExample .accordion-item .accordion-collapse .accordion-body .CategoryInformationAndSubcategories .CatagorySubcategortContainer .CatagorySubcategortContainerList .TitleAndUpdateOrderSubcategoryContainer .UpdateViewOrderForSubCategoriesButton {
+  border-radius: 1500px;
+  text-decoration: none;
+  color: black;
+  border: 1px solid green;
+  background-color: greenyellow;
+  min-width: 20%;
+  text-align: center;
+  padding: 1vh 1vh;
+  font-weight: 700;
+}
+.CategoryList .CategoryCMSListContainer #accordionFlushExample .accordion-item .accordion-collapse .accordion-body .CategoryInformationAndSubcategories .CatagorySubcategortContainer .CatagorySubcategortContainerList .accordion .accordion-item .accordion-collapse .accordion-body .SubCategoryCred {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 15vw 55vw 20vw;
+  grid-column-gap: 1vh;
+  margin-bottom: 3vh;
+}
+.CategoryList .CategoryCMSListContainer #accordionFlushExample .accordion-item .accordion-collapse .accordion-body .CategoryInformationAndSubcategories .CatagorySubcategortContainer .CatagorySubcategortContainerList .accordion .accordion-item .accordion-collapse .accordion-body .SubCategoryCred .SubCategoryDescription {
+  padding: 1vh;
+  display: grid;
+  border: 1px solid grey;
+}
+.CategoryList .CategoryCMSListContainer #accordionFlushExample .accordion-item .accordion-collapse .accordion-body .CategoryInformationAndSubcategories .CatagorySubcategortContainer .CatagorySubcategortContainerList .accordion .accordion-item .accordion-collapse .accordion-body .SubCategoryCred .SubCategoryImage {
+  height: 15vw;
+  width: 15vw;
+}
+.CategoryList .CategoryCMSListContainer #accordionFlushExample .accordion-item .accordion-collapse .accordion-body .CategoryInformationAndSubcategories .CatagorySubcategortContainer .CatagorySubcategortContainerList .accordion .accordion-item .accordion-collapse .accordion-body .SubCategoryCred .AcordionBodySubCategoryButtons {
+  display: flex;
+  width: 10%;
+  height: 100%;
+  justify-content: space-evenly;
+  margin-bottom: 5vh;
+  flex-direction: column;
+}
+.CategoryList .CategoryCMSListContainer #accordionFlushExample .accordion-item .accordion-collapse .accordion-body .CategoryInformationAndSubcategories .CatagorySubcategortContainer .CatagorySubcategortContainerList .accordion .accordion-item .accordion-collapse .accordion-body .SubCategoryCred .AcordionBodySubCategoryButtons .SubCategoryAnchorButton {
+  height: 50px;
+  width: 50px;
+  align-content: center;
+  text-align: center;
+  background-color: greenyellow;
+  border-radius: 5px;
+  border: 1px solid forestgreen;
+  color: black;
+  font-weight: 700;
+  text-decoration: none;
+}
+.CategoryList .CategoryCMSListContainer #accordionFlushExample .accordion-item .accordion-collapse .accordion-body .CategoryInformationAndSubcategories .CatagorySubcategortContainer .CatagorySubcategortContainerList .accordion .accordion-item .accordion-collapse .accordion-body .SubCategoryCred .AcordionBodySubCategoryButtons .SubCategoryDeleteButton {
+  background-color: red;
+  border: 1px solid darkred;
+}

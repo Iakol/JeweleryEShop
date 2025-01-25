@@ -1,0 +1,173 @@
+﻿@model Jewelery.ViewModels.DTO.Product.ProductCMSDTO
+@{
+    Layout = "~/Views/Shared/_LayoutCSM.cshtml";
+
+
+}
+<script src="~/js/CMS/ProductImageFunc.js"></script>
+<script src="~/js/CMS/ProductAtributeFunc.js"></script>
+<script src="~/js/CMS/SelectCatagoryForEditProduct.js"></script>
+<script src="~/js/CMS/ApplyProductForm.js"></script>
+
+
+
+
+<div>
+    @using (Html.BeginForm("EditProduct", "Product", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div class="ImageInputContainer" id="Head" data-url="@Url.Action("EditProduct", "Product")">
+            @*
+        public List<Product_imagesDTO> Images { get; set; }
+        *@
+            <div class="Image_Container" data-ImageCounter="@Model.Images.Count">
+                @for (int i = 0; i < Model.Images.Count; i++)
+                {
+                    <div class="Image_group" id="Image_group_@i">
+                        <div hidden>
+                            <label for="Images[@i].Image_id">Alt_text</label>
+                            @Html.EditorFor(model => model.Images[i].Image_id);
+                        </div>
+                        <div>
+                            <img src="@Model.Images[i].Url" alt="Image Preview @i" id="ImagePreview_@i">
+                        </div>
+                        <div>
+                            <input type="file" accept="image/*" name="Images[@i].ImageFile" onchange="PreviewImage(event,@i)">
+                        </div>
+
+                        <div>
+                            <label for="Images[@i].Alt_text">Alt_text</label>
+                            @Html.EditorFor(model => model.Images[i].Alt_text);
+                        </div>
+                        <div>
+                            <button type="button" onclick="RemoveImage(@i)">RemoveImage</button>
+                        </div>
+
+                    </div>
+                }
+            </div>
+
+            <div>
+                <button type="button" id="newImageInput" onclick="AddImageField(event)"> Add Image </button>
+            </div>
+        </div>
+        <div>
+            <div>
+                @Html.HiddenFor(model => model.Product_id)
+            </div>
+            <div>
+                <label for="Name_UKR">Name_UKR</label>
+                @Html.EditorFor(model => model.Name_UKR)
+            </div>
+            <div>
+                <label for="Name_ENG">Name_ENG</label>
+                @Html.EditorFor(model => model.Name_ENG)
+            </div>
+            <div>
+                <label for="Description_UKR">Description_UKR</label>
+                @Html.TextAreaFor(model => model.Description_UKR)
+            </div>
+            <div>
+                <label for="Description_ENG">Description_ENG</label>
+                @Html.TextAreaFor(model => model.Description_ENG)
+            </div>
+            <div>
+                <label for="Price">Price</label>
+                @Html.EditorFor(model => model.Price)
+            </div>
+            <div>
+                <label for="Category_id">Category_id</label>
+                @*@Html.EditorFor(model => model.Category_id) @*Recode*@
+                <select name="Category_id" id="Category_id" onchange="GetSubCategory(event)" data-category_id="@Model.Category_id">
+                    <option>Choose Category</option>
+                </select>
+            </div>
+            <div>
+                <label for="SubCategory_id">SubCategory_id</label>
+                @*@Html.EditorFor(model => model.SubCategory_id) @*Recode*@
+                <select name="SubCategory_id" id="SubCategory_id" data-subcategory_id="@Model.SubCategory_id">
+                    <option selected>Choose SubCategory_id</option>
+                </select>
+            </div>
+            <div>
+                <label for="Articul">Articul</label>
+                @Html.EditorFor(model => model.Articul)
+            </div>
+
+            <div>
+                <label for="isExist">isExist</label>
+                @Html.EditorFor(model => model.isExist)
+            </div>
+            <div>
+                <label for="isDisplay">isDisplay</label>
+                @Html.EditorFor(model => model.isDisplay)
+            </div>
+
+            <div>
+                <div id="Atribute_Container" data-atributeCount="@Model.Attributes.Count">
+                    @for (int i = 0; i < Model.Attributes.Count; i++)
+                    {
+                        <div class="Atribute_group" id="Atribute_group_@i">
+                            <div hidden>
+                                <label for="Attributes[i].Atribute_id">Atribute_id</label>
+                                @Html.EditorFor(model => model.Attributes[i].Atribute_id)
+                            </div>
+                            <div>
+                                <label for="Attributes[i].Atribute_name_UKR">Atribute_name_UKR</label>
+                                @Html.EditorFor(model => model.Attributes[i].Atribute_name_UKR)
+                            </div>
+                            <div>
+                                <label for="Attributes[i].Atribute_name_ENG">Atribute_name_ENG</label>
+                                @Html.EditorFor(model => model.Attributes[i].Atribute_name_ENG)
+                            </div>
+                            <div>
+                                <label for="Attributes[i].Unit">Unit</label>
+                                @Html.EditorFor(model => model.Attributes[i].Unit)
+                            </div>
+                            @await Component.InvokeAsync("DetermineSizeSelectForProduct", new { index = @i, selectedDetermoneSize = Model.Attributes[i].DetermineTheSize_Id })
+                            <div class="Option_container" id="Option_container_for_atribute_@i" data-OptionCount="@Model.Attributes[i].Options.Count">                                
+                                @for (int x = 0; x < Model.Attributes[i].Options.Count; x++)
+                                {
+                                    <div class="Option_group" id="Option_group_@x">
+                                        <div hidden>
+                                            <label for="Attributes[@i].Options[@x].Option_id">Option_id</label>
+                                            @Html.EditorFor(model => model.Attributes[i].Options[x].Option_id)
+                                        </div>
+                                        <div>
+                                            <label for="Attributes[@i].Options[@x].Size">Size</label>
+                                            @Html.EditorFor(model => model.Attributes[i].Options[x].Size)
+                                        </div>
+                                        <div>
+                                            <label for="Attributes[@i].Options[@x].PriceAdjustment">PriceAdjustment</label>
+                                            @Html.EditorFor(model => model.Attributes[i].Options[x].PriceAdjustment)
+                                        </div>
+                                        <div>
+                                            <button type="button" onclick="RemoveOption(@x)">Delete Option</button>
+                                        </div>
+                                    </div>
+                                }
+                                <div>
+                                    <button type="button" onclick="AddOption(@i)">Add Option</button>
+                                </div>
+                            </div>
+                            <div>
+                                <button type="button" onclick="RemoveAtribute(@i)">Delete Atribute</button>
+                            </div>
+                        </div>
+                    }
+                    <div>
+                        <button type="button" onclick="AddAtribute()">Add Atribute</button>
+                    </div>
+                </div>
+            </div>
+
+            @*
+        public List<AtributeCMSDTO> Attributes { get; set; }
+        *@
+        </div>
+
+        <div>
+            <button type="submit">Edit Product</button>
+        </div>
+
+    }
+</div>

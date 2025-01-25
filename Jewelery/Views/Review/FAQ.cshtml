@@ -1,0 +1,144 @@
+﻿@using Jewelery.ViewModels.DTO.Review;
+@model List<FAQCSMDTO>
+
+@{
+    Layout = "~/Views/Shared/_LayoutCSM.cshtml";
+    int CultureInt = Context.Request.Cookies["Culture"].Equals("uk") ? 1 : 2;
+}
+
+<script src="~/js/CMS/EditFaq.js"></script>
+
+<div class="FAQContainer">
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#AddFAQModal">
+        Add FAQ
+    </button>
+    <div class="accordion" id="accordionFAQ">
+        @foreach(var item in Model)
+        {
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_@item.Id" aria-expanded="false" aria-controls="collapse_@item.Id">
+                            @switch(CultureInt)
+                            {
+                                case 1:
+                                    @item.Question_UKR
+                                    break;
+                                case 2:
+                                    @item.Question_ENG
+                                    break;
+                            }
+                        
+                    </button>
+                </h2>
+                <div id="collapse_@item.Id" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+                    <div class="accordion-body">
+                        <div>
+                            <button type="button" class="btn btn-primary FaqEditBtn" data-bs-toggle="modal" data-bs-target="#EditFAQModal">
+                                Edit
+                            </button>
+                            <a type="button" class="btn btn-primary" asp-action="DeleteFAQ" asp-controller="Review" asp-route-id="@item.Id">
+                                Delete
+                            </a>
+                        </div>
+                        <div class="FaqId" hidden>
+                            <span id="FAQId_@item.Id">@item.Id</span>
+                        </div>
+                        <div class="FaqQuestionUKR">
+                            <h4>Question Ukr</h4>
+                            <span>@item.Question_UKR</span>
+                        </div>
+                        <div class="FaqQuestionENG">
+                            <h4>Question ENG</h4>
+                            <span>@item.Question_ENG</span>
+                        </div>
+                        <div class="FaqAnswerUKR">
+                            <h4>Answer Ukr</h4>
+                            <span>@item.Answer_UKR</span>
+                        </div>
+                        <div class="FaqAnswerENG">
+                            <h4>Answer ENG</h4>
+                            <span>@item.Answer_ENG</span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        }      
+    </div>
+</div>
+
+
+<div class="modal fade" id="AddFAQModal" tabindex="-1" aria-labelledby="AddFAQModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="AddFAQModalLabel">Modal title</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                @using (Html.BeginForm("AddFAQ", "Review", FormMethod.Post, new { id = "AddFaq" }))
+                {
+                    <div>
+                        <label for="AddQuestionUKR">AddQuestionUKR</label>
+                        <input type="text" id="AddQuestionUKR" name="Question_UKR" />
+                    </div>
+                    <div>
+                        <label for="AddQuestionENG">AddQuestionENG</label>
+                        <input type="text" id="AddQuestionENG" name="Question_ENG" />
+                    </div>
+                    <div>
+                        <label for="AddAnswerUKR">AddAnswerUKR</label>
+                        <input type="text" id="AddAnswerUKR" name="Answer_UKR" />
+                    </div>
+                    <div>
+                        <label for="AddAnswerENG">AddAnswerENG</label>
+                        <input type="text" id="AddAnswerENG" name="Answer_ENG" />
+                    </div>
+                }
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" form="AddFaq" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="EditFAQModal" tabindex="-1" aria-labelledby="EditFAQModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="EditFAQModalLabel">Modal title</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                @using (Html.BeginForm("EditFAQ", "Review", FormMethod.Post, new { id = "EditFaq" }))
+                {
+                    <div hidden>
+                        <input type="text" id="EditFAQID" name="Id" />
+                    </div>
+                    <div>
+                        <label for="EditQuestionUKR">EditQuestionUKR</label>
+                        <input type="text" id="EditQuestionUKR" name="Question_UKR" />
+                    </div>
+                    <div>
+                        <label for="EditQuestionENG">EditQuestionENG</label>
+                        <input type="text" id="EditQuestionENG" name="Question_ENG" />
+                    </div>
+                    <div>
+                        <label for="EditAnswerUKR">EditAnswerUKR</label>
+                        <input type="text" id="EditAnswerUKR" name="Answer_UKR" />
+                    </div>
+                    <div>
+                        <label for="EditAnswerENG">EditAnswerENG</label>
+                        <input type="text" id="EditAnswerENG" name="Answer_ENG" />
+                    </div>
+                }
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" form="EditFaq" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>

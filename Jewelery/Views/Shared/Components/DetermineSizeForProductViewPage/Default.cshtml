@@ -1,0 +1,53 @@
+﻿@using Jewelery.ViewModels.DTO.DetermineTheSizeEditor
+
+
+@{
+    int CultureInt = Context.Request.Cookies["Culture"].Equals("uk") ? 1 : 2;
+
+}
+
+@model DetermineTheSizePageDTO
+
+
+<div class="ModalDetermineSizeContainer">
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary DetermineSizeModalButton" data-bs-toggle="modal" data-bs-target="#DetermineSizeModal_@Model.id">
+        <h6>
+            Як вибрати розмір
+        </h6>
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="DetermineSizeModal_@Model.id" tabindex="-1" aria-labelledby="DetermineSizeModallabel_@Model.id" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="ModalHeader">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="ContentContainer">
+                    <h3>
+                        @{
+                            string Tittle = CultureInt == 1 ? Model.TittleUKR : Model.TittleENG;
+                        }
+                        @Tittle
+                     </h3>
+
+                    @foreach (var item in Model.Page) 
+                    {
+                        if (item.type)
+                        {
+                            <div class="PreviewPhotoContainer">
+                                <img src="@(CultureInt == 1 ? item.valueUKR : item.valueENG)" />
+                            </div>
+                        }
+                        else 
+                        {
+                            <p>@(CultureInt == 1 ? item.valueUKR : item.valueENG)</p>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

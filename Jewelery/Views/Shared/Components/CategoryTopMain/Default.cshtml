@@ -1,0 +1,45 @@
+﻿@using Jewelery.ViewModels.DTO.Category;
+@model List<CategoryVMDTO>;
+
+@{
+    int Sales = (int)ViewData["Sales"];
+    int Sertificat = (int)ViewData["Sertificat"];
+
+}
+
+@foreach (var item in Model)
+{
+    <div class="CategoryGridItem">
+        @if (item.Category_id == Sales)
+        {
+            <a asp-controller="Shop" asp-action="Index" asp-route-Constanta="Sales">
+                <img src="@item.Image" alt="@item.Name">
+                <div>
+                    <span>@item.Name</span>
+                    <span>Перейти -></span>
+                </div>
+            </a>
+        }  
+        else if (item.Category_id == Sertificat)
+        {
+            <a asp-area="" asp-controller="Shop" asp-action="Index" asp-route-Constanta="Sertificat">
+                <img src="@item.Image" alt="@item.Name">
+                <div>
+                    <span>@item.Name</span>
+                    <span>Перейти -></span>
+                </div>
+            </a>
+
+        }
+        else
+        {
+            <a asp-area="" asp-controller="Shop" asp-action="Category" asp-route-sub_cat_id="" asp-route-cat_id="@item.Category_id">
+                <img src="@item.Image" alt="@item.Name">
+                <div>
+                    <span>@item.Name</span>
+                    <span>Перейти -></span>
+                </div>
+            </a>
+        }
+    </div>
+}

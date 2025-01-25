@@ -1,0 +1,79 @@
+﻿@model List<Jewelery.Models.Product_model.Product>
+
+@{
+    Layout = "~/Views/Shared/_LayoutCSM.cshtml";
+}
+
+<div class="container-fluid p-5">
+    <div class="row d-flex justify-content-between mt-1 mb-1">
+        <input type="text" class="col-3" />
+        <a class="col-2 btn btn-success" asp-controller="Product" asp-action="UpsertProductCMS">Додати Продукт</a>
+    </div>
+    <div class="row d-flex justify-content-center">
+        <table class="CMSTable">
+            <thead>
+                <tr>
+                    <th class="col-1">
+                        Id
+                    </th>
+                    <th class="col-1">
+                        Назва
+                    </th>
+                    <th class="col-2">
+                        Опис
+                    </th>
+                    <th class="col-1">
+                        Ціна
+                    </th>
+                    <th class="col-3">
+                        Фото
+                    </th>
+                    <th class="col-1">
+                        Категорія
+                    </th>
+                    <th class="col-1">
+                        Під Категорія
+                    </th>
+                    <th class="col-1">
+                        Редагувати
+                    </th>
+                    <th class="col-1">
+                        Видалити
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null)
+                {
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Category_id</td>
+                            <td><a asp-controller="" asp-action="" asp-route-id="">@item.Name</a></td>
+                            <td>@item.Description</td>
+                            <td>@item.Price</td>
+                            <td>
+                                <img href="" alt="ProductPhoto"/>
+                            </td>
+                            <td>@item.Category</td>
+                            <td>@item.SubCategory</td>
+
+                            <td>
+                                <a class="btn CSMEditBtn" asp-route-id="" asp-controller="" asp-action="">
+                                    <img src="~/SVG/edit-svgrepo-com.svg" alt="SVG Image">
+                                    Редагувати</a>
+                            </td>
+                            <td>
+                                <a class="btn CSMDeleteBtn" asp-route-id="" asp-controller="" asp-action="">
+                                    <img src="~/SVG/delete-svgrepo-com.svg" alt="SVG Image">
+                                    Видалити</a>
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+
+        </table>
+    </div>
+
+</div>

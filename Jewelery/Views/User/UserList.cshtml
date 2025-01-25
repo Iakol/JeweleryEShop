@@ -1,0 +1,200 @@
+﻿@using Jewelery.ViewModels.DTO.FillterSession
+@using Jewelery.ViewModels.DTO.User;
+@using Jewelery.ViewModels.DTO.Order;
+@using System.Text.Json
+
+@model List<UserListDTOVM>
+
+@{
+    Layout = "~/Views/Shared/_LayoutCSM.cshtml";
+    UserFillterDTO filter = JsonSerializer.Deserialize < UserFillterDTO >( Context.Session.GetString("UserFilterStr"));
+}
+
+<script src="~/js/CMS/UserListCSMFilter.js"></script>
+    <link rel="stylesheet" href="~/scss//CSMUserListStyle.css"></link>
+
+<div class="UserCSMContainer">
+    <h3>User List</h3>
+    <div class="UserFilter">
+        @using (Html.BeginForm("SetFilterVariable", "User", FormMethod.Post, new { id = "UserForm", data_url = Url.Action("SetFilterVariable", "User") }))
+        {
+            <div class="UserFilterFormContainer">
+                <div class="SearchContainer">
+                    <div class="InputSearchContainer">
+                        <div class="InputWithButtonSearchContainer">
+                            <input id="SearchInput" type="text" name="Search" />
+                            <button class="submitButton" type="submit">Go</button>
+                        </div>
+                    </div>
+                    <div class="SearchFilterContainers">
+                        <div class="SearchFilterContainer">
+                            <label for="UserName">User Name</label>
+                            <input id="UserName" type="checkbox" name="UserName" value="In User Name" @(filter.SearchFilter.UserName ? "checked" : "") />
+                        </div>
+                        <div class="SearchFilterContainer">
+                            <label for="UserEmail">User Email</label>
+                            <input id="UserEmail" type="checkbox" name="UserEmail" value="In User Email" @(filter.SearchFilter.UserEmail ? "checked" : "") />
+                        </div >
+                        <div class="SearchFilterContainer">
+                            <label for="UserTelephone">In user Telephone</label>
+                            <input id="UserTelephone" type="checkbox" name="UserTelephone" value="In User Telephone" @(filter.SearchFilter.UserTelephone ? "checked" : "") />
+                        </div>
+                    </div>
+                </div>
+                <div class="FilterContainer">
+                    <div class="OrderFiltersContainer">
+                        <div class="WithOrderFiltersContainer">
+                            <div class="CheackBoxContainer">
+                                <label for="WithOrder">With Order </label>
+                                <input id="WithOrder" type="checkbox" name="WithOrder" value="ByUserThatHaveOrder" @(filter.WithOrder != null ? filter.WithOrder == true ? "checked" : "" : "") />
+                            </div>
+                            <div class="CheackBoxContainer">
+                                <label for="WithOutOrder">With Out Order </label>
+                                <input id="WithOutOrder" type="checkbox" name="WithOutOrder" value="ByUserThatHaventOrder" @(filter.WithOrder != null ? filter.WithOrder == false ? "checked" : "" : "") />
+                            </div>
+                        </div>
+                        <div class="WithUnCloseFiltersContainer">
+                            <div class="CheackBoxContainer">
+                                <label for="WithUnCloseOrder">WithUnCloseOrder </label>
+                                <input id="WithUnCloseOrder" type="checkbox" name="WithUnCloseOrder" value="ByUserThatHaveUnCloseOrder" @(filter.WithUnCloseOrder != null ? filter.WithUnCloseOrder == true ? "checked" : "" : "") />
+                            </div>
+                            <div class="CheackBoxContainer">
+                                <label for="WithOutUnCloseOrder">WithOutUnCloseOrder </label>
+                                <input id="WithOutUnCloseOrder" type="checkbox" name="WithOutUnCloseOrder" value="ByUserThatHaventUnCloseOrder" @(filter.WithUnCloseOrder != null ? filter.WithUnCloseOrder == false ? "checked" : "" : "") />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="CartFiltersContainer">
+                        <div class="CheackBoxContainer">
+                            <label for="WithItemInCart">WithItemInCart</label>
+                            <input id="WithItemInCart" type="checkbox" name="WithItemInCart" value="ByUserThatHaveItemInCart" @(filter.WithItemInCart != null ? filter.WithItemInCart == true ? "checked" : "" : "") />
+                        </div>
+                        <div class="">
+                            <label for="WithOutItemInCart">WithOutItemInCart</label>
+                            <input id="WithOutOItemInCart" type="checkbox" name="WithOutItemInCart" value="ByUserThatHaventItemInCart" @(filter.WithItemInCart != null ? filter.WithItemInCart == false ? "checked" : "" : "") />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="SubmutButton" type="submit">Submit</button>
+        }
+    </div>
+    <div class="UserListContainer">
+        <div class="accordion" id="accordionUser">
+            @foreach (var item in Model)
+            {
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_@item.user.Id" aria-expanded="false" aria-controls="collapse_@item.user.Id">
+                            @item.user.Name @item.user.Second_Name | @item.user.Phone_number | @item.user.Email
+                        </button>
+                    </h2>
+                    <div id="collapse_@item.user.Id" class="accordion-collapse collapse" data-bs-parent="#accordionUser">
+                        <div class="accordion-body">
+                            <div class="UserCardAndFavoriteList">
+                                <div class="UserCardAndFavoriteListButtons">
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#CartModal_@item.user.Id">
+                                        View Cart
+                                    </button>
+                                    <button hidden>
+                                        View FavoriteList
+                                    </button>
+                                </div>
+                                <div class="UserCardAndFavoriteListModals">
+                                    <div class="cartModal">
+                                        <div class="modal fade" id="CartModal_@item.user.Id" tabindex="-1" aria-labelledby="CartModalLabel_@item.user.Id" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h1 class="modal-title fs-5" id="CartModalLabel_@item.user.Id">Cart of @item.user.Name</h1>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        @if (item.Cart != null)
+                                                        {
+                                                            int i = 1;
+                                                            @foreach (var cartItem in item.Cart.cart_ItemDTOVMs)
+                                                            {
+                                                                <div class="cartItem">
+                                                                    <p>@i</p>
+                                                                    <div class="CartItemPhotoContainer">
+                                                                        <img class="CartItemPhoto" src="@cartItem.Product.Images[0].Url" />
+                                                                    </div>
+                                                                    <div>
+                                                                        <p>@cartItem.Product.Name</p>
+                                                                        @foreach (var opt in cartItem.Options)
+                                                                        {
+                                                                            <p>@opt.Atribute_Description @opt.Size </p>
+                                                                        }
+                                                                    </div>
+                                                                </div>
+                                                                i++;
+                                                                <hr/>
+                                                            }
+                                                        }
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="FavoriteListModal">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="UserOrderContainerForOrderContainer">
+                                <div class="accordion" id="accordionOrderfor_@item.user.Id">
+                                    @if (item.orders.Count > 0)
+                                    {
+                                        List<OrderForAdminListDTOVM> TreeLastOrders = item.orders.Take(3).ToList();
+                                        <a class="ViewAllOrderForCurrentUser" asp-action="Index" asp-route-userID="@item.user.Id" asp-controller="OrderManagment">View All User Orders</a>
+                                        <div class="OrdersAcordionContainer">
+                                            <h6>Last @TreeLastOrders.Count() orders</h6>
+                                            @foreach (var order in TreeLastOrders)
+                                            {
+                                                                                     
+                                                <div class="accordion-item">
+                                                    <h2 class="accordion-header">
+                                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_@order.Order_id" aria-expanded="false" aria-controls="collapse_@order.Order_id">
+                                                            order from @order.Created_at
+                                                        </button>
+                                                    </h2>
+                                                    <div id="collapse_@order.Order_id" class="accordion-collapse collapse" data-bs-parent="#accordionOrderfor_@item.user.Id">
+                                                        <div class="accordion-body">
+                                                            <div class="OrderButtons">
+                                                                <a class="ViewOrderDetailsButton" asp-action="OrderDetail" asp-controller="OrderManagment" asp-route-orderId="@order.Order_id">View Details</a>
+                                                            </div>
+                                                            <ol class="ItemlList">
+                                                                @foreach (var orderItem in order.OrderItems)
+                                                                {
+                                                                    <li class="ItemlLi">
+                                                                        <a class="OrderItemLink" asp-action="Product" asp-controller="Shop" asp-route-id="@orderItem.Product_id">
+                                                                            <img class="ItemTablePhoto" src="@orderItem.Product_Photo_URL" />
+                                                                            <span class="OrderItemName">@orderItem.Product_Name</span>
+                                                                        </a>
+                                                                    </li>
+                                                                }                                                    
+                                                            </ol>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            }
+                                        </div>
+
+                                    }
+                                    else
+                                    {
+                                        <p>User Havent any orders</p>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }   
+        </div>
+    </div>
+</div>

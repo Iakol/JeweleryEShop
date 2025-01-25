@@ -1,0 +1,31 @@
+﻿.Content {
+  width: 100%;
+}
+.Content .CSMMain__img--theme {
+  width: 100%;
+}
+.Content .CSMMain__img--theme div {
+  padding: 10px;
+  overflow: hidden;
+}
+.Content .CSMMain__img--theme div div {
+  border: solid;
+  border-radius: 20px;
+  margin: 0px 10px 0px 10px;
+  text-align: center;
+}
+.Content .CSMMain__img--theme div div:hover {
+  border-color: #b8860b;
+  color: #b8860b;
+}
+.Content .CSMMain__img--theme div div a {
+  text-decoration: none;
+  color: black;
+}
+.Content .CSMMain__img--theme div div a:hover {
+  color: #4e4e4e;
+}
+.Content .CSMMain__img--theme div div a img {
+  height: 100px;
+  width: 100px;
+}

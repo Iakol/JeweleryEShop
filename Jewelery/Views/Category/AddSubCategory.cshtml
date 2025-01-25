@@ -1,0 +1,51 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutCSM.cshtml";
+}
+@model Jewelery.ViewModels.DTO.SubCategory.SubCategoryCMSDTO
+
+
+<script src="~/js/CMS/SoloPhotoPreview.js"></script>
+
+
+@using (Html.BeginForm("AddSubCategory", "Category", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div>
+        <div>
+            <div>
+                <img src="#" alt="categoryPhoto" id="Preview" /> @*Js add display block*@
+            </div>
+            <div>
+                <input type="file" accept="image/*" id="CategoryPhoto" name="ImageFile" onchange="PreviewImage(event)" />
+            </div>
+        </div>
+        <div>
+            <div hidden>
+                @Html.HiddenFor(model => model.Category_id)
+            </div>
+            <div>
+                <label for="Name_UKR"></label>
+                @Html.EditorFor(model => model.Name_UKR)
+            </div>
+            <div>
+                <label for="Name_ENG"></label>
+                @Html.EditorFor(model => model.Name_ENG)
+            </div>
+            <div>
+                <label for="Description_UKR"></label>
+                @Html.TextAreaFor(model => model.Description_UKR)
+            </div>
+            <div>
+                <label for="Description_ENG"></label>
+                @Html.TextAreaFor(model => model.Description_ENG)
+            </div>
+            <div hidden>
+                <label for="ViewOrder"></label>
+                @Html.EditorFor(model => model.ViewOrder)
+            </div>
+        </div>
+        <button type="submit">Submit</button>
+    </div>
+
+}
+
+

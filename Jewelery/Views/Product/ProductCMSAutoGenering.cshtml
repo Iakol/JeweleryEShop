@@ -1,0 +1,84 @@
+﻿@model List<Jewelery.Models.Product_model.Product>
+
+@{
+    Layout = "~/Views/Shared/_LayoutCSM.cshtml";
+}
+
+<div class="container-fluid p-5">
+    <div class="row d-flex justify-content-between mt-1 mb-1">
+        <input type="text" class="col-3" />
+        <a class="col-2 btn btn-success" asp-controller="Product" asp-action="UpsertProductCMS">Додати Продукт</a>
+    </div>
+    <div class="row d-flex justify-content-center product-">
+    </div>
+
+</div>
+
+<script>
+    var table;
+    $(document).ready(function () {
+        table = $('<table>').addClass('display').addClass('CMSTable').appendTo('.category-table-container').DataTable({
+            "ajax": {
+                "url": "@Url.Action("GetAll", "Category")",
+                "type": "GET",
+                "datatype": "json"
+            },
+            "columns": [
+                { "data": "category_id", "title": "Category ID" },
+                { "data": "name", "title": "Name" },
+                { "data": "description", "title": "Description" },
+                {
+                    "data": "image",
+                    "title": "Image"@*,
+                    "render": function (data, type, row) {
+                    return '<img src="' + data + '" alt="Category Image" />';
+                    }*@
+                    },
+            {
+                "data": null,
+                "title": "Actions",
+                "render": function (data, type, row) {
+                    return '<button class="edit-btn" data-category_id="' + data.category_id + '">Edit</button>' +
+                        '<button class="delete-btn" data-category_id="' + data.category_id + '">Delete</button>';
+                }
+            }
+                ]
+            });
+
+    // Event delegation for edit button
+    $('.category-table-container').on('click', '.edit-btn', function () {
+        var id = $(this).data('category_id');
+        var url = '@Url.Action("UpsertCategoryCMS", "Category")?id=' + id;
+        window.location.href = url;
+    });
+
+    // Event delegation for delete button
+    $('.category-table-container').on('click', '.delete-btn', function () {
+        var id = $(this).data('category_id');
+        var url = '@Url.Action("DeleteDinamicCategoryCMS", "Category")?id=' + id;
+        $.ajax({
+            url: url,
+            type: 'POST',
+            data: { id: id },
+            success: function () {
+                // Видалити рядок таблиці або оновити таблицю
+                alert('Category deleted successfully');
+                table.ajax.reload();
+            },
+            error: function (xhr, status, error) {
+                // Обробка помилки
+                console.error('Error deleting category:', error);
+            }
+        });
+    });
+            });
+
+    $('.category-table-container').on('click', 'tr', function () {
+        var data = table.row(this).data();
+        console.log(data);
+        if (data) {
+            var url = '@Url.Action("SubCategoryCMS", "SubCategory")?id=' + data.category_id;
+            window.location.href = url;
+        }
+    });
+</script>

@@ -1,0 +1,400 @@
+﻿.AddProductPageContainer #AddProductForm {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2vh;
+}
+.AddProductPageContainer #AddProductForm .PagePart {
+  margin: 3vh 0;
+}
+.AddProductPageContainer #AddProductForm .FormContainer .LabelForInput {
+  font-size: 2.5vh;
+  font-weight: 600;
+  margin-bottom: 1vh;
+}
+.AddProductPageContainer #AddProductForm .FormContainer .HeaderSpanStyle {
+  font-size: 5vh;
+  font-weight: 600;
+  margin-bottom: 3vh;
+}
+.AddProductPageContainer #AddProductForm .FormContainer .ImageInputContainer {
+  margin-bottom: 3vh;
+}
+.AddProductPageContainer #AddProductForm .FormContainer .ImageInputContainer .Image_ContainerAndAddButton {
+  border: #8a8a8a solid 1px;
+  border-radius: 2vh;
+  display: inline-flex;
+  justify-content: start;
+  padding: 1vh;
+  overflow: auto;
+}
+.AddProductPageContainer #AddProductForm .FormContainer .ImageInputContainer .Image_ContainerAndAddButton .newImageInputContainer {
+  height: 20vh;
+  width: 20vh;
+  margin: 0 0.5vh;
+}
+.AddProductPageContainer #AddProductForm .FormContainer .ImageInputContainer .Image_ContainerAndAddButton .newImageInputContainer #newImageInput {
+  height: 20vh;
+  width: 20vh;
+  border: none;
+  border-color: rgba(0, 0, 0, 0);
+  border-radius: 2vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.AddProductPageContainer #AddProductForm .FormContainer .ImageInputContainer .Image_ContainerAndAddButton .newImageInputContainer #newImageInput .PlusCont {
+  height: 9vh;
+  width: 9vh;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.AddProductPageContainer #AddProductForm .FormContainer .ImageInputContainer .Image_ContainerAndAddButton .newImageInputContainer #newImageInput .PlusCont .bi {
+  color: black;
+  font-weight: 400;
+  font-size: 5vh;
+}
+.AddProductPageContainer #AddProductForm .FormContainer .ImageInputContainer .Image_ContainerAndAddButton .newImageInputContainer #newImageInput:hover {
+  border: 1px solid #DEDEDE;
+  background-color: whitesmoke;
+  transition: all 300ms ease-out;
+}
+.AddProductPageContainer #AddProductForm .FormContainer .ImageInputContainer .Image_ContainerAndAddButton .newImageInputContainer #newImageInput:hover .PlusCont {
+  background-color: #3f3f3f;
+  transition: all 300ms ease-out;
+}
+.AddProductPageContainer #AddProductForm .FormContainer .ImageInputContainer .Image_ContainerAndAddButton .newImageInputContainer #newImageInput:hover .PlusCont .bi {
+  color: white;
+  transition: all 200ms ease-out;
+}
+.AddProductPageContainer #AddProductForm .FormContainer .ImageInputContainer .Image_ContainerAndAddButton .Image_Container {
+  display: flex;
+  justify-content: center;
+}
+.AddProductPageContainer #AddProductForm .FormContainer .ImageInputContainer .Image_ContainerAndAddButton .Image_Container .Image_group {
+  height: 20vh;
+  width: 20vh;
+  margin: 0 0.5vh;
+  margin-right: 1vh;
+  position: relative;
+  border-radius: 2vh;
+}
+.AddProductPageContainer #AddProductForm .FormContainer .ImageInputContainer .Image_ContainerAndAddButton .Image_Container .Image_group .PreviewContainerForImage:hover .Buttons {
+  visibility: visible;
+  opacity: 1;
+  transform: opacity 1s;
+}
+.AddProductPageContainer #AddProductForm .FormContainer .ImageInputContainer .Image_ContainerAndAddButton .Image_Container .Image_group .PreviewContainerForImage:hover .Buttons .RemoveImageButton {
+  transform: translateY(-10px);
+}
+.AddProductPageContainer #AddProductForm .FormContainer .ImageInputContainer .Image_ContainerAndAddButton .Image_Container .Image_group .PreviewContainerForImage:hover .Buttons .OpenImageButton {
+  transform: translateY(10px);
+}
+.AddProductPageContainer #AddProductForm .FormContainer .ImageInputContainer .Image_ContainerAndAddButton .Image_Container .Image_group .PreviewContainerForImage .Buttons {
+  border-radius: 2vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  visibility: hidden;
+  position: absolute;
+  opacity: 0;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.AddProductPageContainer #AddProductForm .FormContainer .ImageInputContainer .Image_ContainerAndAddButton .Image_Container .Image_group .PreviewContainerForImage .Buttons .RemoveImageButton {
+  background-color: rgba(1, 1, 1, 0);
+  transition: all 0.3s ease;
+  color: white;
+  border: none;
+}
+.AddProductPageContainer #AddProductForm .FormContainer .ImageInputContainer .Image_ContainerAndAddButton .Image_Container .Image_group .PreviewContainerForImage .Buttons .OpenImageButton {
+  background-color: rgba(1, 1, 1, 0);
+  transition: all 0.3s ease;
+  color: white;
+  border: none;
+}
+.AddProductPageContainer #AddProductForm .FormContainer .ImageInputContainer .Image_ContainerAndAddButton .Image_Container .Image_group .PreviewContainerForImage img {
+  height: 20vh;
+  width: 20vh;
+  border-radius: 2vh;
+}
+.AddProductPageContainer #AddProductForm .FormContainer .ImageInputContainer .Image_ContainerAndAddButton .Image_Container .Image_group .ImageModal {
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(1, 1, 1, 0.7);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 10;
+}
+.AddProductPageContainer #AddProductForm .FormContainer .ImageInputContainer .Image_ContainerAndAddButton .Image_Container .Image_group .ImageModal .ImageModalContainer {
+  max-height: 70vh;
+}
+.AddProductPageContainer #AddProductForm .FormContainer .ImageInputContainer .Image_ContainerAndAddButton .Image_Container .Image_group .ImageModal .ImageModalContainer .ModalImagePreview {
+  max-height: 70vh;
+  max-width: 50vw;
+}
+.AddProductPageContainer #AddProductForm .FormContainer .ImageInputContainer .Image_ContainerAndAddButton .Image_Container .Image_group .ImageModal .InputsModalContainer {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+}
+.AddProductPageContainer #AddProductForm .FormContainer .ImageInputContainer .Image_ContainerAndAddButton .Image_Container .Image_group .ImageModal .InputsModalContainer .AltTextImageContainer {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 1vh;
+}
+.AddProductPageContainer #AddProductForm .FormContainer .ImageInputContainer .Image_ContainerAndAddButton .Image_Container .Image_group .ImageModal .InputsModalContainer .AltTextImageContainer input {
+  width: 20vw;
+}
+.AddProductPageContainer #AddProductForm .FormContainer .ImageInputContainer .Image_ContainerAndAddButton .Image_Container .Image_group .ImageModal .InputsModalContainer .ChooseNewInputImageContainer {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  padding: 1vh;
+}
+.AddProductPageContainer #AddProductForm .FormContainer .ImageInputContainer .Image_ContainerAndAddButton .Image_Container .Image_group .ImageModal .InputsModalContainer .ChooseNewInputImageContainer input {
+  width: 20vw;
+}
+.AddProductPageContainer #AddProductForm .FormContainer .ImageInputContainer .Image_ContainerAndAddButton .Image_Container .Image_group .OpenModal {
+  visibility: visible;
+}
+.AddProductPageContainer #AddProductForm .FormContainer .NameAndDescriptionSegment {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1vw;
+  margin-bottom: 3vh;
+}
+.AddProductPageContainer #AddProductForm .FormContainer .NameAndDescriptionSegment input {
+  border: solid 1px #DEDEDE;
+  min-height: 3vh;
+  font-size: 2.5vh;
+  padding: 0.5vh;
+}
+.AddProductPageContainer #AddProductForm .FormContainer .NameAndDescriptionSegment textarea {
+  border: solid 1px #DEDEDE;
+  min-height: 3vh;
+  font-size: 2.5vh;
+  padding: 0.5vh;
+}
+.AddProductPageContainer #AddProductForm .FormContainer .NameAndDescriptionSegment .NameAndDescriptionLanguageContainer {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  min-height: 35vh;
+  width: 100%;
+}
+.AddProductPageContainer #AddProductForm .FormContainer .NameAndDescriptionSegment .NameAndDescriptionLanguageContainer .NameContainer {
+  display: flex;
+  flex-direction: column;
+  border: solid 1px #8a8a8a;
+  padding: 2vh;
+  margin-bottom: 3vh;
+  border-radius: 2vh;
+}
+.AddProductPageContainer #AddProductForm .FormContainer .NameAndDescriptionSegment .NameAndDescriptionLanguageContainer .DescriptionContainer {
+  display: flex;
+  flex-direction: column;
+  border: solid 1px #8a8a8a;
+  border-radius: 2vh;
+  padding: 2vh;
+  height: 100%;
+}
+.AddProductPageContainer #AddProductForm .FormContainer .NameAndDescriptionSegment .NameAndDescriptionLanguageContainer .DescriptionContainer .ProductDescription {
+  min-height: 65%;
+  height: 100%;
+  width: 100%;
+  resize: vertical;
+}
+.AddProductPageContainer #AddProductForm .FormContainer .CategoryAndSubCategorySegment {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1vw;
+  margin-bottom: 3vh;
+}
+.AddProductPageContainer #AddProductForm .FormContainer .CategoryAndSubCategorySegment .CategorySelectContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: solid 1px #8a8a8a;
+  border-radius: 2vh;
+  padding: 2vh;
+}
+.AddProductPageContainer #AddProductForm .FormContainer .CategoryAndSubCategorySegment .CategorySelectContainer .SelectCategory {
+  min-height: 3vh;
+  padding: 1vh;
+  font-size: 2.5vh;
+}
+.AddProductPageContainer #AddProductForm .FormContainer .ArticulSegment {
+  border: solid 1px #8a8a8a;
+  border-radius: 2vh;
+  padding: 2vh;
+  width: 40vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 3vh;
+}
+.AddProductPageContainer #AddProductForm .FormContainer .ArticulSegment .text-box {
+  min-height: 3vh;
+  padding: 1vh;
+  font-size: 2.5vh;
+}
+.AddProductPageContainer #AddProductForm .FormContainer .ProductAtributes .AtributeSegment .AddAtributeButton {
+  border: none;
+  color: #0d6efd;
+  background-color: white;
+  font-size: 2.5vh;
+  font-weight: 600;
+}
+.AddProductPageContainer #AddProductForm .FormContainer .ProductAtributes .AtributeSegment input {
+  border: solid 1px #DEDEDE;
+  min-height: 3vh;
+  font-size: 2.5vh;
+  padding: 0.5vh;
+}
+.AddProductPageContainer #AddProductForm .FormContainer .ProductAtributes .AtributeSegment select {
+  min-height: 3vh;
+  padding: 1vh;
+  font-size: 2.5vh;
+}
+.AddProductPageContainer #AddProductForm .FormContainer .ProductAtributes .AtributeSegment #Atribute_Container .Atribute_group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1vw;
+  margin-bottom: 3vh;
+  background-color: white;
+  padding: 3vh;
+  border: 1px solid #8a8a8a;
+  border-radius: 2vh;
+}
+.AddProductPageContainer #AddProductForm .FormContainer .ProductAtributes .AtributeSegment #Atribute_Container .Atribute_group .LabelForInput {
+  font-size: 2.4vh;
+}
+.AddProductPageContainer #AddProductForm .FormContainer .ProductAtributes .AtributeSegment #Atribute_Container .Atribute_group .AtributeCred {
+  display: flex;
+  flex-direction: column;
+}
+.AddProductPageContainer #AddProductForm .FormContainer .ProductAtributes .AtributeSegment #Atribute_Container .Atribute_group .AtributeCred .RemoveAtributeButton {
+  border: none;
+  color: red;
+  background-color: white;
+  font-size: 2.5vh;
+}
+.AddProductPageContainer #AddProductForm .FormContainer .ProductAtributes .AtributeSegment #Atribute_Container .Atribute_group .AtributeCred .AtributeInputContainer {
+  display: flex;
+  flex-direction: column;
+  border: solid 1px #8a8a8a;
+  padding: 2vh;
+  margin-bottom: 3vh;
+  border-radius: 2vh;
+}
+.AddProductPageContainer #AddProductForm .FormContainer .ProductAtributes .AtributeSegment #Atribute_Container .Atribute_group .AtributeCred .NameOfAtributeContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5vw;
+}
+.AddProductPageContainer #AddProductForm .FormContainer .ProductAtributes .AtributeSegment #Atribute_Container .Atribute_group .AtributeCred .UnitAndDetermineSizeContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5vw;
+}
+.AddProductPageContainer #AddProductForm .FormContainer .ProductAtributes .AtributeSegment #Atribute_Container .Atribute_group .Option_containerAndButton {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+.AddProductPageContainer #AddProductForm .FormContainer .ProductAtributes .AtributeSegment #Atribute_Container .Atribute_group .Option_containerAndButton .AddOptionButton {
+  border: none;
+  color: #0d6efd;
+  background-color: white;
+  font-size: 2.5vh;
+}
+.AddProductPageContainer #AddProductForm .FormContainer .ProductAtributes .AtributeSegment #Atribute_Container .Atribute_group .Option_containerAndButton .Option_container {
+  max-height: 50vh;
+  overflow: auto;
+}
+.AddProductPageContainer #AddProductForm .FormContainer .ProductAtributes .AtributeSegment #Atribute_Container .Atribute_group .Option_containerAndButton .Option_container .Option_group {
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr;
+  gap: 1vh;
+  align-items: center;
+}
+.AddProductPageContainer #AddProductForm .FormContainer .ProductAtributes .AtributeSegment #Atribute_Container .Atribute_group .Option_containerAndButton .Option_container .Option_group .PreviewOptionCircle {
+  border: 1px solid black;
+  border-radius: 50%;
+  min-height: 1vw;
+  min-width: 1vw;
+  height: 5vw;
+  width: 5vw;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+.AddProductPageContainer #AddProductForm .FormContainer .ProductAtributes .AtributeSegment #Atribute_Container .Atribute_group .Option_containerAndButton .Option_container .Option_group .OptionCred {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.AddProductPageContainer #AddProductForm .FormContainer .ProductAtributes .AtributeSegment #Atribute_Container .Atribute_group .Option_containerAndButton .Option_container .Option_group .RemoveOptionButtonContainer .RemoveOptionButton {
+  border: 1px solid red;
+  border-radius: 50%;
+  min-height: 1vw;
+  min-width: 1vw;
+  height: 3vw;
+  width: 3vw;
+  color: red;
+  background-color: white;
+}
+.AddProductPageContainer #AddProductForm .FormContainer .ProductPriceAndPromotions .PriceSegment {
+  display: grid;
+  grid-template-columns: 7fr 10fr;
+  gap: 1vh;
+}
+.AddProductPageContainer #AddProductForm .FormContainer .ProductPriceAndPromotions .PriceSegment .PriceSegmentInput {
+  display: flex;
+  flex-direction: column;
+  width: 15vw;
+}
+.AddProductPageContainer #AddProductForm .FormContainer .ProductPriceAndPromotions .PriceSegment .PricePromotinInputViewContainer {
+  width: 15vw;
+  margin-bottom: 3vh;
+}
+.AddProductPageContainer #AddProductForm .FormContainer .ProductPriceAndPromotions .PriceSegment .PromotionViewInputsAndChager {
+  width: 25vw;
+}
+.AddProductPageContainer #AddProductForm .FormContainer .ProductPriceAndPromotions .PriceSegment .PromotionViewInputsAndChager .PromotionChangerInputContainer {
+  display: flex;
+  flex-direction: column;
+  width: 15vw;
+  border: 1px solid #8a8a8a;
+  border-radius: 2vh;
+  padding: 1vh;
+}
+.AddProductPageContainer #AddProductForm .FormContainer .ProductPriceAndPromotions .PriceSegment .PromotionViewInputsAndChager .PromotionChangerInputContainer .PromotionChangerContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.AddProductPageContainer #AddProductForm .FormContainer .ProductPriceAndPromotions .PriceSegment .PromotionViewInputsAndChager .PromotionChangerInputContainer .CheckboxesInputChooserConteiner {
+  display: flex;
+  justify-content: space-around;
+}

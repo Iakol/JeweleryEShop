@@ -1,0 +1,117 @@
+
+
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.LogoJewelery {
+    font-family: "Great Vibes", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: small
+}
+
+.LogoMargo {
+    font-family: "Playfair Display SC", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.Nav__first__layout--theme li a {
+    color: #9a9898 !important;
+    text-transform: uppercase;
+    font-weight: 100;
+}
+
+
+
+.Nav__first__layout--theme li a:hover {
+    color: palegoldenrod !important;
+}
+
+.Nav__second__layout--theme {
+    background: #222831 !important;
+}
+
+.Nav__second__layout--theme_li_a {
+    color: whitesmoke !important;
+    font-weight: 600;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.Nav__second__layout--theme_li_ul  {
+    display: none;
+    list-style: none;
+    color: white;
+    
+
+}
+
+.Nav__second__layout--theme_li {
+    text-align:center
+}
+
+.Nav__second__layout--theme_li_ul:hover {
+    display: flex;
+    color: white;
+    position: fixed;
+    background: rgba(34, 40, 49, 0.8) !important;
+    justify-content: center;
+    width: 100%;
+    left: 0;
+    right: 0:
+}
+
+.Nav__second__layout--theme_li_ul_li_a {
+    display: inline-block;
+    margin: 0px 10px;
+}
+
+.footer__site_theme {
+    border-top:0px;
+    padding: 50px 100px
+    
+}
+.searchplace--theme {
+    height: 70px;
+}
+
+.SearchDivClose {
+    display: none !important;
+}
+
+.Input__search--theme {
+    height: 60px;
+    width: 700px;
+    margin: 5px 0px;
+}
+
+.SubmitButton__search--theme {
+    border: none;
+    color: orangered;
+}
+
+
+.SubmitButton__search--arrows {
+    font-size:20px;
+}

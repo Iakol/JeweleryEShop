@@ -1,0 +1,205 @@
+﻿.Main {
+    padding: 10px;
+
+    .BreadCrumb {
+        a {
+            font-family: 'Montserrat', sans-serif;
+            text-decoration: none;
+            color: black;
+            font-weight: 300;
+            opacity: 0.5;
+            font-size: 18px;
+        }
+
+        span {
+            font-family: 'Montserrat', sans-serif;
+            text-decoration: none;
+            color: black;
+            font-weight: 300;
+            opacity: 0.8;
+            font-size: 18px;
+        }
+    }
+
+    .MainLabel {
+        font-family: 'Cormorant Garamond', serif;
+        font-weight: 600;
+    }
+
+    .CartBody {
+        .CartContainer {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 45px;
+
+            .ItemTable {
+                width: calc(60% - 20px);
+
+                table {
+                    thead {
+                        tr {
+                            th {
+                                font-family: 'Montserrat', sans-serif;
+                                font-size: 16px;
+                                font-weight: 500;
+                                opacity: 0.6;
+                            }
+                        }
+                    }
+
+                    tbody {
+                        tr {
+                            justify-content: center;
+                            border-bottom: solid 1px rgba(0, 0, 0, 0.3);
+
+
+                            td {
+                                width: 20%;
+                                color: rgba(1,1,1,0.5);
+
+                                img {
+                                    height: 18vh;
+                                    width: 9vw;
+                                }
+                            }
+
+                            .Name_Description {
+                                width: 50%;
+
+                                .Description {
+                                    .Description__ProductName {
+                                        font-family: 'Montserrat', sans-serif;
+                                        font-size: 28px;
+                                        color: black;
+                                    }
+
+                                    .Description__Atribute {
+                                        font-family: 'Montserrat', sans-serif;
+                                        font-size: 14px;
+                                    }
+                                }
+                            }
+
+                            .DeleteButton {
+                                img {
+                                    height: 25px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .OrderCred {
+                width: 35%;
+                float: right;
+                padding: 15px;
+                background-color: rgb(8, 69, 86, 0.05);
+                font-weight: 200;
+                height: 100%;
+
+                .TotalPrice {
+                    display: flex;
+                    justify-content: space-between;
+                    font-size: 28px;
+                }
+
+                .SubmitButtons {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    align-items: center;
+                    width: 100%;
+
+
+                    a {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        text-decoration: none;
+                        color: black;
+                        width: 95%;
+                        font-size: 20px;
+                        padding: 10px;
+                    }
+
+                    .CreateOrderButton {
+                        background-color: black;
+                        color: white;
+                        margin-bottom: 20px;
+
+                        &:hover {
+                            background-color: #a98d74;
+                            transition: all 350ms ease-in-out;
+                        }
+                    }
+
+                    .GoToShopButton {
+                        border: solid 1px black;
+
+                        &:hover {
+                            background: black;
+                            color: white;
+                            transition: all 350ms ease-in-out;
+                        }
+                    }
+                }
+            }
+        }
+
+        .EmptyCart {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            h4 {
+                margin: 20px 0px;
+            }
+
+            p {
+                margin: 20px 0px;
+            }
+
+            div {
+                margin: 20px 0px;
+                width: 30%;
+                display: flex;
+                justify-content: space-between;
+
+                a {
+                    display: flex;
+                    text-decoration: none;
+                    justify-content:center;
+                    align-items:center;
+                    color: black;
+                    font-size: 20px;
+                    padding: 10px;
+                }
+
+                .EmtyCartCreateOrderButton {
+                    background-color: black;
+                    color: white;
+                    width: 100%;
+                    margin-right:20px;
+
+                    &:hover {
+                        background-color: #a98d74;
+                        transition: all 350ms ease-in-out;
+                    }
+                }
+
+                .EmtyCartGoToShopButton {
+                    border: solid 1px black;
+                    width: 100%;
+
+
+                    &:hover {
+                        background: black;
+                        color: white;
+                        transition: all 350ms ease-in-out;
+                    }
+                }
+            }
+        }
+    }
+}

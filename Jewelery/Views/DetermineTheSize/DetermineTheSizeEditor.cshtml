@@ -1,0 +1,257 @@
+﻿@using Jewelery.ViewModels.DTO.DetermineTheSizeEditor
+@{
+    Layout = "~/Views/Shared/_LayoutCSM.cshtml";
+}
+
+@model DetermineTheSizePageDTO;
+<link rel="stylesheet" href="~/scss/CSMDetermoneSizeStyle.css" />
+<script src="~/js/CMS/DetermineTheSize/DetermizeSizeDeleteAndAddButton.js" ></script>
+<script src="~/js/CMS/DetermineTheSize/DetermineSizeLanguageChanger.js"></script>
+<script src="~/js/CMS/DetermineTheSize/DetermineSizeAutoSizeForAreaText.js"></script>
+<script src="~/js/CMS/DetermineTheSize/DetermineTheSizeSortable.js"></script>
+<script src="~/js/CMS/DetermineTheSize/DetermineTheSizeImageInputPreviewLogic.js"></script>
+<script src="~/js/CMS/DetermineTheSize/DetermineTheSizeSendForm.js"></script>
+<script src="~/js/CMS/DetermineTheSize/DetermineSizeCSMEditorPreview.js"></script>
+
+
+
+
+
+
+
+<div class="Editor_Container">
+    <div class="Editor">
+        @using (Html.BeginForm("", "", FormMethod.Post, new { enctype = "multipart/form-data", id = "EditorForm", data_url = Url.Action("CreateDetermineTheSize", "DetermineTheSize"), data_redirecturl = Url.Action("DetermineTheSizeCMS", "DetermineTheSize") }))
+        {
+            <div class="IdInputContainer" hidden>
+                <input id="DetermizeSizeId" type="text" placeholder="Name of Size" value="@Model.id" />
+            </div>
+            <div class="NameInputContainer">
+                <input id="DetermizeSizeName" type="text" placeholder="Name of Size" value="@Model.name" />
+            </div>
+            @* <div class="LanguageTabs">
+                <div class="LanguageTabsButtonsContainer">
+                    <div>
+                        <button type="button" id="languageButtonUKR" class="languageButton languageButtonSelected">UKR</button>
+                    </div>
+                    <div>
+                        <button type="button" id="languageButtonENG" class="languageButton">ENG</button>
+                    </div>
+                </div>
+            </div> *@
+            <div class="TitleContainer">
+                <div class="TitleUkrContainer">
+                    <input class="TitleInput TitleInputUkr" type="text" placeholder="Tittle on Ukrainian" value="@Model.TittleUKR" />
+                </div>
+                <div class="TitleEngContainer">
+                    <input class="TitleInput TitleInputEng" type="text" placeholder="Tittle on English" value="@Model.TittleENG" />
+                </div>
+            </div>
+            <div class="DetermizeSizeContainer" id="SortableDetermizeSizeContainer">
+                @if (Model.Page.Count() > 0)
+                {
+                    @foreach (var item in Model.Page) 
+                    {
+                        if (item.type)
+                        {
+                            <div class="DetermizeSizeObject">
+                                <div class="IconContainer">
+                                    <i class="bi bi-list"></i>
+                                </div>
+                                <div class="PhotoInpuntsContainer">
+                                    <div class="IdClass" hidden>
+                                        <input class="ObjectIdInput" name="ObjectId" type="text" value="@item.ObjectId" />
+                                    </div>
+                                    <div class="PhotoInputUkr PhotoInputObject">
+                                        <div class="PhotoInputUkrPrewView ImagePreviewContainer">
+                                            <img class="ImagePrevieTag" src="@item.valueUKR" alt="prewview" />
+                                        </div>
+                                        <div class="ImageInputContainer">
+                                            <input class="ImgagePhotoInput" accept="image/*" type="file" />
+                                            <div class="OldPhotoChangerInput" hidden>
+                                                <input class="InputChangeDeleteForOld InputChangeDeleteForOldDelete" type="radio" name="ChangeUKR" value="Delete" />
+                                                <input class="InputChangeChangeForOld InputChangeDeleteForOldChange" type="radio" name="ChangeUKR" value="Change" />
+                                            </div>
+                                            <div class="DeleteImageButtonContainer">
+                                                <button class="DeleteImageFromInputButton" type="button">Delete image</button>
+                                            </div>
+                                        </div>
+                                        <div class="ReuseCheckBoxContainer" hidden>
+                                            <input class="ReusePhotoCheckBox" type="checkbox" />
+                                        </div>
+                                    </div>
+                                    <div class="PhotoInputEng PhotoInputObject">
+                                        <div class="PhotoInputEngPrewView ImagePreviewContainer">
+                                            <img class="ImagePrevieTag" src="@item.valueENG" alt="prewview" />
+                                        </div>
+                                        <div class="ImageInputContainer">
+                                            <input class="ImgagePhotoInput" accept="image/*" type="file" />
+                                            <div class="OldPhotoChangerInput" hidden>
+                                                <input class="InputChangeDeleteForOld InputChangeDeleteForOldDelete" type="radio" name="ChangeENG" value="Delete" />
+                                                <input class="InputChangeChangeForOld InputChangeDeleteForOldChange" type="radio" name="ChangeENG" value="Change" />
+                                            </div>
+                                            <div class="DeleteImageButtonContainer" >
+                                                <button class="DeleteImageFromInputButton" type="button">Delete image</button>
+                                            </div>
+                                        </div>
+                                        <div class="ReuseCheckBoxContainer" hidden>
+                                            <input class="ReusePhotoCheckBox" type="checkbox" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <button class="DeletePageObject">X</button>
+                                </div>
+                            </div>
+                        }
+                        else 
+                        {
+                            <div class="DetermizeSizeObject">
+                                <div class="IconContainer">
+                                    <i class="bi bi-list"></i>
+                                </div>
+                                <div class="TextInpuntsContainer">
+                                    <div class="IdClass" hidden>
+                                        <input class="ObjectIdInput" name="ObjectId" type="text" value="@item.ObjectId" />
+                                    </div>
+                                    <div class="TextInputUkr TextInputObject">
+                                        <textarea class="TextAreaInputField" placeholder="Empty Paragraph">@item.valueUKR</textarea>
+                                    </div>
+                                    <div class="TextInputEng TextInputObject">
+                                        <textarea class="TextAreaInputField" placeholder="Empty Paragraph">@item.valueENG</textarea>
+                                    </div>
+                                </div>
+                                <div>
+                                    <button class="DeletePageObject">X</button>
+                                </div>
+                            </div>
+                        
+                        }
+                    }
+                    
+                    
+                }
+                else 
+                {
+                    <div class="DetermizeSizeObject">
+                        <div class="IconContainer">
+                            <i class="bi bi-list"></i>
+                        </div>
+                        <div class="TextInpuntsContainer">
+                            <div class="IdClass" hidden>
+                                <input class="ObjectIdInput" name="ObjectId" type="text" value="0" />
+                            </div>
+                            <div class="TextInputUkr TextInputObject">
+                                <textarea class="TextAreaInputField" placeholder="Empty Paragraph"></textarea>
+                            </div>
+                            <div class="TextInputEng TextInputObject">
+                                <textarea class="TextAreaInputField" placeholder="Empty Paragraph"></textarea>
+                            </div>
+                        </div>
+                        <div>
+                            <button class="DeletePageObject">X</button>
+                        </div>
+                    </div>
+                    <div class="DetermizeSizeObject">
+                        <div class="IconContainer">
+                            <i class="bi bi-list"></i>
+                        </div>
+                        <div class="PhotoInpuntsContainer">
+                            <div class="IdClass" hidden>
+                                <input class="ObjectIdInput" name="ObjectId" type="text" value="0" />
+                            </div>
+                            <div class="PhotoInputUkr PhotoInputObject">
+                                <div class="PhotoInputUkrPrewView ImagePreviewContainer" hidden>
+                                    <img class="ImagePrevieTag" src="" alt="prewview" />
+                                </div>
+                                <div class="ImageInputContainer">
+                                    <input class="ImgagePhotoInput" accept="image/*" type="file" />
+                                    <div class="OldPhotoChangerInput" hidden>
+                                        <input class="InputChangeDeleteForOld InputChangeDeleteForOldDelete" type="radio" name="ChangeUKR" value="Delete" />
+                                        <input class="InputChangeChangeForOld InputChangeDeleteForOldChange" type="radio" name="ChangeUKR" value="Change" />
+                                    </div>
+                                    <div class="DeleteImageButtonContainer" hidden>
+                                        <button class="DeleteImageFromInputButton" type="button">Delete image</button>
+                                    </div>
+                                </div>
+                                <div class="ReuseCheckBoxContainer" hidden>
+                                    <input class="ReusePhotoCheckBox" type="checkbox" />
+                                </div>
+                            </div>
+                            <div class="PhotoInputEng PhotoInputObject">
+                                <div class="PhotoInputEngPrewView ImagePreviewContainer" hidden>
+                                    <img class="ImagePrevieTag" src="" alt="prewview" />
+                                </div>
+                                <div class="ImageInputContainer">
+                                    <input class="ImgagePhotoInput" accept="image/*" type="file" />
+                                    <div class="OldPhotoChangerInput" hidden>
+                                        <input class="InputChangeDeleteForOld InputChangeDeleteForOldDelete" type="radio" name="ChangeENG" value="Delete" />
+                                        <input class="InputChangeChangeForOld InputChangeDeleteForOldChange" type="radio" name="ChangeENG" value="Change" />
+                                    </div>
+                                    <div class="DeleteImageButtonContainer" hidden>
+                                        <button class="DeleteImageFromInputButton" type="button">Delete image</button>
+                                    </div>
+                                </div>
+                                <div class="ReuseCheckBoxContainer" hidden>
+                                    <input class="ReusePhotoCheckBox" type="checkbox" />
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <button class="DeletePageObject">X</button>
+                        </div>
+                    </div>
+                }                
+            </div>
+            <div class="EditorFooter">                
+                <div class="LanguageButtonsAndAddButtons">
+                    <div class="AddButtons">
+                        <div>
+                            <button type="button" class="AddButton" id="AddParagraphButton">Add Paragraph</button>
+                        </div>
+                        <div>
+                            <button type="button" class="AddButton" id="AddPhotoButton">Add Photo</button>
+                        </div>
+                    </div>
+                    <div class="SaveAndPreviewButtons">
+                        <div class="SaveButton">
+                            <button type="submit" class="FinishedButtons" id="SubmitFormButton">Save</button>
+                        </div>
+                        <div class="PreviewButton">
+                            <button type="button" id="PreviewButton" class="btn btn-primary FinishedButtons" data-bs-toggle="modal" data-bs-target="#exampleModal">Preview</button>
+                        </div>
+                    </div>
+                    <div class="LanguageTabsFotter">
+                        <div>
+                            <button type="button" id="languageButtonUKR" class="languageButton languageButtonSelected">
+                                <img src="~/SVG/UKR_FLAG.svg" />
+                            </button>
+                        </div>
+                        <div>
+                            <button type="button" id="languageButtonENG" class="languageButton">
+                                <img src="~/SVG/ENG_FLAG.svg" />
+                            </button>
+                        </div>
+                     </div>
+                </div>                
+            </div>
+        }
+    </div>
+    <div class="PreviewContainer">
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="CloseModalPrevieButtonContainer">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div id="ContentContainer">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

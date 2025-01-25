@@ -1,0 +1,193 @@
+﻿.Product .BreadCrumb nav ol li a {
+  text-decoration: none;
+  color: black;
+}
+.Product .Main {
+  padding: 0px 30px;
+  display: flex;
+  justify-content: space-between;
+}
+.Product .Main .ImageList {
+  width: calc(50% - 30px);
+  height: 100%;
+}
+.Product .Main .ImageList .FancyBoxImg {
+  width: calc(50% - 5px);
+  height: 70vh;
+  margin-top: 5px;
+}
+.Product .Main .ImageList .FancyBoxImg img {
+  margin-top: 5px;
+  width: inherit;
+  height: inherit;
+}
+.Product .Main .ProductDetail {
+  width: calc(50% - 30px);
+  height: 100%;
+}
+.Product .Main .ProductDetail .ProductName {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 200;
+  margin-bottom: 10px;
+}
+.Product .Main .ProductDetail .Articul {
+  width: 25%;
+  font-size: 18px;
+  font-family: "Montserrat", sans-serif;
+  opacity: 0.5;
+  margin-bottom: 10px;
+}
+.Product .Main .ProductDetail .Articul p {
+  display: flex;
+  justify-content: space-between;
+}
+.Product .Main .ProductDetail .Price {
+  font-size: 24px;
+  font-family: "Montserrat", sans-serif;
+  margin-bottom: 10px;
+}
+.Product .Main .ProductDetail .AtributeContainer {
+  margin-bottom: 10px;
+}
+.Product .Main .ProductDetail .AtributeContainer .Atribute h6 {
+  font-family: "Montserrat", sans-serif;
+  opacity: 0.9;
+  font-weight: 400;
+}
+.Product .Main .ProductDetail .AtributeContainer .Atribute .OptionContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.Product .Main .ProductDetail .AtributeContainer .Atribute .OptionContainer .ModalDetermineSizeContainer {
+  display: inline-block;
+}
+.Product .Main .ProductDetail .AtributeContainer .Atribute .OptionContainer .ModalDetermineSizeContainer .DetermineSizeModalButton {
+  color: rgba(27, 27, 27, 0.5);
+  border: none;
+  background-color: white;
+  text-decoration: underline;
+}
+.Product .Main .ProductDetail .AtributeContainer .Atribute .OptionContainer .ModalDetermineSizeContainer .DetermineSizeModalButton:focus-visible {
+  outline: none;
+}
+.Product .Main .ProductDetail .AtributeContainer .Atribute .OptionContainer .ModalDetermineSizeContainer .DetermineSizeModalButton:focus {
+  box-shadow: none;
+}
+.Product .Main .ProductDetail .AtributeContainer .Atribute .OptionContainer .ModalDetermineSizeContainer .DetermineSizeModalButton:hover {
+  color: black;
+}
+.Product .Main .ProductDetail .AtributeContainer .Atribute .OptionContainer .ModalDetermineSizeContainer .modal-dialog {
+  max-width: 100%;
+  width: 100%;
+  margin: 0;
+}
+.Product .Main .ProductDetail .AtributeContainer .Atribute .OptionContainer .ModalDetermineSizeContainer .modal-dialog .modal-content .ModalHeader {
+  display: flex;
+  justify-content: flex-end;
+  padding: 1vw;
+}
+.Product .Main .ProductDetail .AtributeContainer .Atribute .OptionContainer .ModalDetermineSizeContainer .modal-dialog .modal-content .ContentContainer {
+  padding: 2vh 10vw;
+  display: flex;
+  flex-direction: column;
+}
+.Product .Main .ProductDetail .AtributeContainer .Atribute .OptionContainer .ModalDetermineSizeContainer .modal-dialog .modal-content .ContentContainer .PreviewPhotoContainer {
+  display: flex;
+  justify-content: center;
+}
+.Product .Main .ProductDetail .AtributeContainer .Atribute .OptionContainer .ModalDetermineSizeContainer .modal-dialog .modal-content .ContentContainer .PreviewPhotoContainer img {
+  max-width: 100%;
+}
+.Product .Main .ProductDetail .AtributeContainer .Atribute .OptionContainer .Options {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.Product .Main .ProductDetail .AtributeContainer .Atribute .OptionContainer .Options .OptionChangeButton {
+  display: flex;
+  margin-right: 5px;
+  border-radius: 100%;
+  border: solid 1px #a98d74;
+  height: 70px;
+  width: 70px;
+  font-size: 12px;
+  color: #a98d74;
+  font-weight: 700;
+  background-color: white;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+.Product .Main .ProductDetail .AtributeContainer .Atribute .OptionContainer .Options .OptionChangeButtonActive {
+  background-color: #a98d74;
+  color: white;
+}
+.Product .Main .ProductDetail .BuyButtonContainer {
+  display: flex;
+  justify-content: space-between;
+  height: 10vh;
+  margin-bottom: 10px;
+}
+.Product .Main .ProductDetail .BuyButtonContainer .BuyContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: calc(50% - 20px);
+  text-align: center;
+}
+.Product .Main .ProductDetail .BuyButtonContainer .BuyContainer a {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-decoration: none;
+}
+.Product .Main .ProductDetail .BuyButtonContainer .WishContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: calc(50% - 20px);
+  text-align: center;
+}
+.Product .Main .ProductDetail .BuyButtonContainer .WishContainer a {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  text-decoration: none;
+  opacity: 0.9;
+}
+.Product .Main .ProductDetail .ProductDescription .accordion-flush {
+  border: none;
+}
+.Product .Main .ProductDetail .ProductDescription .accordion .accordion-item {
+  border: none;
+}
+.Product .Main .ProductDetail .ProductDescription .accordion .accordion-item .accordion-collapse.collapse.show .accordion-body {
+  border-bottom: solid 1px black;
+}
+.Product .Main .ProductDetail .ProductDescription .accordion .accordion-item .accordion-collapse.collapse .accordion-body {
+  border-bottom: solid 1px black;
+}
+.Product .Main .ProductDetail .ProductDescription .accordion .accordion-item .accordion-collapse.collapsing .accordion-body {
+  border-bottom: solid 1px black;
+}
+.Product .Main .ProductDetail .ProductDescription .accordion .accordion-item .accordion-header .accordion-button.collapsed {
+  border-bottom: solid 1px black;
+}
+.Product .Main .ProductDetail .ProductDescription .accordion .accordion-item .accordion-header .accordion-button {
+  background-color: white;
+  color: black;
+  font-size: 20px;
+  font-weight: 400;
+  opacity: 0.9;
+}
+.Product .Main .ProductDetail .ProductDescription .accordion .accordion-item .accordion-header .accordion-button:focus {
+  box-shadow: none;
+}

@@ -1,0 +1,15 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+        Layout = "~/Views/Shared/_LayoutCSM.cshtml";
+}
+
+<div class="MonoBankActionContainer">
+    @using (Html.BeginForm("MonoPay", "ThirdParty", FormMethod.Post))
+    {
+        <label for="key">Change MonoBank ApiKey</label>
+        <input type="text" value="@Model" name="key" />
+        <button type="submit">Accept</button>
+    }
+</div>

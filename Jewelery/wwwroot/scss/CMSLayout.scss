@@ -1,0 +1,17 @@
+﻿body {
+    display: flex;
+    justify-content: space-between;
+    margin:0;
+    min-height:100vh;
+}
+
+.CMSNAVBAR {
+    display: inline-block;
+    width: 15%;
+}
+
+
+.CMSBODY {
+    display: inline-block;
+    width:84%;
+}

@@ -1,0 +1,14 @@
+﻿@model string
+@{
+    Layout = "~/Views/Shared/_LayoutCSM.cshtml";
+}
+
+<div class="NovaPostActionContainer">
+    @using (Html.BeginForm("NovaPost", "ThirdParty",FormMethod.Post))
+    {
+        <label for="key">Change NovaPost ApiKey</label>
+        <input type="text" value="@Model" name="key"/>
+        <button type="submit">Accept</button>
+    }
+</div>
+

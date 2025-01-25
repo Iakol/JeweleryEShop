@@ -1,0 +1,16 @@
+﻿.Main {
+  font-family: "New Amsterdam", sans-serif;
+}
+.Main .MainLabel {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  font-family: inherit;
+}
+.Main .Fillters form .submitFillters {
+  display: none;
+}
+.Main .MainBody {
+  display: flex;
+  justify-content: space-between;
+}

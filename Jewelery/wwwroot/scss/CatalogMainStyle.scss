@@ -1,0 +1,196 @@
+﻿
+#Catalog {
+    .BreadCrumb {
+        nav {
+            .breadcrumb {
+                li {
+                    a {
+                        text-decoration: none;
+                        color: black;
+                        opacity: 0.5;
+
+                        &:hover {
+                            opacity: 0.8;
+                            transition-delay: 25ms;
+                            transition-property: opacity;
+                        }
+                    }
+                }
+
+                li[active] {
+                    text-decoration: none;
+                    color: black;
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+
+    .Main {
+
+        .MainLabel {
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+
+            h1 {
+            }
+
+            .Ordering {
+                form {
+                    label {
+                    }
+
+                    select {
+                        border: none;
+                        opacity: 0.5;
+
+                        &:focus-visible {
+                            outline: none;
+                        }
+                    }
+                }
+            }
+        }
+
+        .MainBody {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5vw;
+
+            .Fillters {
+                width: 10vw;
+                margin-right: 0.5vw;
+
+
+                form {
+                    .submitFillters {
+                        display: none;
+                    }
+                }
+            }
+
+            .Products {
+                padding: 5%;
+                width: 90vw;
+
+                .Product {
+                    position: relative;
+                    height: 575px;
+                    width: calc(33% - 5px);
+
+                    &:hover {
+                        .MainProductRef {
+                            .ProductImage {
+                                .ProductImageOne {
+                                    visibility: hidden;
+                                    opacity: 0;
+                                    transition: all 2s ease-out;
+                                }
+
+                                .ProductImageTwo {
+                                    visibility: visible;
+                                    opacity: 1;
+                                    transition: all 2s ease-out;
+                                }
+                            }
+                        }
+                    }
+
+                    .wish_list_button {
+                        img {
+                            z-index: 3;
+                            position: absolute;
+                            height: 30px;
+                            width: 30px;
+                            top: 10px;
+                            right: 10px;
+                            float: right;
+                            filter: grayscale(60%);
+
+                            &:hover {
+                                filter: grayscale(0%);
+                            }
+                        }
+                    }
+
+                    .MainProductRef {
+                        display: block;
+                        text-decoration: none;
+                        color: black;
+                        width: 100%;
+                        height: 100%;
+
+                        .ProductImage {
+                            position: relative;
+                            width: 100%;
+                            height: 475px;
+
+                            .ProductWithOneImage {
+                                width: 100%;
+                                height: 100%;
+                            }
+
+                            .ProductImageOne {
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                opacity: 1;
+                                visibility: visible;
+                                width: 100%;
+                                height: 475px;
+
+                                img {
+                                    width: 100%;
+                                    height: 475px;
+                                }
+                            }
+
+                            .ProductImageTwo {
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                visibility: hidden;
+                                opacity: 0;
+                                width: 100%;
+                                height: 475px;
+
+                                img {
+                                    width: 100%;
+                                    height: 475px;
+                                }
+                            }
+                        }
+
+                        .ProductName {
+                            opacity: 0.5;
+                        }
+
+                        .ProductPrice {
+                            width: 100%;
+                            height: 100%;
+                            display: flex;
+                            opacity: 0.5;
+
+                            .PriceNotPromotion {
+                            }
+
+                            .PricePromotion {
+                                margin-right: 20%;
+                                text-decoration-line: line-through;
+                            }
+
+                            .Promotion {
+                                color: red;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .Pagination {
+    }
+}

@@ -1,0 +1,221 @@
+﻿@using Jewelery.ViewModels.DTO.FillterSession;
+@using System.Text.Json;
+@using Jewelery.localization
+
+
+@model List<Jewelery.ViewModels.DTO.Product.ProductDTOVMPage>
+
+@{
+
+    CategorySessionFilterObject filter = JsonSerializer.Deserialize<CategorySessionFilterObject>(Context.Session.GetString("Fillter"));
+    
+    int CultureInt = Context.Request.Cookies["Culture"].Equals("uk") ? 1 : 2;
+
+}
+
+    <link rel="stylesheet" href="~/scss/CatalogMainStyle.css" />
+
+
+<script src="~/js/Catalog/SubMitClick.js"></script>
+<script src="~/js/Catalog/MinMaxRangeInput.js"></script>
+
+
+
+
+<div id="Catalog">
+    <div class="BreadCrumb">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">@Resource.Home</a></li>
+                <li class="breadcrumb-item"><a href="#">@Resource.Catalogue</a></li>
+                @if (@filter.SubCategoryName != null && @filter.SubCategoryName != "")
+                {
+                    <li class="breadcrumb-item"><a href="#">@filter.CategoryName</a></li>
+                    <li class="breadcrumb-item " aria-current="page" active>@filter.SubCategoryName</li>
+                }
+                else
+                {
+                    <li class="breadcrumb-item" active>@filter.CategoryName</li>
+                }
+            </ol>
+        </nav>
+    </div>
+    @await Component.InvokeAsync("CatalogCategoryList", new { cat_id = filter.CategoryId, lang = CultureInt })
+    <div class="Main">
+        <div class="MainLabel">
+            <h1>@filter.CategoryName</h1>
+            <div class="Ordering">
+                @using (Html.BeginForm("SetFillterValue", "Shop", FormMethod.Post))
+                {
+                    <label for="OrderSelect">@Resource.Sort_by :</label>
+                    <select name="Ording" id="OrderSelect">
+                        @if (filter.OrderSelect == 0)
+                        {
+                            <option class="OrderSelect" data-selectid="0" selected>@Resource.By_novelty</option>
+
+                        }
+                        else
+                        {
+                            <option class="OrderSelect" data-selectid="0">@Resource.By_novelty</option>
+                        }
+                        @if (filter.OrderSelect == 1)
+                        {
+                            <option class="OrderSelect" data-selectid="1" selected>@Resource.By_price_in_ascending_order</option>
+
+                        }
+                        else
+                        {
+                            <option class="OrderSelect" data-selectid="1">@Resource.By_price_in_ascending_order</option>
+                        }
+                        @if (filter.OrderSelect == 2)
+                        {
+                            <option class="OrderSelect" data-selectid="2" selected>@Resource.Price_in_descending_order</option>
+
+                        }
+                        else
+                        {
+                            <option class="OrderSelect" data-selectid="2">@Resource.Price_in_descending_order</option>
+                        }
+                     </select>
+                }
+            </div>
+            
+        </div>
+
+        <div class="MainBody">
+            <div class="Fillters" data-filterurl="@Url.Action("SetFillterValue","Shop")">
+                @using (Html.BeginForm("SetFillterValue", "Shop", FormMethod.Post))
+                {
+                    <div>
+                        <label for="IsExist">@Resource.Available</label>
+                        @if (filter.isExist == true)
+                        {
+                            <input type="radio" name="IsExist" value="IsExist" id="IsExist" checked>
+
+                        }
+                        else
+                        {
+                            <input type="radio" name="IsExist" value="IsExist" id="IsExist">
+                        }
+                        <label for="IsExist">@Resource.On_request</label>
+                        @if (filter.isExist == false)
+                        {
+                            <input type="radio" name="IsExist" value="IsNotExist" id="IsNotEsist" checked>
+
+                        }
+                        else
+                        {
+                            <input type="radio" name="IsExist" value="IsNotExist" id="IsNotEsist">
+                        }
+                    </div>
+                    @if(Model.Count > 0)
+                    {
+                        <div id="PriceRange" data-max="@filter.MaxPrice" data-min="@filter.MinPrice">
+                            <p>
+                                <label for="amount">@Resource.Price_Range:</label>
+                                <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;" />
+                            </p>
+                            <div id="slider-range"></div>
+                        </div>
+                    
+                    }
+
+                    @if (filter.SubCategoryList != null || filter.SubCategoryList.Count > 0)
+                    {
+                        <div>
+                            @foreach (var item in filter.SubCategoryList)
+                            {
+                                @if (filter.SubCategoryId == item.Category_id)
+                                {
+                                    <a id="CattegoryAnchor_@item.Category_id" asp-action="Category" asp-controller="Shop" asp-route-cat_id="@filter.CategoryId" asp-route-sub_cat_id="@item.Category_id">
+                                        <div>
+                                            <span>@item.Name</span>
+                                        </div>
+                                        <div>
+                                            <input class="ChooseCategoryButton" id="CategoryId_@item.Category_id" type="radio" name="sub_cat_id" value="@item.Category_id" checked/>
+                                        </div>
+                                    </a>
+                                }
+                                else
+                                {
+                                    <a id="CattegoryAnchor_@item.Category_id" asp-action="Category" asp-controller="Shop" asp-route-cat_id="@filter.CategoryId" asp-route-sub_cat_id="@item.Category_id">
+                                        <div>
+                                            <span>@item.Name</span>
+                                        </div>
+                                        <div>
+                                            <input class="ChooseCategoryButton" id="CategoryId_@item.Category_id" type="radio" name="sub_cat_id" value="@item.Category_id" />
+                                        </div>
+                                    </a>
+                                }
+                            }
+                        </div>
+                    }
+
+                    <button class="submitFillters" type="submit"></button>
+                }
+            </div>
+            <div class="Products" >
+                @foreach(var item in Model)
+                {
+                    <div class="Product">
+                        <a class="wish_list_button">
+                            <img src="~/SVG/HeartForWishList.svg">
+                        </a>
+                        <a class="MainProductRef" asp-action="Product" asp-controller="Shop" asp-route-id="@item.Product_id">
+                            @if (@item.Images.Count() == 1)
+                            {
+                                <div class="ProductImage">
+                                    <div class="ProductWithOneImage">
+                                        <img src="@item.Images[0].Url">
+                                    </div>
+                                </div>
+                            }
+                            else if (@item.Images.Count() >= 2)
+                            {
+                                <div class="ProductImage">
+                                    <div class="ProductImageOne">
+                                        <img src="@item.Images[0].Url">
+                                    </div>
+                                    <div class="ProductImageTwo">
+                                        <img src="@item.Images[1].Url">
+                                    </div>
+                                </div>
+
+                            }
+                            else
+                            {
+                                <div class="ProductImage">
+                                    <div class="ProductWithOneImage">
+                                        <img src="" alt="@item.Name">
+                                    </div>
+                                </div>
+                            }
+
+                            <div class="ProductName">
+                                <p>@item.Name</p>
+                            </div>
+                            <div class="ProductPrice">
+                                @if (!item.isPromotion)
+                                {
+                                    <p class="PriceNotPromotion">@item.Price</p>
+                                }
+                                else
+                                {
+                                    <p class="PricePromotion">@item.Price</p>
+                                    <p class="Promotion">@item.Promotion_Price</p>
+                                }
+                            </div>
+                        </a>
+                    </div>           
+                }
+            </div>
+        </div>
+    </div>
+    <div class="Pagination">
+            <nav aria-label="Page navigation example">
+              <ul class="pagination">
+               
+              </ul>
+            </nav>
+        </div>
+</div>

@@ -1,0 +1,55 @@
+﻿@using Jewelery.ViewModels.DTO.Category;
+@using Jewelery.ViewModels.DTO.Product;
+@model List<ProductDTOVMPage>
+
+
+<div class="Carusel__wraper PopularProductCarousel">
+        <div class="Carusel" id="carosel">
+            @foreach (var item in Model)
+            {
+                <div class="ProductInCarusel">
+                <a asp-action="Product" asp-controller="Shop" asp-route-id="@item.Product_id">
+                        <div class="TopOfProduct">
+                            <div class="AddTofavorite">
+                                <img src="~/SVG//HeartForWishList.svg" />
+                            </div>
+                            @if (item.Images.Count >= 0 && item.Images.Count <= 1)
+                            {
+                                @if (item.Images.Count == 0)
+                                {
+                                    <div class="SinglePhoto">
+                                        <img src="" alt="UrlWhereProductWithoutPhoro"/>
+                                    </div>
+                                }
+                                else 
+                                {
+                                    <div class="SinglePhoto">
+                                        <img src="@item.Images[0].Url"/>
+                                    </div>
+                                }
+                            }
+                            else
+                            {
+                                <div class="FirstImage">
+                                    <img src="@item.Images[0].Url" />
+                                </div>
+                                <div class="SecondImage">
+                                    <img src="@item.Images[1].Url" />
+                                </div>
+                            }
+                            
+                        </div>
+                        <div class="BottomOfProduct">
+                            <p>
+                                @item.Name
+                            </p>
+                            <p>
+                                @item.Price $
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            }           
+        </div>
+</div>
+

@@ -1,0 +1,378 @@
+﻿
+.HomeContainer {
+    .top__image__container {
+        width: 100%;
+        background-image: url("../image/Constant/MainPhoto.png");
+        background-size: cover;
+        height: 82vh;
+        font-family: "Playfair Display SC", serif;
+
+
+        a {
+            text-decoration: none;
+            color: white;
+            display: block;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+
+
+            &:visited {
+                color: white;
+            }
+
+
+            .top__image__strings {
+                position: absolute;
+                left: 5%;
+                top: 50%;
+                white-space: nowrap;
+            }
+
+            .top__image__button {
+                opacity: 0.95;
+                height: 75px;
+                position: absolute;
+                color: white;
+                bottom: 0px;
+                right: -120px;
+                width: 200px;
+                white-space: nowrap;
+                overflow: clip;
+                background-color: black;
+                border-radius: 25px 0px 0px 0px;
+
+                &:hover {
+                    right: 0px;
+                    transition: right 1s;
+                }
+            }
+        }
+    }
+
+    .TopProductSection {
+        margin-top: 5vh;
+        padding: 0vh 3vw;
+
+
+
+        .PopularProductCarousel {
+            .Carusel {
+                .ProductInCarusel {
+                    width: 33%;
+                    height: 80vh;
+
+                    &:hover {
+                        a {
+                            .TopOfProduct {
+                                .FirstImage {
+                                    opacity: 0;
+                                    transition: opacity 1s;
+                                }
+
+                                .SecondImage {
+                                    opacity: 1;
+                                    transition: opacity 1s;
+                                }
+                            }
+                        }
+                    }
+
+                    a {
+                        text-decoration: none;
+                        display: block;
+                        height: 100%;
+                        width: 100%;
+
+                        &:visited {
+                            color: black;
+                        }
+
+                        .TopOfProduct {
+                            height: 80vh;
+                            position: relative;
+
+
+
+                            .SinglePhoto {
+                                position: absolute;
+                                height: 100%;
+                                width: 100%;
+
+                                img {
+                                    height: 100%;
+                                    width: 100%;
+                                }
+                            }
+
+                            .FirstImage {
+                                position: absolute;
+                                height: 100%;
+                                width: 100%;
+                                opacity: 1;
+
+                                img {
+                                    height: 100%;
+                                    width: 100%;
+                                }
+                            }
+
+                            .SecondImage {
+                                position: absolute;
+                                height: 100%;
+                                width: 100%;
+                                opacity: 0;
+
+                                img {
+                                    height: 100%;
+                                    width: 100%;
+                                }
+                            }
+
+
+                            .AddTofavorite {
+                                position: absolute;
+                                right: 3%;
+                                top: 3%;
+                                z-index: 2;
+
+                                img {
+                                    height: 5vh;
+                                    width: 5vw;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .TopProductSectionViewAllButton {
+            display: flex;
+            justify-content: center;
+
+            a {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 25vw;
+                height: 10vh;
+                background-color: rgb(27,27,27);
+                color: white;
+                font-size: 24px;
+                border-radius: 0px;
+
+                &:hover {
+                    background-color: #A98D74;
+                }
+            }
+        }
+    }
+
+    .CategoryMainPageSection {
+        margin-top: 50px;
+        display: grid;
+        grid-template-columns: auto auto auto;
+        gap: 10px;
+
+        .CategoryGridItem {
+            height: 70vh;
+            width: 100%;
+
+            &:hover {
+                a {
+                    img {
+                        transform: scale(1.03);
+                        transition: transform 1s;
+                    }
+                }
+            }
+
+            a {
+                display: inline-block;
+                position: relative;
+                height: 100%;
+                width: 100%;
+                text-decoration: none;
+                color: black;
+                overflow: clip;
+
+                &:visited {
+                    color: black;
+                }
+
+
+                img {
+                    position: absolute;
+                    height: 100%;
+                    width: 100%;
+                }
+
+                div {
+                    position: absolute;
+                    display: flex;
+                    justify-content: space-between;
+                    bottom: 20px;
+                    width: 100%;
+                    padding: 0px 16px;
+
+                    span {
+                        font-family: "Great Vibes", cursive;
+                        font-size: 32px;
+                        color: white;
+                        font-weight: 600;
+                    }
+                }
+            }
+        }
+    }
+
+    .OurHistorySection {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 25vh;
+        padding: 0px 3vw;
+        align-content: baseline;
+
+        .AboutBrendText {
+            width: 40vw;
+            height: 100%;
+
+
+            div {
+                margin-bottom: 15vh;
+                padding: 0px 3vw;
+
+                p {
+                    font-size: 18px;
+                    margin-top: 5vh;
+                }
+
+                a {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 25vw;
+                    height: 10vh;
+                    background-color: rgb(27,27,27);
+                    color: white;
+                    font-size: 24px;
+                    border-radius: 0px;
+
+                    &:hover {
+                        background-color: #A98D74;
+                    }
+                }
+            }
+        }
+
+        .AboutBrendImage {
+            width: 60vw;
+
+            img {
+                width: 50vw;
+            }
+        }
+    }
+
+    .VideoSection {
+        height: 80vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        p {
+            font-size: 32px;
+        }
+    }
+
+    .FaqSection {
+
+
+        .FaqContainer {
+            display: flex;
+            justify-content: center;
+        }
+
+        .accordion {
+            width: 70%;
+
+            .accordion-item {
+                div {
+                    padding: 20px;
+                }
+            }
+        }
+    }
+
+    .FeedbackSection {
+        margin-top: 5vh;
+        background-color: #F7F4F2;
+        padding: 10vh 0vw;
+        font-family: "Montserrat", sans-serif;
+
+        .FeedbackText {
+            padding: 0 5vw;
+
+            .FeedBackLabel {
+                display: flex;
+            }
+
+            .FeedBackParagraf {
+                width: 30%;
+            }
+        }
+
+        .FashionCarousel {
+            padding-left: 5vw;
+            margin-top: 5%;
+
+
+            .CaruselFashion {
+                overflow: hidden;
+
+                .slick-slide {
+                    display: inline-block;
+                    margin: 0% 0.1%;
+                    height: 400px;
+                    width: 100px;
+                    background-color: brown;
+
+                    .FashionImageContainer {
+                        height: 400px;
+                        width: 100px;
+                    }
+                }
+
+                .FashionItem {
+                    margin-right: 1vw;
+                    height: 60vh;
+                    border-radius: 10px;
+                }
+            }
+        }
+
+        .FeedBaclButton {
+            margin-top: 10vh;
+            display: flex;
+            justify-content: center;
+
+            a {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 25vw;
+                height: 10vh;
+                background-color: rgb(27,27,27);
+                color: white;
+                font-size: 24px;
+                border-radius: 0px;
+
+                &:hover {
+                    background-color: #A98D74;
+                }
+            }
+        }
+    }
+}

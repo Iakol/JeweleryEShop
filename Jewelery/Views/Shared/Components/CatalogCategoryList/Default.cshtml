@@ -1,0 +1,84 @@
+﻿@model List<Jewelery.ViewModels.DTO.Category.CategoryVMDTO>
+@using Jewelery.localization
+@{
+    int Sales = (int)ViewData["Sales"];
+    int Sertificat = (int)ViewData["Sertificat"];
+
+}
+
+<link rel="stylesheet" href="~/scss/CatalogCategoryComponent.css" asp-append-version="true" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap" rel="stylesheet">
+
+<script src="~/js/Catalog/CategoryCarousel.js"></script>
+<script src="~/js/Catalog/ChangeCarousel.js"></script>
+
+
+
+<div class="CategoryListCarusel">
+    @if (Model.Count == 1)
+    {
+        <div>
+            <a asp-action="Category" asp-controller="Shop" asp-route-cat_id="@Model[0].Category_id" asp-route-sub_cat_id="">
+                <img src="@Model[0].Image" alt="Cat @Model[0].Name photo" />
+                <p>@Resource.All @Model[0].Name</p>
+            </a>
+        </div>
+        @foreach (var item in Model[0].SubCategories)
+        {
+            <div>
+                <a asp-action="Category" asp-controller="Shop" asp-route-cat_id="@Model[0].Category_id" asp-route-sub_cat_id="@item.SubCategory_id">
+                    <img src="@item.Image" alt="Cat @item.Name photo" />
+                    <p>@item.Name</p>
+                </a>
+            </div>
+        }
+    }else
+    {
+    <div>
+        <a asp-action="" asp-controller="Shop">
+        <img src="~/image/Constant/Всетовари.jpg" alt="Cat photo" />
+                <p>@Resource.All @Resource.Products</p>
+        </a>
+    </div>
+    <div>
+        <a asp-action="" asp-controller="Shop">
+            <img src="~/image/Constant/Популярне.jpg" alt="Cat photo" />
+                <p>@Resource.Popular</p>
+        </a>
+    </div>
+    @foreach (var item in Model)
+    {
+            @if (@item.Category_id == Sales)
+            {
+                <div>
+                    <a asp-action="Index" asp-controller="Shop" asp-route-Constanta="Sales">
+                        <img src="@item.Image" alt="Cat @item.Name photo" />
+                        <p>@item.Name</p>
+                    </a>
+                </div>
+            }
+            else if (@item.Category_id == Sertificat)
+            {
+                <div>
+                    <a asp-action="Index" asp-controller="Shop" asp-route-Constanta="Sertificat">
+                        <img src="@item.Image" alt="Cat @item.Name photo" />
+                        <p>@item.Name</p>
+                    </a>
+                </div>
+            }
+            else
+            {
+                <div>
+                    <a asp-action="Category" asp-controller="Shop" asp-route-cat_id="@item.Category_id">
+                        <img src="@item.Image" alt="Cat @item.Name photo" />
+                        <p>@item.Name</p>
+                    </a>
+                </div>
+           
+            }
+            
+    }
+    }
+</div>

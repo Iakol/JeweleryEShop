@@ -1,0 +1,40 @@
+﻿.FashionContainer .AddFasionBTN {
+  margin: 5vh 0;
+}
+.FashionContainer .CaruselFashion {
+  overflow: hidden;
+}
+.FashionContainer .CaruselFashion .slick-slide {
+  display: inline-block;
+  margin: 0% 0.1%;
+  height: 400px;
+  width: 100px;
+}
+.FashionContainer .CaruselFashion .FashionContainer {
+  margin-right: 1vw;
+  height: 70vh;
+  border-radius: 10px;
+}
+.FashionContainer .CaruselFashion .FashionContainer .FashionImageContainer .FashionImage {
+  height: 60vh;
+  width: 100%;
+  border-radius: 10px;
+}
+.FashionContainer .CaruselFashion .FashionContainer .DeleteButton {
+  text-align: center;
+}
+.FashionContainer .CaruselFashion .FashionContainer .DeleteButton .FashionDeleteButton {
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  background-color: red;
+  margin-top: 5px;
+  padding: 1vh 2vw;
+  border-radius: 10px;
+  color: white;
+  font-weight: 700;
+}
+.FashionContainer .CaruselFashion .FashionContainer .DeleteButton .FashionDeleteButton:hover {
+  background-color: orangered;
+}

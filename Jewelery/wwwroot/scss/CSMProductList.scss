@@ -1,0 +1,267 @@
+﻿.CSMProductListContainer {
+    padding-top: 3vh;
+
+    .SearchProductFilterAndCreateButton {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-bottom: 2vh;
+
+        .CreateButtonContainer {
+            margin-bottom: 2vh;
+
+            a {
+                text-decoration: none;
+                color: black;
+                display: inline-block;
+                background-color: lawngreen;
+                font-weight: 600;
+                padding: 1vh 1vw;
+                border-radius: 10px;
+
+                &:hover {
+                    color: black;
+                    background-color: greenyellow;
+                    transition: all 0.5s;
+                }
+            }
+        }
+
+        .SearchProductFilter {
+            form {
+                position: relative;
+                display: flex;
+                justify-items: baseline;
+
+                input {
+                    font-size: 20px;
+                    height: 7vh;
+                    width: 25vw;
+                    padding-right: 5vw;
+
+                    &::placeholder {
+                        font-style: italic;
+                        font-size: 20px;
+                    }
+                }
+
+                button {
+                    position: absolute;
+                    background: none;
+                    border: none;
+                    font-size: 28px;
+                    left: 20vw;
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
+            }
+        }
+    }
+
+    .ProductFilterContainer {
+        margin-bottom: 5vh;
+
+        form {
+            .CategorySortContainer {
+                #accordionProductCSMCategoryFilter {
+                    .accordion-item {
+                        .accordion-header {
+                            .accordion-button {
+                                background-color: white !important;
+                                color: black !important;
+
+                                &:focus {
+                                    box-shadow: none;
+                                }
+                            }
+                        }
+
+                        .accordion-body {
+                            hr:last-of-type {
+                                display: none;
+                            }
+
+                            .CategoryCheckBoxContainer {
+                                .SubCategoryContainer {
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: space-between;
+                                    flex-direction: row;
+
+                                    span:last-of-type {
+                                        display: none;
+                                    }
+
+                                    .SubCategoryCheckBox {
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .ProductFilterCheackboxes {
+                display: flex;
+                justify-content: space-between;
+                padding: 2vh 5vw;
+
+                .ProductFilterCheackboxesContainer {
+                    min-width: 30%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding: 3vh 3vw;
+                    border: 1px solid black;
+                    border-radius: 1500px;
+                    height: 5vh;
+                    font-size: 12px;
+
+                    .Separator {
+                        min-width: 1px;
+                        width: 1px;
+                        height: 5vh;
+                        border: 1px solid black;
+                        border-radius: 0;
+                        padding: 0;
+                    }
+                }
+            }
+
+            .FilterSubmitButton {
+                color: black;
+                display: inline-block;
+                background-color: lawngreen;
+                font-weight: 600;
+                padding: 1vh 1vw;
+                border-radius: 10px;
+                width: 20vw;
+                border: 1px solid green;
+
+                &:hover {
+                    color: black;
+                    background-color: greenyellow;
+                    transition: all 0.5s;
+                }
+            }
+        }
+    }
+
+    .ProductListContainer {
+        hr:last-of-type {
+            display: none;
+        }
+
+        .ProductContainerForOne {
+            border: 1px solid rgba(0,0,0,0.2);
+            background-color: rgba(34,139,34,0.09);
+            padding: 1vh 1vh;
+            display: flex;
+            justify-content: start;
+            align-content: baseline;
+            width: 100%;
+
+            .ProductImageContainer {
+                width: 25%;
+
+                .ProductImage {
+                    height: 25vh;
+                    width: 15vw;
+                }
+            }
+
+            .ProductCredContainer {
+                width: 70%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+
+                .ProductNameAndDescriptionContainer {
+                    padding: 0;
+                    background-color: inherit;
+                    border: none;
+
+                    .Name_Description {
+                        padding: 0 !important;
+                    }
+
+                    .TabsList {
+                        background-color: inherit;
+                        border: none;
+                        max-width: 50%;
+                        width: 25%;
+                        display: flex;
+                        list-style: none;
+                        padding: 0;
+                        justify-content: space-between;
+
+
+
+                        .TabButtonLI {
+                            border-radius: 3px;
+
+                            .TabButton {
+                                border-bottom: 1px solid rgb(197,197,197);
+                            }
+                        }
+
+                        .ui-state-active {
+                            .TabButton {
+                                border-bottom: 1px solid rgb(0,62,255);
+                            }
+                        }
+                    }
+                }
+
+                .ProductCredInfoContainer {
+                    display: flex;
+                    justify-content: space-evenly;
+                }
+            }
+
+            .ProductButtonsAndPrice {
+                width: 25%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+
+                .ProductPricesContainer {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: start;
+                }
+
+                .ProductButtons {
+                    display: flex;
+                    justify-content: space-evenly;
+
+                    .ButtonProductContainer {
+                        height: 50px;
+                        width: 50px;
+                        background-color: lawngreen;
+                        border-radius: 5px;
+                        text-align: center;
+                        align-content: center;
+                        text-decoration: none;
+
+
+                        .ProductButton {
+                            color: black;
+                            font-weight: 700;
+                            text-decoration: none;
+
+                            .EditButtonSVG {
+                                height: 20px;
+                                width: 20px;
+                            }
+                        }
+                    }
+
+                    .DeleteButton {
+                        background-color: orangered;
+                    }
+                }
+            }
+        }
+    }
+}

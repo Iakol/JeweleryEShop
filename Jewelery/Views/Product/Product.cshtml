@@ -1,0 +1,119 @@
+﻿@using System.Text.Json;
+@using Jewelery.ViewModels.DTO.CMSFilter;
+
+
+@{
+    Layout = "~/Views/Shared/_LayoutCSM.cshtml";
+    ProductCMSFilterDTO filter = JsonSerializer.Deserialize<ProductCMSFilterDTO>(Context.Session.GetString("FilterProductCMS"));
+
+    string FilterURL = Url.Action("SetSortVariable", "Product");
+
+
+}
+@model Jewelery.ViewModels.DTO.Product.ProductCMSDTO
+
+<script src="~/js/CMS/ApplyProductCSMFilterForm.js"></script>
+<link rel="stylesheet" href="~/scss//CSMProductList.css" />
+
+
+<div class="CSMProductListContainer">
+    <div class="SearchProductFilterAndCreateButton">
+        <div class="CreateButtonContainer">
+            <a asp-action="AddProduct" asp-controller="Product">Create new Product</a>
+        </div>
+        <div class="SearchProductFilter">
+            @using (Html.BeginForm("SetSortVariable", "Product", FormMethod.Post, new { id = "SearchForm" }))
+            {
+
+                <input placeholder="...Search" type="text" id="Search" name="SearchTerm" value="@filter.SearchString" />
+                <button type="submit">GO</button>
+            }
+        </div>
+    </div>
+    <div class="ProductFilterContainer">
+        @using (Html.BeginForm("SetSortVariable", "Product", FormMethod.Post, new { id = "FilterForm", data_url = FilterURL }))
+        {
+            <div class="CategorySortContainer">
+                @await Component.InvokeAsync("CategorySort", new { lang = 1})
+            </div>
+
+            <div class="ProductFilterCheackboxes">
+                <div class="isExistContainer ProductFilterCheackboxesContainer">
+                    <label for="isExist">isExist</label>
+                    @if (filter.isExist == true)
+                    {
+                        <input id="isExist" type="checkbox" name="isExist" value="isExist" checked/>
+                    }
+                    else
+                    {
+                        <input id="isExist" type="checkbox" name="isExist" value="isExist" />
+                    }
+                    <div class="Separator"></div>
+                    <label for="isNotExist">is Not Exist</label>
+                    @if (filter.isExist == false)
+                    {
+                        <input id="isNotExist" type="checkbox" name="isNotExist" value="isNotExist" checked />
+                    }
+                    else
+                    {
+                        <input id="isNotExist" type="checkbox" name="isNotExist" value="isNotExist"  />
+                    }
+                </div>
+                <div class="isDisplayContainer ProductFilterCheackboxesContainer">
+                    <label for="isDisplay">is Dispay</label>
+                    @if (filter.isDispay == true)
+                    {
+                        <input id="isDisplay" type="checkbox" name="isDisplay" value="isDisplay" checked />
+                    }
+                    else
+                    {
+                        <input id="isDisplay" type="checkbox" name="isDisplay" value="isDisplay" />
+                    }
+                    <div class="Separator"></div>
+                    <label for="isNotDisplay">is Not Dispay</label>
+                    @if (filter.isDispay == false)
+                    {
+                        <input id="isNotDisplay" type="checkbox" name="isNotDisplay" value="isNotDisplay" checked />
+
+                    }
+                    else
+                    {
+                        <input id="isNotDisplay" type="checkbox" name="isNotDisplay" value="isNotDisplay" />
+                    }
+                </div>
+                <div class="isPromotionContainer ProductFilterCheackboxesContainer">
+                    <label for="isPromotion">is Promotion</label>
+                    @if (filter.isPromotion == true)
+                    {
+                        <input id="isPromotion" type="checkbox" name="isPromotion" value="isNotPromotion" checked />
+                    }
+                    else
+                    {
+                        <input id="isPromotion" type="checkbox" name="isPromotion" value="isNotPromotion" />
+                    }
+                    <div class="Separator"></div>
+                    <label for="isNotPromotion">is Not Promotion</label>
+                    @if (filter.isPromotion == false)
+                    {
+                        <input id="isNotPromotion" type="checkbox" name="isNotPromotion" value="isNotPromotion" checked />
+
+                    }
+                    else
+                    {
+                        <input id="isNotPromotion" type="checkbox" name="isNotPromotion" value="isNotPromotion" />
+                    }
+                </div>
+            </div>
+
+            <button class="FilterSubmitButton" type="submit">Submit</button>
+
+        }
+        @if (filter.CategoryFiltering == true || filter.isDispay == true || filter.isPromotion == true || (filter.SearchString != null && filter.SearchString != ""))
+        {
+            <a asp-action="ResetFilters" asp-controller="Product">Reset All Filters</a>
+        }
+    </div>
+    <div class="ProductListContainer">
+        @await Component.InvokeAsync("ProductCMS", new { filter })
+    </div>
+</div>

@@ -1,0 +1,58 @@
+﻿@model List<Jewelery.ViewModels.DTO.Product.ProductDTOVMPage>
+
+@{
+    var sales = Context.Request.Query["Sales"].ToString();
+    var popular = Context.Request.Query["Popular"].ToString();
+    int CurrentPage = (int)ViewData["CurentPage"];
+    int PageCount = (int)ViewData["PageCount"];
+}
+
+
+
+<div>
+    <div class="BreadCrumb">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Catalog</li>
+            </ol>
+        </nav>
+    </div>
+    @await Component.InvokeAsync("CatalogCategoryList")
+    <div class="Main">
+        <div class="Fillters">
+            @using (Html.BeginForm("SetFillterValue","Home", FormMethod.Post))
+            {
+                <div>
+                    <input type="radio" name="IsExist" value="IsExist">
+                    <input type="radio" name="IsExist" value="IsNotEsist">
+                </div>
+                <div>
+                    
+                </div>             
+            }
+        </div>
+        <div class="Products" >
+            @foreach(var item in Model)
+            {
+                <div>
+                    <a>
+                        <div>
+                            img
+                         </div
+                         <div>
+                             @item.Name
+                         </div>
+                     </a>
+                </div>           
+            }
+        </div>   
+    </div>
+    <div>
+            <nav aria-label="Page navigation example">
+              <ul class="pagination">
+               
+              </ul>
+            </nav>
+        </div>
+</div>

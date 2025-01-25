@@ -1,0 +1,38 @@
+﻿
+.Content {
+    width: 100%;
+    .CSMMain__img--theme {
+        width: 100%;
+
+        div {
+            padding: 10px;
+            overflow: hidden;
+
+            div {
+                border: solid;
+                border-radius: 20px;
+                margin: 0px 10px 0px 10px;
+                text-align: center;
+
+                &:hover {
+                    border-color: #b8860b;
+                    color: #b8860b;
+                }
+
+                a {
+                    text-decoration: none;
+                    color: black;
+
+                    &:hover {
+                        color: #4e4e4e;
+                    }
+
+                    img {
+                        height: 100px;
+                        width: 100px;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,65 @@
+﻿@using Jewelery.ViewModels.DTO.Category;
+@using System.Text.Json;
+@using Jewelery.ViewModels.DTO.CMSFilter;
+
+
+@model List<CategoryVMDTO>;
+
+
+@{
+    ProductCMSFilterDTO filter = JsonSerializer.Deserialize<ProductCMSFilterDTO>(Context.Session.GetString("FilterProductCMS"));
+
+}
+<script src="~/js/CMS/CategorySortForProductSort.js"></script>
+
+
+
+
+<div class="accordion" id="accordionProductCSMCategoryFilter">
+    <div class="accordion-item">
+        <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                Category for Sort
+            </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse " data-bs-parent="#accordionProductCSMCategoryFilter">
+            <div class="accordion-body">                
+                @foreach (var item in Model)
+                {
+                    <div class="CategoryCheckBoxContainer" data-categoryid="@item.Category_id">
+                        <label for="SelectedCategory_@item.Category_id">@item.Name</label>
+                        @if (filter.CategoryFiltering && filter.SelectedCategory.FirstOrDefault(c => c.CategoryId == item.Category_id).SelectedAllSubCategory == true)
+                        {
+                            <input id="SelectedCategory_@item.Category_id" class="CategoryCheckBox" type="checkbox" name="SelectedCategory" value="@item.Category_id" checked/>
+                        }
+                        else
+                        {
+                            <input id="SelectedCategory_@item.Category_id" class="CategoryCheckBox" type="checkbox" name="SelectedCategory" value="@item.Category_id" />
+                        }
+                       
+                        <div class="SubCategoryContainer">
+                            <span>|__</span>
+                            @foreach (var subitem in item.SubCategories)
+                            {
+
+                                <label for="SelectedSubCategory_@subitem.SubCategory_id">@subitem.Name</label>
+                                if (filter.CategoryFiltering && filter.SelectedCategory.FirstOrDefault(c => c.CategoryId == item.Category_id).SelectedSubCategory.FirstOrDefault(sc => sc.SubCategoryId == subitem.SubCategory_id).Selected == true)
+                                {
+                                    <input id="SelectedSubCategory_@subitem.SubCategory_id" class="SubCategoryCheckBox" type="checkbox" name="SelectedSubCategory" value="@subitem.SubCategory_id" checked />
+                                }
+                                else
+                                {
+                                    <input id="SelectedSubCategory_@subitem.SubCategory_id" class="SubCategoryCheckBox" type="checkbox" name="SelectedSubCategory" value="@subitem.SubCategory_id" />
+                                }
+                                <span>|</span>
+
+                            }
+                        </div>
+                    </div>
+                    <hr />
+                }                
+            </div>
+        </div>
+    </div>
+</div>
+

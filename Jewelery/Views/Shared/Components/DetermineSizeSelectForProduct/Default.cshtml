@@ -1,0 +1,29 @@
+﻿@using Jewelery.ViewModels.DTO.DetermineTheSizeEditor
+
+@{
+    int? SelectedDetermineList = ViewData["SelectedDetermineList"] != null ? ViewData["SelectedDetermineList"] as int? : null ;
+}
+
+@model int
+
+
+@if(SelectedDetermineList != null)
+{
+    <div class="AtributeUnitContainer AtributeInputContainer">
+        <label class="LabelForInput" for="Attributes[@Model].DetermineTheSize_Id">Інструкція по вибору розміру</label>
+        <select class="DetermineTheSizeSelect " name="Attributes[@Model].DetermineTheSize_Id" id="Attributes[@Model].DetermineTheSize_Id">
+            @await Component.InvokeAsync("DetermineSizeSelectForProductOptions", new { selectedDetermoneSize = @SelectedDetermineList })
+        </select>
+    </div>
+
+}
+else {
+    <div class="AtributeUnitContainer AtributeInputContainer">
+        <label class="LabelForInput" for="Attributes[@Model].DetermineTheSize_Id">Інструкція по вибору розміру</label>
+        <select class="DetermineTheSizeSelect" name="Attributes[@Model].DetermineTheSize_Id" id="Attributes[@Model].DetermineTheSize_Id">
+            @await Component.InvokeAsync("DetermineSizeSelectForProductOptions")
+        </select>
+    </div>
+}
+
+

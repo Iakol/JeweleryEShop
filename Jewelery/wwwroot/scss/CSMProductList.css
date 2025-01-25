@@ -1,0 +1,203 @@
+﻿.CSMProductListContainer {
+  padding-top: 3vh;
+}
+.CSMProductListContainer .SearchProductFilterAndCreateButton {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 2vh;
+}
+.CSMProductListContainer .SearchProductFilterAndCreateButton .CreateButtonContainer {
+  margin-bottom: 2vh;
+}
+.CSMProductListContainer .SearchProductFilterAndCreateButton .CreateButtonContainer a {
+  text-decoration: none;
+  color: black;
+  display: inline-block;
+  background-color: lawngreen;
+  font-weight: 600;
+  padding: 1vh 1vw;
+  border-radius: 10px;
+}
+.CSMProductListContainer .SearchProductFilterAndCreateButton .CreateButtonContainer a:hover {
+  color: black;
+  background-color: greenyellow;
+  transition: all 0.5s;
+}
+.CSMProductListContainer .SearchProductFilterAndCreateButton .SearchProductFilter form {
+  position: relative;
+  display: flex;
+  justify-items: baseline;
+}
+.CSMProductListContainer .SearchProductFilterAndCreateButton .SearchProductFilter form input {
+  font-size: 20px;
+  height: 7vh;
+  width: 25vw;
+  padding-right: 5vw;
+}
+.CSMProductListContainer .SearchProductFilterAndCreateButton .SearchProductFilter form input::placeholder {
+  font-style: italic;
+  font-size: 20px;
+}
+.CSMProductListContainer .SearchProductFilterAndCreateButton .SearchProductFilter form button {
+  position: absolute;
+  background: none;
+  border: none;
+  font-size: 28px;
+  left: 20vw;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.CSMProductListContainer .ProductFilterContainer {
+  margin-bottom: 5vh;
+}
+.CSMProductListContainer .ProductFilterContainer form .CategorySortContainer #accordionProductCSMCategoryFilter .accordion-item .accordion-header .accordion-button {
+  background-color: white !important;
+  color: black !important;
+}
+.CSMProductListContainer .ProductFilterContainer form .CategorySortContainer #accordionProductCSMCategoryFilter .accordion-item .accordion-header .accordion-button:focus {
+  box-shadow: none;
+}
+.CSMProductListContainer .ProductFilterContainer form .CategorySortContainer #accordionProductCSMCategoryFilter .accordion-item .accordion-body hr:last-of-type {
+  display: none;
+}
+.CSMProductListContainer .ProductFilterContainer form .CategorySortContainer #accordionProductCSMCategoryFilter .accordion-item .accordion-body .CategoryCheckBoxContainer .SubCategoryContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+}
+.CSMProductListContainer .ProductFilterContainer form .CategorySortContainer #accordionProductCSMCategoryFilter .accordion-item .accordion-body .CategoryCheckBoxContainer .SubCategoryContainer span:last-of-type {
+  display: none;
+}
+.CSMProductListContainer .ProductFilterContainer form .ProductFilterCheackboxes {
+  display: flex;
+  justify-content: space-between;
+  padding: 2vh 5vw;
+}
+.CSMProductListContainer .ProductFilterContainer form .ProductFilterCheackboxes .ProductFilterCheackboxesContainer {
+  min-width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3vh 3vw;
+  border: 1px solid black;
+  border-radius: 1500px;
+  height: 5vh;
+  font-size: 12px;
+}
+.CSMProductListContainer .ProductFilterContainer form .ProductFilterCheackboxes .ProductFilterCheackboxesContainer .Separator {
+  min-width: 1px;
+  width: 1px;
+  height: 5vh;
+  border: 1px solid black;
+  border-radius: 0;
+  padding: 0;
+}
+.CSMProductListContainer .ProductFilterContainer form .FilterSubmitButton {
+  color: black;
+  display: inline-block;
+  background-color: lawngreen;
+  font-weight: 600;
+  padding: 1vh 1vw;
+  border-radius: 10px;
+  width: 20vw;
+  border: 1px solid green;
+}
+.CSMProductListContainer .ProductFilterContainer form .FilterSubmitButton:hover {
+  color: black;
+  background-color: greenyellow;
+  transition: all 0.5s;
+}
+.CSMProductListContainer .ProductListContainer hr:last-of-type {
+  display: none;
+}
+.CSMProductListContainer .ProductListContainer .ProductContainerForOne {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  background-color: rgba(34, 139, 34, 0.09);
+  padding: 1vh 1vh;
+  display: flex;
+  justify-content: start;
+  align-content: baseline;
+  width: 100%;
+}
+.CSMProductListContainer .ProductListContainer .ProductContainerForOne .ProductImageContainer {
+  width: 25%;
+}
+.CSMProductListContainer .ProductListContainer .ProductContainerForOne .ProductImageContainer .ProductImage {
+  height: 25vh;
+  width: 15vw;
+}
+.CSMProductListContainer .ProductListContainer .ProductContainerForOne .ProductCredContainer {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.CSMProductListContainer .ProductListContainer .ProductContainerForOne .ProductCredContainer .ProductNameAndDescriptionContainer {
+  padding: 0;
+  background-color: inherit;
+  border: none;
+}
+.CSMProductListContainer .ProductListContainer .ProductContainerForOne .ProductCredContainer .ProductNameAndDescriptionContainer .Name_Description {
+  padding: 0 !important;
+}
+.CSMProductListContainer .ProductListContainer .ProductContainerForOne .ProductCredContainer .ProductNameAndDescriptionContainer .TabsList {
+  background-color: inherit;
+  border: none;
+  max-width: 50%;
+  width: 25%;
+  display: flex;
+  list-style: none;
+  padding: 0;
+  justify-content: space-between;
+}
+.CSMProductListContainer .ProductListContainer .ProductContainerForOne .ProductCredContainer .ProductNameAndDescriptionContainer .TabsList .TabButtonLI {
+  border-radius: 3px;
+}
+.CSMProductListContainer .ProductListContainer .ProductContainerForOne .ProductCredContainer .ProductNameAndDescriptionContainer .TabsList .TabButtonLI .TabButton {
+  border-bottom: 1px solid rgb(197, 197, 197);
+}
+.CSMProductListContainer .ProductListContainer .ProductContainerForOne .ProductCredContainer .ProductNameAndDescriptionContainer .TabsList .ui-state-active .TabButton {
+  border-bottom: 1px solid rgb(0, 62, 255);
+}
+.CSMProductListContainer .ProductListContainer .ProductContainerForOne .ProductCredContainer .ProductCredInfoContainer {
+  display: flex;
+  justify-content: space-evenly;
+}
+.CSMProductListContainer .ProductListContainer .ProductContainerForOne .ProductButtonsAndPrice {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.CSMProductListContainer .ProductListContainer .ProductContainerForOne .ProductButtonsAndPrice .ProductPricesContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+.CSMProductListContainer .ProductListContainer .ProductContainerForOne .ProductButtonsAndPrice .ProductButtons {
+  display: flex;
+  justify-content: space-evenly;
+}
+.CSMProductListContainer .ProductListContainer .ProductContainerForOne .ProductButtonsAndPrice .ProductButtons .ButtonProductContainer {
+  height: 50px;
+  width: 50px;
+  background-color: lawngreen;
+  border-radius: 5px;
+  text-align: center;
+  align-content: center;
+  text-decoration: none;
+}
+.CSMProductListContainer .ProductListContainer .ProductContainerForOne .ProductButtonsAndPrice .ProductButtons .ButtonProductContainer .ProductButton {
+  color: black;
+  font-weight: 700;
+  text-decoration: none;
+}
+.CSMProductListContainer .ProductListContainer .ProductContainerForOne .ProductButtonsAndPrice .ProductButtons .ButtonProductContainer .ProductButton .EditButtonSVG {
+  height: 20px;
+  width: 20px;
+}
+.CSMProductListContainer .ProductListContainer .ProductContainerForOne .ProductButtonsAndPrice .ProductButtons .DeleteButton {
+  background-color: orangered;
+}

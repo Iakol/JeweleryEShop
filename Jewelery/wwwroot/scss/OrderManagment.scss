@@ -1,0 +1,57 @@
+﻿.MainComponent {
+    .OrderSortContainer {
+        padding: 1vh 1vw;
+
+        .OrderSortStastus {
+            display: flex;
+            padding: 1vh 1vw;
+            justify-content: space-between;
+
+            .StatusButton {
+                display: inline-block;
+                text-align: center;
+                border: solid 1px black;
+                cursor: pointer;
+                color: black;
+                padding: 1vh 1vw;
+                font-weight: 700;
+                width: 10vw;
+                border-radius: 1500px;
+            }
+
+            .StatusButtonSelected {
+                background-color: forestgreen;
+                color: white;
+            }
+        }
+
+        .OrderSortValues {
+            background-color: rgba(76, 255, 0,0.1);
+            display: flex;
+            justify-content: space-between;
+            padding: 1vh 1vw;
+            min-height: 25vh;
+
+            .SeachInputContainer {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+
+                #SearchSubmitButton {
+                    border: none;
+                    border-radius: 1500px;
+                    color: white;
+                    background-color: rgb(64, 64, 64);
+                    padding: 1vh 3vw;
+                    width: 30%;
+                }
+            }
+        }
+
+        .Ordering{
+            display:flex;
+            flex-direction:column;
+            justify-content:space-between;
+        }
+    }
+}

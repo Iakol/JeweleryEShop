@@ -1,0 +1,109 @@
+﻿.DetermineSizeListContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.DetermineSizeListContainer .AddButtonDetermineSize {
+  padding: 2vh;
+}
+.DetermineSizeListContainer .AddButtonDetermineSize .DetermineTheSizeEditorButton {
+  border: solid 1px green;
+  background-color: lawngreen;
+  padding: 2vh;
+  color: black;
+  font-size: 3vh;
+  border-radius: 1500vh;
+  text-decoration: none;
+  font-weight: 600;
+}
+.DetermineSizeListContainer .DetermineSizeList .DetermineSizeObjectContainer {
+  padding: 1vh;
+}
+.DetermineSizeListContainer .DetermineSizeList .DetermineSizeObjectContainer .DetermineSizeCredential {
+  border: solid 1px black;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  padding: 2vh 0;
+}
+.DetermineSizeListContainer .DetermineSizeList .DetermineSizeObjectContainer .DetermineSizeCredential .DetermineSizeNameContainer {
+  font-size: 3vh;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  padding-left: 1vw;
+}
+.DetermineSizeListContainer .DetermineSizeList .DetermineSizeObjectContainer .DetermineSizeCredential .DetermineSizePreviewButtonsContainer {
+  font-size: 3vh;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  padding-left: 1vw;
+  justify-content: space-around;
+}
+.DetermineSizeListContainer .DetermineSizeList .DetermineSizeObjectContainer .DetermineSizeCredential .DetermineSizePreviewButtonsContainer .PreviewButton {
+  background-color: lawngreen;
+  color: black;
+  border: solid green 1px;
+  border-radius: 10000vh;
+  padding: 0;
+  min-width: 8vw;
+  min-height: 5vh;
+  font-size: 2vh;
+  font-weight: 600;
+}
+.DetermineSizeListContainer .DetermineSizeList .DetermineSizeObjectContainer .DetermineSizeCredential .DetermineSizePreviewButtonsContainer .PreviewButton:focus {
+  outline: none;
+  box-shadow: none;
+}
+.DetermineSizeListContainer .DetermineSizeList .DetermineSizeObjectContainer .DetermineSizeCredential .DetermineSizePreviewButtonsContainer .PreviewButton:focus-visible {
+  box-shadow: none;
+}
+.DetermineSizeListContainer .DetermineSizeList .DetermineSizeObjectContainer .DetermineSizeCredential .DetermineTheSizeButtonsContainer {
+  font-size: 3vh;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  padding-left: 1vw;
+  justify-content: space-around;
+}
+.DetermineSizeListContainer .DetermineSizeList .DetermineSizeObjectContainer .DetermineSizeCredential .DetermineTheSizeButtonsContainer .DetermineTheSizeButtonConainer {
+  display: flex;
+  align-items: center;
+}
+.DetermineSizeListContainer .DetermineSizeList .DetermineSizeObjectContainer .DetermineSizeCredential .DetermineTheSizeButtonsContainer .DetermineTheSizeButtonConainer .DetermineTheSizeButton {
+  background-color: lawngreen;
+  color: black;
+  border: solid green 1px;
+  border-radius: 10000vh;
+  min-width: 8vw;
+  min-height: 5vh;
+  text-align: center;
+  text-decoration: none;
+  font-size: 2vh;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.DetermineSizeListContainer .DetermineSizeList .DetermineSizeObjectContainer .ModalContainer .modal-dialog {
+  max-width: 100%;
+  width: 100%;
+  margin: 0;
+}
+.DetermineSizeListContainer .DetermineSizeList .DetermineSizeObjectContainer .ModalContainer .modal-dialog .modal-content .ModalHeader {
+  display: flex;
+  justify-content: flex-end;
+  padding: 1vw;
+}
+.DetermineSizeListContainer .DetermineSizeList .DetermineSizeObjectContainer .ModalContainer .modal-dialog .modal-content .ContentContainer {
+  padding: 2vh 10vw;
+  display: flex;
+  flex-direction: column;
+}
+.DetermineSizeListContainer .DetermineSizeList .DetermineSizeObjectContainer .ModalContainer .modal-dialog .modal-content .ContentContainer .PreviewPhotoContainer {
+  display: flex;
+  justify-content: center;
+}
+.DetermineSizeListContainer .DetermineSizeList .DetermineSizeObjectContainer .ModalContainer .modal-dialog .modal-content .ContentContainer .PreviewPhotoContainer img {
+  max-width: 100%;
+}

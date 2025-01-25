@@ -1,0 +1,40 @@
+﻿@using Jewelery.localization;
+@model Jewelery.ViewModels.DTO.Cart.CartDTOVM
+
+@{
+    
+
+}
+
+<div class="CartList">
+    <div>
+        <h3>
+            @Resource.Order
+        </h3>
+        <a>
+            @Resource.Edit   
+        </a>
+    </div>
+    <div>
+        @foreach (var item in Model.cart_ItemDTOVMs)
+        {
+            <div class="CartItem">
+                <div class="Description">
+                    <h6>@item.Product.Name</h6>
+                    @foreach(var opt in item.Options)
+                    {
+                        <p>@opt.Atribute_Description @opt.Size</p>
+                    }
+                    <p>@item.Product.Articul</p>
+                </div>
+                <div>
+                    <h6>@Resource.Total_Price</h6>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<div class="SubmitButtons">
+    <button type="submit">@Resource.Pay_online</button>
+    <button>@Resource.Payment_by_certificate</button>
+</div>

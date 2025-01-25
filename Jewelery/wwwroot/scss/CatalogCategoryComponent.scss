@@ -1,0 +1,79 @@
+﻿
+.Notslick-slide {
+    display: flex;
+    margin: 0% 5vw;
+    text-align: center;
+
+    a {
+        text-decoration: none;
+        color: black;
+    }
+
+    img {
+        border-radius: 50%;
+        height: 150px;
+        width: 150px;
+    }
+}
+
+.slick-track{
+    align-items:baseline;
+    height:100%;
+    display:flex;
+    padding-left:2vw;
+}
+.slick-slide {
+    align-self: center;
+    height: 100%;
+    margin-right:3vw!important;
+}
+
+    .CategoryListCarusel {
+        overflow-x: hidden;
+        display: flex;
+        flex-direction: row;
+        padding: 5px 5px;
+        height: 35vh;
+
+
+        .slick-list {
+            overflow-x: hidden;
+            width:100%;
+
+            .slick-slide {
+                margin: 0% 0.005%;
+                text-align: center;
+
+
+
+
+                a {
+                    text-decoration: none;
+                    color: black;
+                }
+
+                img {
+                    border-radius: 50%;
+                    height: 150px;
+                    width: 150px;
+                }
+            }
+        }
+
+        .slick-arrow {
+            background: white;
+            z-index: 1;
+            height: 150px;
+            width: 50px;
+            font-size: 30px;
+            font-family: "New Amsterdam", sans-serif;
+            font-weight: 600;
+            font-style: normal;
+            border: none;
+            top: 20%;
+        }
+
+        .slick-next {
+            right: 0;
+        }
+    }

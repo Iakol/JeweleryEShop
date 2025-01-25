@@ -1,0 +1,32 @@
+﻿.CSMMain__img--theme * img {
+    height: 100px;
+    width: 100px;
+}
+
+.CSMMain__img--theme * a {
+    text-decoration:none;
+    color: black;
+}
+
+.CSMMain__img--theme div div{
+    border: solid;
+    border-radius: 20px;
+    margin: 0px 10px 0px 10px;
+    text-align:center;
+    
+}
+
+    .CSMMain__img--theme div div:hover {
+        border-color: #b8860b;
+        color: #b8860b;
+    }
+
+    .CSMMain__img--theme div div a:hover {
+        color: #4e4e4e;
+    }
+
+
+.CSMMain__img--theme div {
+    padding: 10px;
+    overflow: hidden;
+}

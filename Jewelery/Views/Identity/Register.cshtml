@@ -1,0 +1,53 @@
+﻿@model Jewelery.ViewModels.DTO.Identity.RegisterDTOVM
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@using (Html.BeginForm("Register", "Identity", FormMethod.Post))
+{
+    <div>
+        @Html.LabelFor(model => model.First_Name,"First_Name*")
+        @Html.EditorFor(model => model.First_Name)
+        @Html.ValidationMessageFor(model => model.First_Name)
+
+    </div>
+    <div>
+        @Html.LabelFor(model => model.Second_Name,"Second_Name*")
+        @Html.EditorFor(model => model.Second_Name)
+        @Html.ValidationMessageFor(model => model.Second_Name)
+    </div>
+    <div>
+        @Html.LabelFor(model => model.Father_Name,"Father_Name")
+        @Html.EditorFor(model => model.Father_Name)
+    </div>
+    <div>
+        @Html.LabelFor(model => model.Phone_number,"Phone_number")
+        @Html.EditorFor(model => model.Phone_number)
+        @Html.ValidationMessageFor(model => model.Phone_number)
+
+    </div>
+    <div>
+        @Html.LabelFor(model => model.Email,"Email")
+        @Html.EditorFor(model => model.Email)
+        @Html.ValidationMessageFor(model => model.Email)
+    </div>
+    <div>
+        @Html.LabelFor(model => model.UserName,"UserName")
+        @Html.EditorFor(model => model.UserName)
+        @Html.ValidationMessageFor(model => model.UserName)
+    </div>
+    <div>
+        @Html.LabelFor(model => model.Password,"Password")
+        @Html.PasswordFor(model => model.Password)
+        @Html.ValidationMessageFor(model => model.Password)
+    </div>
+    <div>
+        @Html.LabelFor(model => model.ConfirmPassword,"Repeat Password")
+        @Html.PasswordFor(model => model.ConfirmPassword)
+        @Html.ValidationMessageFor(model => model.ConfirmPassword)
+    </div>
+    <div>
+        <button type="submit">submit</button>
+    </div>
+}
+

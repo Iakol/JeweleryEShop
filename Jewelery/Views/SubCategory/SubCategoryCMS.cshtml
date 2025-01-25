@@ -1,0 +1,80 @@
+﻿@model Jewelery.ViewModels.VMCMS.VMCategory.VMSubCategory.VMSubCategoryCMS
+
+@{
+    Layout = "~/Views/Shared/_LayoutCSM.cshtml";
+}
+
+<div class="container">
+    <div>
+        <a class="col-1 mt-4 mb-4 btn btn-secondary" asp-controller="Category" asp-action="CategoryCMS">
+            Назад
+            <img class="SubCategoryBackCSM" src="~/SVG/back-return-svgrepo-com.svg" alt="SVG Image">
+        </a>
+    </div>
+    <div class="row d-flex justify-content-between mt-1 mb-1">
+        <input type="text" class="col-3" />
+        <a class="col-2 btn btn-success" asp-controller="SubCategory" asp-action="UpsertSubCategoryCMS" asp-route-category_id="@Model.Category.Category_id">Додати під категорію</a>
+    </div>
+    <div>
+        <p>Категорія: 
+            @if (Model.Category != null)
+            {
+                @Model.Category.Name;    
+            }
+        </p>
+    </div>
+    <div class="row d-flex justify-content-center">
+        <table class="CMSTable">
+            <thead>
+                <tr>
+                    <th class="col-1">
+                        Id
+                    </th>
+                    <th class="col-2">
+                        Назва
+                    </th>
+                    <th class="col-4">
+                        Опис
+                    </th>
+                    <th class="col-3">
+                        Фото
+                    </th>
+                    <th class="col-1">
+                        Редагувати
+                    </th>
+                    <th class="col-1">
+                        Видалити
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null)
+                {
+                    @foreach (var item in Model.SubCategories)
+                    {
+                        <tr>
+                            <td>@item.Category_id</td>
+                            <td>@item.Name</td>
+                            <td>@item.Description</td>
+                            <td>
+                                <img href="@item.Image" alt="SubCategoryPhoto"/>
+                            </td>
+                            <td>
+                                <a class="btn CSMEditBtn" asp-route-id="@item.SubCategory_id" asp-route-category_id="@item.SubCategory_id" asp-controller="Category" asp-action="UpsertCategoryCMS">
+                                    <img src="~/SVG/edit-svgrepo-com.svg" alt="SVG Image">
+                                    Редагувати</a>
+                            </td>
+                            <td>
+                                <a class="btn CSMDeleteBtn" asp-route-id="@item.SubCategory_id" asp-route-category_id="@item.SubCategory_id" asp-controller="Category" asp-action="DeleteCategoryCMS">
+                                    <img src="~/SVG/delete-svgrepo-com.svg" alt="SVG Image">
+                                    Видалити</a>
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+
+        </table>
+    </div>
+
+</div>

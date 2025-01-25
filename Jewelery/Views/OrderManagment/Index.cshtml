@@ -1,0 +1,178 @@
+﻿@using Jewelery.Infrastructure.Enums;
+@using Jewelery.ViewModels.DTO.CMSFilter
+@using Jewelery.ViewModels.DTO.Order;
+@using System.Text.Json;
+
+@model List< OrderVMDTO >
+
+@{
+    OrderCMSFilter filter = JsonSerializer.Deserialize < OrderCMSFilter >( Context.Session.GetString("OrderCSMFilter"));
+    Layout = "~/Views/Shared/_LayoutCSM.cshtml";
+    bool UserId = !string.IsNullOrEmpty(Context.Request.Query["userID"]);
+
+}
+<link rel="stylesheet" href="~/scss/OrderManagment.css" />
+<script src="~/js/Order/OrderManagmentListFilterMethods.js"></script>
+<div class="MainComponent">
+    <div class="OrderSortContainer">
+        <div class="OrderSortStastus" data-url="@Url.Action("SetFilterVariable", "OrderManagment")">
+            @foreach(var status in Enum.GetNames(typeof(OrderEnum)))
+            {
+
+                @if (filter.SelectedStatus.Count() > 0 && filter.SelectedStatus.Contains((int)(Enum.Parse(typeof(OrderEnum), status))))
+                {
+                    <span data-enumid="@((int)(Enum.Parse(typeof(OrderEnum), status)))" class="StatusButton StatusButtonSelected">
+                        @status
+                    </span>
+                }
+                else
+                {
+                    <span data-enumid="@((int)(Enum.Parse(typeof(OrderEnum), status)))" class="StatusButton">
+                        @status
+                    </span>
+                }
+
+            }           
+
+        </div>
+        <div class="OrderSortValues">
+            <div class="SeachInputContainer">
+                <label for="Searchinput">Search Value</label>
+                <input id="Searchinput" type="text" value="@filter.SearchValue" />
+                <div class="SearchCheckBox">
+                    <label for="by_user_name">Find in user name</label>
+
+                    <input type="checkbox" name="by_user_name" value="0" @(filter.SearchType.Contains(0) ? "checked" : "") />
+                    <label for="by_delivery_name">Find in delivery name</label>
+                    <input type="checkbox" name="by_delivery_name" value="1" @(filter.SearchType.Contains(1) ? "checked" : "") />
+                    <label for="by_delivery_name">Find in product name</label>
+                    <input type="checkbox" name="by_product_name" value="2" @(filter.SearchType.Contains(2) ? "checked" : "") />
+                </div>
+                <button id="SearchSubmitButton">Search</button>
+            </div>
+            <div class="Ordering">
+                @using (Html.BeginForm("", "", FormMethod.Post,new { id = "OrderSelectForm" }))
+                {
+                    <label for="OrderSelect">Сортувати:</label>
+                    <select name="Ording" id="OrderSelect">
+                        @if (filter.OrderSelect == 0) 
+                        {
+                            <option value="0" selected>По новизні</option>
+
+                        }
+                        else{
+                            <option value="0">По новизні</option>
+                        }
+                        @if (filter.OrderSelect == 1)
+                        {
+                            <option value="1" selected>По Найбільшій сумі</option>
+
+                        }
+                        else
+                        {
+                            <option value="1" >По Найбільшій сумі</option>
+                        }
+                        @if (filter.OrderSelect == 2)
+                        {
+                            <option value="2" selected>По Найменшій сумі</option>
+
+                        }
+                        else
+                        {
+                            <option value="2">По Найменшій сумі</option>
+                        }
+                    </select>
+                }
+                <div id="ResetAllSorting">
+                    @if (filter.SearchValue != "" || filter.SearchType.Count() != 0 || filter.SelectedStatus.Count() != 0 || filter.OrderSelect != 0) 
+                    {
+                        <a asp-action="ResetFilters" asp-controller="OrderManagment">Reset All Filters</a>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="OrderContainer">
+        @if (UserId && Model.Count() >= 1 && Model.All(u => u.User != null) && Model.Any(u => u.User.Id.Equals(Context.Request.Query["userID"])))
+        {
+            <h4>Orders of @Model[0].User.Name @Model[0].User.Second_Name</h4>
+        }
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        OrderID
+                    </th>
+                    <th>
+                        Date
+                    </th>
+                    <th>
+                        Customer
+                    </th>
+                    <th>
+                        Total
+                    </th>
+                    <th>
+                        Status
+                    </th>
+                    <th>
+                        Items
+                    </th>
+                    <th>
+                        User
+                    </th>
+                    <th>
+                        Details
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var item in Model)
+                {
+                    <tr>
+                        <td>
+                            <a asp-action="OrderDetail" asp-controller="OrderManagment" asp-route-orderId="@item.Order_id">
+                                @item.Order_id
+                            </a>
+                        </td>
+                        <td>
+                            @item.Created_at
+                        </td>
+                        <td>
+                            @item.Delivery_detail.Delivery_Name @item.Delivery_detail.Delivery_Second_Name
+                        </td>
+                        <td>
+                            @item.Total_price ₴
+                        </td>
+                        <td>
+                            @Enum.GetName(typeof(OrderEnum),(int)item.Status)
+                        </td>
+                        <td>
+                            @item.Order_Details.Count()
+                        </td>
+                        <td>
+                            @if (item.User != null)
+                            {
+                                <a class="ReffToUserLink" href="#" >Reff to User</a>
+                                @if (!UserId)
+                                {
+                                    <a asp-action="Index" asp-controller="OrderManagment" asp-route-userID="@item.User.Id">All Orders Of this User</a>
+                                }
+                            }
+                            else
+                            {
+                                <span>Order was created without registered user</span>
+                            }
+                        </td>
+                        <td>
+                            <a asp-action="OrderDetail" asp-controller="OrderManagment" asp-route-orderId="@item.Order_id">
+                                View Details
+                            </a>
+                        </td>
+                    </tr>                   
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="OrderPagination"></div>
+</div>

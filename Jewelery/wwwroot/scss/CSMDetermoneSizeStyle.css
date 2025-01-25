@@ -1,0 +1,160 @@
+﻿.Editor_Container {
+  padding-top: 5vh;
+  min-height: 100vh;
+}
+.Editor_Container .Editor {
+  height: 100%;
+}
+.Editor_Container .Editor #EditorForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 20vh;
+}
+.Editor_Container .Editor #EditorForm .NameInputContainer {
+  display: flex;
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+}
+.Editor_Container .Editor #EditorForm .TitleContainer {
+  margin-top: 5vh;
+  margin-bottom: 2vh;
+  display: flex;
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+}
+.Editor_Container .Editor #EditorForm .TitleContainer .TitleUkrContainer, .Editor_Container .Editor #EditorForm .TitleContainer .TitleEngContainer {
+  width: 100%;
+}
+.Editor_Container .Editor #EditorForm .TitleContainer .TitleInput {
+  width: 70%;
+  font-size: 4vh;
+  border: none;
+  border-bottom: 1px black solid;
+}
+.Editor_Container .Editor #EditorForm .TitleContainer .TitleInput:focus-visible {
+  outline: none;
+}
+.Editor_Container .Editor #EditorForm .LanguageTabs {
+  position: fixed;
+  right: 3vw;
+  top: 2vh;
+}
+.Editor_Container .Editor #EditorForm .LanguageTabs .LanguageTabsButtonsContainer {
+  display: flex;
+  justify-content: space-between;
+}
+.Editor_Container .Editor #EditorForm .DetermizeSizeContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.Editor_Container .Editor #EditorForm .DetermizeSizeContainer .DetermizeSizeObject {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 70vw;
+  max-width: 70vw;
+  margin-bottom: 3vh;
+}
+.Editor_Container .Editor #EditorForm .DetermizeSizeContainer .DetermizeSizeObject .IconContainer .bi::before {
+  font-size: 5vh;
+}
+.Editor_Container .Editor #EditorForm .DetermizeSizeContainer .DetermizeSizeObject .TextInpuntsContainer .TextInputObject {
+  min-width: 65vw;
+}
+.Editor_Container .Editor #EditorForm .DetermizeSizeContainer .DetermizeSizeObject .TextInpuntsContainer .TextInputObject .TextAreaInputField {
+  resize: none;
+  min-width: 65vw;
+  min-height: 10vh;
+  height: auto;
+  border: none;
+}
+.Editor_Container .Editor #EditorForm .DetermizeSizeContainer .DetermizeSizeObject .PhotoInpuntsContainer .PhotoInputObject {
+  min-width: 65vw;
+  min-height: 10vh;
+}
+.Editor_Container .Editor #EditorForm .DetermizeSizeContainer .DetermizeSizeObject .PhotoInpuntsContainer .PhotoInputObject .ImagePreviewContainer {
+  text-align: center;
+  margin-bottom: 1vh;
+}
+.Editor_Container .Editor #EditorForm .DetermizeSizeContainer .DetermizeSizeObject .PhotoInpuntsContainer .PhotoInputObject .ImagePreviewContainer img {
+  max-width: 95%;
+}
+.Editor_Container .Editor #EditorForm .DetermizeSizeContainer .DetermizeSizeObject .PhotoInpuntsContainer .PhotoInputObject .ImageInputContainer {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 2vw;
+}
+.Editor_Container .Editor #EditorForm .EditorFooter {
+  display: flex;
+  flex-direction: column;
+  width: 83%;
+  position: fixed;
+  bottom: 0;
+  background-color: white;
+  z-index: 1;
+  border: solid 1px black;
+  justify-content: space-between;
+}
+.Editor_Container .Editor #EditorForm .EditorFooter .LanguageButtonsAndAddButtons {
+  width: 100%;
+  display: flex;
+}
+.Editor_Container .Editor #EditorForm .EditorFooter .LanguageButtonsAndAddButtons .AddButtons {
+  width: 90%;
+  display: flex;
+  justify-content: space-evenly;
+}
+.Editor_Container .Editor #EditorForm .EditorFooter .LanguageButtonsAndAddButtons .AddButtons .AddButton {
+  margin: 1vh 0;
+  border: 2px solid green;
+  border-radius: 1500vh;
+  background-color: lawngreen;
+  min-height: 6vh;
+  min-width: 10vw;
+}
+.Editor_Container .Editor #EditorForm .EditorFooter .LanguageButtonsAndAddButtons .LanguageTabsFotter {
+  margin: 1vh 0;
+  width: 10%;
+  display: flex;
+  justify-content: space-around;
+}
+.Editor_Container .Editor #EditorForm .EditorFooter .SaveAndPreviewButtons {
+  width: 90%;
+  display: flex;
+  justify-content: space-evenly;
+}
+.Editor_Container .Editor #EditorForm .EditorFooter .SaveAndPreviewButtons .FinishedButtons {
+  margin: 1vh 0;
+  border: 2px solid green;
+  border-radius: 1500vh;
+  background-color: lawngreen;
+  min-height: 6vh;
+  min-width: 10vw;
+}
+.Editor_Container .PreviewContainer .modal-dialog {
+  max-height: 100%;
+  max-width: 100%;
+  margin: 0;
+}
+.Editor_Container .PreviewContainer .modal-dialog .modal-body .CloseModalPrevieButtonContainer {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 2vw;
+}
+.Editor_Container .PreviewContainer .modal-dialog .modal-body #ContentContainer {
+  padding: 2vh 10vw;
+  display: flex;
+  flex-direction: column;
+}
+.Editor_Container .PreviewContainer .modal-dialog .modal-body #ContentContainer .PreviewPhotoContainer {
+  display: flex;
+  justify-content: center;
+}
+.Editor_Container .PreviewContainer .modal-dialog .modal-body #ContentContainer .PreviewPhotoContainer img {
+  max-width: 100%;
+}

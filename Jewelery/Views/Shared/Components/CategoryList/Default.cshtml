@@ -1,0 +1,55 @@
+﻿@using Jewelery.ViewModels.DTO.Category;
+@model List<CategoryVMDTO>;
+
+@{
+    int Sales = (int)ViewData["Sales"];
+    int Sertificat = (int)ViewData["Sertificat"];
+
+}
+
+@foreach (var item in Model)
+                        {
+    @if (item.Category_id == Sales)
+    {
+        <li class="nav-item flex-grow-1">
+            <a class="nav-link" asp-area="" asp-controller="Shop" asp-action="Index" asp-route-Constanta="Sales">@item.Name</a>
+        </li>
+    }
+    else if (item.Category_id == Sertificat)
+    {
+        <li class="nav-item flex-grow-1">
+            <a class="nav-link" asp-area="" asp-controller="Shop" asp-action="Index" asp-route-Constanta="Sertificat">@item.Name</a>
+        </li>
+
+    }
+    else
+    {
+        <li class="nav-item flex-grow-1">
+            <a class="nav-link" asp-area="" asp-controller="Shop" asp-action="Category" asp-route-sub_cat_id="" asp-route-cat_id="@item.Category_id">@item.Name</a>
+            @if (item.SubCategories.Count > 0)
+            {
+                <ul>
+                    <li>
+                        <a class="nav-link" asp-area="" asp-controller="Shop" asp-action="Category" asp-route-cat_id="@item.Category_id" asp-route-sub_cat_id="">
+                                <img src="@item.Image" alt="@item.Name">
+                                <p>Всі @item.Name</p>
+                            </a>
+                    </li>
+
+                    @foreach (var subitem in item.SubCategories)
+                    {
+                        <li>
+                                <a asp-area="" asp-controller="Shop" asp-action="Category" asp-route-cat_id="@item.Category_id" asp-route-sub_cat_id="@subitem.SubCategory_id">
+                                    <img src="@subitem.Image" alt="@subitem.Name">
+                                    <p>@subitem.Name</p>
+                                 </a>                                
+                        </li>
+                    }
+                </ul>
+            }
+
+        </li>
+    
+    }
+    
+}

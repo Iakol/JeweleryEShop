@@ -1,0 +1,39 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutCSM.cshtml";
+}
+@model Jewelery.ViewModels.DTO.Category.CategoryVMDTO
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script src="~/js/CMS/CategoryPositionModificator.js"></script>
+<link rel="stylesheet" href="~/scss/HeaderStyle.css" asp-append-version="true" />
+
+
+
+
+
+<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white box-shadow mb-0 p-0 ">
+    <div class="container-fluid justify-content-between p-0">
+        <div class="navbar-collapse collapse d-sm-inline-flex ">
+            <ul class="navbar-nav d-flex w-100 justify-content-around Nav__second__layout--theme " style="justify-content:right">
+                <li class="nav-item flex-grow-1" >
+                    <a class="nav-link" href="#">@Model.Name</a>
+                    @if (Model.SubCategories.Count > 0)
+                    {
+                        <ul id="sortable" style="display:flex; position:static; background-color:rgba(34, 40, 49, 0.8)">
+                            @foreach (var subitem in Model.SubCategories)
+                            {
+                                <li class="itemOfList" data-id="@subitem.SubCategory_id">
+                                    <a href="#">@subitem.Name</a>
+                                </li>
+                            }                            
+                        </ul>
+                    }
+
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<button type="submit" data-url="@Url.Action("UpdateViewOrderForSubCategories","Category")">Submit Order</button>

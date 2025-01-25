@@ -1,0 +1,507 @@
+﻿@use "Variables.scss" as V;
+.AddProductPageContainer {
+    #AddProductForm {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 2vh;
+
+        .PagePart {
+            margin: 3vh 0;
+        }
+
+        .FormContainer {
+            .LabelForInput {
+                font-size: V.$DefaultSizeForLabelForInput;
+                font-weight: 600;
+                margin-bottom: 1vh;
+            }
+
+            .HeaderSpanStyle {
+                font-size: V.$HeaderSpanStyle;
+                font-weight: 600;
+                margin-bottom: 3vh;
+            }
+
+            .ImageInputContainer {
+                margin-bottom: 3vh;
+
+
+                .Image_ContainerAndAddButton {
+                    border: V.$DarkGreyColorForBorder solid 1px;
+                    border-radius: 2vh;
+                    display: inline-flex;
+                    justify-content: start;
+                    padding: 1vh;
+                    overflow: auto;
+
+
+
+                    .newImageInputContainer {
+                        height: 20vh;
+                        width: 20vh;
+                        margin: 0 0.5vh;
+
+                        #newImageInput {
+                            height: 20vh;
+                            width: 20vh;
+                            border: none;
+                            border-color: rgba(0,0,0,0);
+                            border-radius: 2vh;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+
+                            .PlusCont {
+                                height: 9vh;
+                                width: 9vh;
+                                border-radius: 50%;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+
+
+                                .bi {
+                                    color: black;
+                                    font-weight: 400;
+                                    font-size: 5vh;
+                                }
+                            }
+
+                            &:hover {
+                                border: 1px solid V.$LightGreyColorForBorder;
+                                background-color: whitesmoke;
+                                transition: all 300ms ease-out;
+
+                                .PlusCont {
+                                    background-color: #3f3f3f;
+                                    transition: all 300ms ease-out;
+
+                                    .bi {
+                                        color: white;
+                                        transition: all 200ms ease-out;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .Image_Container {
+                        display: flex;
+                        justify-content: center;
+
+                        .Image_group {
+                            height: 20vh;
+                            width: 20vh;
+                            margin: 0 0.5vh;
+                            margin-right: 1vh;
+                            position: relative;
+                            border-radius: 2vh;
+
+
+
+
+                            .PreviewContainerForImage {
+                                &:hover {
+                                    .Buttons {
+                                        visibility: visible;
+                                        opacity: 1;
+                                        transform: opacity 1s;
+
+
+                                        .RemoveImageButton {
+                                            transform: translateY(-10px);
+                                        }
+
+                                        .OpenImageButton {
+                                            transform: translateY(10px);
+                                        }
+                                    }
+                                }
+
+                                .Buttons {
+                                    border-radius: 2vh;
+                                    background-color: rgb(0, 0, 0,0.5);
+                                    visibility: hidden;
+                                    position: absolute;
+                                    opacity: 0;
+                                    height: 100%;
+                                    width: 100%;
+                                    top: 0;
+                                    left: 0;
+                                    z-index: 1;
+                                    display: flex;
+                                    flex-direction: column;
+                                    justify-content: center;
+
+                                    .RemoveImageButton {
+                                        background-color: rgba(1,1,1,0);
+                                        transition: all 0.3s ease;
+                                        color: white;
+                                        border: none;
+                                    }
+
+                                    .OpenImageButton {
+                                        background-color: rgba(1,1,1,0);
+                                        transition: all 0.3s ease;
+                                        color: white;
+                                        border: none;
+                                    }
+                                }
+
+                                img {
+                                    height: 20vh;
+                                    width: 20vh;
+                                    border-radius: 2vh;
+                                }
+                            }
+
+
+
+
+                            .ImageModal {
+                                visibility: hidden;
+                                position: fixed;
+                                top: 0;
+                                left: 0;
+                                width: 100%;
+                                height: 100%;
+                                background-color: rgba(1,1,1,0.7);
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: space-around;
+                                align-items: center;
+                                z-index: 10;
+
+                                .ImageModalContainer {
+                                    max-height: 70vh;
+
+                                    .ModalImagePreview {
+                                        max-height: 70vh;
+                                        max-width: 50vw;
+                                    }
+                                }
+
+                                .InputsModalContainer {
+                                    display: flex;
+                                    flex-direction: column;
+                                    width: 50%;
+                                    justify-content: center;
+                                    align-items: center;
+
+                                    .AltTextImageContainer {
+                                        display: flex;
+                                        flex-direction: column;
+                                        background-color: white;
+                                        padding: 1vh;
+
+                                        input {
+                                            width: 20vw;
+                                        }
+                                    }
+
+                                    .ChooseNewInputImageContainer {
+                                        display: flex;
+                                        align-items: center;
+                                        background-color: white;
+                                        padding: 1vh;
+
+                                        input {
+                                            width: 20vw;
+                                        }
+                                    }
+                                }
+                            }
+
+                            .OpenModal {
+                                visibility: visible;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .NameAndDescriptionSegment {
+                width: 100%;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 1vw;
+                margin-bottom: 3vh;
+
+
+
+                input {
+                    border: solid 1px V.$LightGreyColorForBorder;
+                    min-height: 3vh;
+                    font-size: V.$DefaultSizeForLabelForInput;
+                    padding: 0.5vh;
+                }
+
+                textarea {
+                    border: solid 1px V.$LightGreyColorForBorder;
+                    min-height: 3vh;
+                    font-size: 2.5vh;
+                    padding: 0.5vh;
+                }
+
+                .NameAndDescriptionLanguageContainer {
+                    display: flex;
+                    justify-content: space-between;
+                    flex-direction: column;
+                    min-height: 35vh;
+                    width: 100%;
+
+
+                    .NameContainer {
+                        display: flex;
+                        flex-direction: column;
+                        border: solid 1px V.$DarkGreyColorForBorder;
+                        padding: 2vh;
+                        margin-bottom: 3vh;
+                        border-radius: 2vh;
+                    }
+
+                    .DescriptionContainer {
+                        display: flex;
+                        flex-direction: column;
+                        border: solid 1px V.$DarkGreyColorForBorder;
+                        border-radius: 2vh;
+                        padding: 2vh;
+                        height: 100%;
+
+                        .ProductDescription {
+                            min-height: 65%;
+                            height: 100%;
+                            width: 100%;
+                            resize: vertical;
+                        }
+                    }
+                }
+            }
+
+            .CategoryAndSubCategorySegment {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 1vw;
+                margin-bottom: 3vh;
+
+
+
+                .CategorySelectContainer {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    border: solid 1px V.$DarkGreyColorForBorder;
+                    border-radius: 2vh;
+                    padding: 2vh;
+
+                    .SelectCategory {
+                        min-height: 3vh;
+                        padding: 1vh;
+                        font-size: V.$DefaultSizeForLabelForInput;
+                    }
+                }
+            }
+
+            .ArticulSegment {
+                border: solid 1px V.$DarkGreyColorForBorder;
+                border-radius: 2vh;
+                padding: 2vh;
+                width: 40vw;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                margin-bottom: 3vh;
+
+                .text-box {
+                    min-height: 3vh;
+                    padding: 1vh;
+                    font-size: V.$DefaultSizeForLabelForInput;
+                }
+            }
+
+            .ProductAtributes {
+
+                .AtributeSegment {
+                    .AddAtributeButton {
+                        border: none;
+                        color: V.$BeautifulBlue;
+                        background-color: white;
+                        font-size: V.$DefaultSizeForLabelForInput;
+                        font-weight: 600;
+                    }
+
+                    input {
+                        border: solid 1px V.$LightGreyColorForBorder;
+                        min-height: 3vh;
+                        font-size: V.$DefaultSizeForLabelForInput;
+                        padding: 0.5vh;
+                    }
+
+                    select {
+                        min-height: 3vh;
+                        padding: 1vh;
+                        font-size: V.$DefaultSizeForLabelForInput;
+                    }
+
+                    #Atribute_Container {
+
+                        .Atribute_group {
+                            display: grid;
+                            grid-template-columns: 1fr 1fr;
+                            gap: 1vw;
+                            margin-bottom: 3vh;
+                            background-color: white;
+                            padding: 3vh;
+                            border: 1px solid V.$DarkGreyColorForBorder;
+                            border-radius: 2vh;
+
+
+
+                            .LabelForInput {
+                                font-size: 2.4vh;
+                            }
+
+
+                            .AtributeCred {
+                                display: flex;
+                                flex-direction: column;
+
+                                .RemoveAtributeButton {
+                                    border: none;
+                                    color: red;
+                                    background-color: white;
+                                    font-size: V.$DefaultSizeForLabelForInput
+                                }
+
+                                .AtributeInputContainer {
+                                    display: flex;
+                                    flex-direction: column;
+                                    border: solid 1px V.$DarkGreyColorForBorder;
+                                    padding: 2vh;
+                                    margin-bottom: 3vh;
+                                    border-radius: 2vh;
+                                }
+
+                                .NameOfAtributeContainer {
+                                    display: grid;
+                                    grid-template-columns: 1fr 1fr;
+                                    gap: 0.5vw;
+                                }
+
+                                .UnitAndDetermineSizeContainer {
+                                    display: grid;
+                                    grid-template-columns: 1fr 1fr;
+                                    gap: 0.5vw;
+                                }
+                            }
+
+                            .Option_containerAndButton {
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: space-between;
+                                height: 100%;
+
+                                .AddOptionButton {
+                                    border: none;
+                                    color: V.$BeautifulBlue;
+                                    background-color: white;
+                                    font-size: V.$DefaultSizeForLabelForInput
+                                }
+
+                                .Option_container {
+                                    max-height: 50vh;
+                                    overflow: auto;
+
+                                    .Option_group {
+                                        display: grid;
+                                        grid-template-columns: 1fr 4fr 1fr;
+                                        gap: 1vh;
+                                        align-items: center;
+
+                                        .PreviewOptionCircle {
+                                            border: 1px solid black;
+                                            border-radius: 50%;
+                                            min-height: 1vw;
+                                            min-width: 1vw;
+                                            height: 5vw;
+                                            width: 5vw;
+                                            display: flex;
+                                            justify-content: center;
+                                            align-content: center;
+                                            align-items: center;
+                                        }
+
+                                        .OptionCred {
+                                            display: flex;
+                                            justify-content: center;
+                                            flex-direction: column;
+                                        }
+
+                                        .RemoveOptionButtonContainer {
+                                            .RemoveOptionButton {
+                                                border: 1px solid red;
+                                                border-radius: 50%;
+                                                min-height: 1vw;
+                                                min-width: 1vw;
+                                                height: 3vw;
+                                                width: 3vw;
+                                                color: red;
+                                                background-color: white;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .ProductPriceAndPromotions {
+                .PriceSegment {
+                    display: grid;
+                    grid-template-columns: 7fr 10fr;
+                    gap: 1vh;
+
+                    .PriceSegmentInput {
+                        display: flex;
+                        flex-direction: column;
+                        width: 15vw;
+                    }
+
+                    .PricePromotinInputViewContainer {
+                        width: 15vw;
+                        margin-bottom: 3vh;
+                    }
+
+                    .PromotionViewInputsAndChager {
+                        width: 25vw;
+
+                        .PromotionChangerInputContainer {
+                            display: flex;
+                            flex-direction: column;
+                            width: 15vw;
+                            border: 1px solid V.$DarkGreyColorForBorder;
+                            border-radius: 2vh;
+                            padding: 1vh;
+
+
+                            .PromotionChangerContainer {
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: center;
+                            }
+
+                            .CheckboxesInputChooserConteiner {
+                                display: flex;
+                                justify-content: space-around;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

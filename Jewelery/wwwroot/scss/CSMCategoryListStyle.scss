@@ -1,0 +1,231 @@
+﻿.CategoryList {
+    padding-top: 3vh;
+
+    .CategoryButtonsAndSearchFiltering {
+        .CategoryButtons {
+            display: flex;
+            justify-content: space-evenly;
+            margin-bottom: 2vh;
+
+            .CategoryButton {
+                border-radius: 1500px;
+                text-decoration: none;
+                color: black;
+                border: 1px solid green;
+                background-color: lawngreen;
+                min-width: 30%;
+                text-align: center;
+                padding: 2vh 0.5vh;
+                font-weight: 700;
+            }
+        }
+
+        .CategorySearchFilterContainer {
+            margin-bottom: 2vh;
+
+            #CategorySearchForm {
+                .InputSearchContainer {
+                    border: 1px solid black;
+                    display: inline-block;
+                    height: 7vh;
+                    border-radius: 3px;
+                    width: 20vw;
+                    display: flex;
+                    justify-content: flex-start;
+                    padding-left: 0px;
+
+
+
+                    #Search {
+                        border: none;
+                        height: 100%;
+                        max-width: 100%;
+                        min-width: 85%;
+                        padding: 0px;
+                        padding-left: 5px;
+
+
+
+                        &:focus-visible {
+                            border: none;
+                            outline: none;
+                        }
+                    }
+
+                    #SearchButtonSubmit {
+                        background: none;
+                        border: none;
+                        font-weight: 700;
+                        height: 100%;
+                        min-width: 15%;
+                    }
+                }
+            }
+        }
+    }
+
+    .CategoryCMSListContainer {
+        #accordionFlushExample {
+            .accordion-item {
+                .accordion-header {
+                }
+
+                .accordion-collapse {
+                    .accordion-body {
+
+
+                        .CategoryInformationAndSubcategories {
+                            border-bottom: 1vh solid rgb(200,200,200);
+
+                            .CategoryCred {
+                                display: grid;
+                                grid-auto-flow: column;
+                                grid-template-columns: 15vw 60vw 25vw;
+                                grid-column-gap: 1vh;
+                                margin-bottom: 3vh;
+
+                                .CategoryDescription {
+                                    padding: 1vh;
+                                    display: grid;
+                                    border: 1px solid grey;
+                                }
+
+                                .CategoryImage {
+                                    height: 15vw;
+                                    width: 15vw;
+                                }
+
+                                .AcordionBodyCategoryButtons {
+                                    display: flex;
+                                    width: 10%;
+                                    height: 100%;
+                                    justify-content: space-evenly;
+                                    margin-bottom: 5vh;
+                                    flex-direction: column;
+
+                                    .AnchorButton {
+                                        height: 50px;
+                                        width: 50px;
+                                        align-content: center;
+                                        text-align: center;
+                                        background-color: greenyellow;
+                                        border-radius: 5px;
+                                        border: 1px solid forestgreen;
+                                        color: black;
+                                        font-weight: 700;
+                                        text-decoration: none;
+                                    }
+
+                                    .DeleteButton {
+                                        background-color: red;
+                                        border: 1px solid darkred;
+                                    }
+                                }
+                            }
+
+                            .CatagorySubcategortContainer {
+                                padding: 3vh 0vh;
+
+                                .AddSubCategoryButtonContainer {
+                                    margin-bottom: 3vh;
+
+                                    .AddSubCategoryButton {
+                                        border-radius: 1500px;
+                                        text-decoration: none;
+                                        color: black;
+                                        border: 1px solid green;
+                                        background-color: lawngreen;
+                                        min-width: 50%;
+                                        text-align: center;
+                                        padding: 2vh 8vh;
+                                        font-weight: 700;
+                                    }
+                                }
+
+                                .CatagorySubcategortContainerList {
+                                    border: 1px solid black;
+                                    padding: 1vh;
+
+                                    .TitleAndUpdateOrderSubcategoryContainer {
+                                        display: flex;
+                                        justify-content: space-between;
+                                        margin-bottom: 3vh;
+
+                                        .UpdateViewOrderForSubCategoriesButton {
+                                            border-radius: 1500px;
+                                            text-decoration: none;
+                                            color: black;
+                                            border: 1px solid green;
+                                            background-color: greenyellow;
+                                            min-width: 20%;
+                                            text-align: center;
+                                            padding: 1vh 1vh;
+                                            font-weight: 700;
+                                        }
+                                    }
+
+                                    .accordion {
+                                        .accordion-item {
+                                            .accordion-header {
+                                            }
+
+                                            .accordion-collapse {
+                                                .accordion-body {
+                                                    .SubCategoryCred {
+                                                        display: grid;
+                                                        grid-auto-flow: column;
+                                                        grid-template-columns: 15vw 55vw 20vw;
+                                                        grid-column-gap: 1vh;
+                                                        margin-bottom: 3vh;
+
+                                                        .SubCategoryDescription {
+                                                            padding: 1vh;
+                                                            display: grid;
+                                                            border: 1px solid grey;
+                                                        }
+
+                                                        .SubCategoryImage {
+                                                            height: 15vw;
+                                                            width: 15vw;
+                                                        }
+
+                                                        .AcordionBodySubCategoryButtons {
+                                                            display: flex;
+                                                            width: 10%;
+                                                            height: 100%;
+                                                            justify-content: space-evenly;
+                                                            margin-bottom: 5vh;
+                                                            flex-direction: column;
+
+                                                            .SubCategoryAnchorButton {
+                                                                height: 50px;
+                                                                width: 50px;
+                                                                align-content: center;
+                                                                text-align: center;
+                                                                background-color: greenyellow;
+                                                                border-radius: 5px;
+                                                                border: 1px solid forestgreen;
+                                                                color: black;
+                                                                font-weight: 700;
+                                                                text-decoration: none;
+                                                            }
+
+                                                            .SubCategoryDeleteButton {
+                                                                background-color: red;
+                                                                border: 1px solid darkred;
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,87 @@
+﻿@model Jewelery.ViewModels.DTO.Cart.CartDTOVM
+@using Jewelery.localization
+
+<link rel="stylesheet" href="~/scss/CartStyle.css" />
+
+<div class="Main">
+    <div class="BreadCrumb">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">@Resource.Home</a></li>
+                <li class="breadcrumb-item"><a href="#">@Resource.Catalogue</a></li>
+                <li class="breadcrumb-item" active><span>@Resource.Cart</span></li>
+            </ol>
+        </nav>
+    </div>
+    <div class="MainLabel">
+        <h1>@Resource.Cart</h1>
+    </div>
+    <div class="CartBody">
+        @if (Model.cart_ItemDTOVMs.Count > 0)
+        {
+            <div class="CartContainer">
+                <div class="ItemTable">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th colspan="2">@Resource.Goods</th>
+                                <th colspan="1">@Resource.Price</th>
+                                <th colspan="1"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach(var item in Model.cart_ItemDTOVMs)
+                            {
+                                <tr>
+                                    <td>
+                                        <img src="@item.Product.Images[0].Url" alt="Dont work bacause not have loading">
+                                    </td>
+                                    <td class="Name_Description">
+                                        <div class="Description">
+                                            <p class="Description__ProductName">@item.Product.Name</p>
+                                            @foreach(var atr in item.Options)
+                                            {
+                                                <p class="Description__Atribute">@atr.Atribute_Description +@atr.Size</p>
+                                            }
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <p>@item.TotalPrice ₴ </p>
+                                    </td>
+                                    <td class="DeleteButton">
+                                        <a asp-action="DeleteFromCart" asp-controller="Cart" asp-route-id="@item.Item_id">
+                                            <img src="~/SVG/trash-xmark-svgrepo-com.svg" />
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <div class="OrderCred">
+                    <div class="TotalPrice">
+                        <p>@Resource.Total_Price</p>
+                        <p>@Model.TotalPrice ₴</p>
+                    </div>
+                    <div class="SubmitButtons">
+                        <a class="CreateOrderButton" asp-action="CreateOrder" asp-controller="Cart">@Resource.Create_Order</a>
+                        <a class="GoToShopButton" src="#">@Resource.Home</a>
+                    </div>            
+                </div>
+            </div>
+
+        }
+        else
+        {
+            <div class="EmptyCart">
+                <h4>@Resource.Your_cart_is_empty</h4>
+                <p>@Resource.Continue_shopping_or_look_at_the_section_of_the_site_that_interests_you</p>
+                <div>
+                    <a class="EmtyCartCreateOrderButton" src="#">@Resource.Catalogue</a>
+                    <a class="EmtyCartGoToShopButton" src="#">@Resource.Home</a>
+                </div>           
+             </div>
+        }
+    </div>
+
+</div>

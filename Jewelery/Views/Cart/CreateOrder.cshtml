@@ -1,0 +1,95 @@
+﻿@model Jewelery.Models.Order_model.Delivery_detail
+@using Jewelery.Infrastructure.Enums;
+@using Jewelery.localization
+
+@{
+    var context = Context;
+    int CultureInt = (int)((LanguageEnums)Enum.Parse(typeof(LanguageEnums), Context.Request.Cookies["Culture"]));
+}
+
+<link rel="stylesheet" href="~/scss//CreateOrderStyle.css" ></link>
+
+<script src="~/js/Cart/GetCityName.js"></script>
+@*<script src="~/js/Cart/GetPostRef.js"></script>*@
+
+
+<div class="CreateOrderMain" >
+    <h1>@Resource.Placing_an_order</h1>
+    <div class="CreateOrderContainer">
+        <form class="CreateOrderForm" asp-controller="Cart" asp-action="CreateOrder" method="post">
+            <div class="Cred">
+                <div class="OrderCred">
+                    <h3>
+                        @Resource.Your_data
+                    </h3>
+                    <div>
+                        <div>
+                            <label for="Delivery_Second_Name">@Resource.Your_surname_name</label>
+                            <input id="Delivery_Second_Name" name="Delivery_Second_Name" />
+                        </div
+                        <div>
+                            <label for="Delivery_Name">@Resource.Your_name</label>
+                            <input id="Delivery_Name" name="Delivery_Name" />
+                        </div                        
+                    </div>
+                    <div>
+                        <div>
+                            <label for="Delivery_Father_Name">@Resource.Your_father_name</label>
+                            <input id="Delivery_Father_Name" name="Delivery_Father_Name" />
+                         </div
+                        <div>
+                            <label for="Phone_number">@Resource.Phone_number</label>
+                             <input id="Phone_number" name="Phone_number" />
+                         </div
+                    </div>
+                    <div>
+                        <div>
+                            <label for="Email">@Resource.Email</label>
+                            <input id="Email" name="Email" />
+                        </div
+                        <div>
+                            <label for="contactWithMe">@Resource.Contact_me</label>
+                             <input type="checkbox" id="contactWithMe" name="contactWithMe" value="1" />     
+                        </div
+                    </div>
+                    <div>
+                        <div>
+                            <label for="noteForOrder">@Resource.Notes_to_the_order</label>
+                            <input id="noteForOrder" name="noteForOrder" />     
+                        </div
+                    </div>               
+                </div>
+                <div class="DeliveryCred">
+                    <h3>
+                        @Resource.Delivery
+                    </h3>
+                    <div class="TypeOfDelivery">
+                        <div>
+                            <label for="warehouse">@Resource.In_the_Nova_Poshta_branch</label>
+                            <input id="warehouse" type="radio" name="TypeOfDelivery"/>
+                        </div>
+                        <div>
+                            <label for="Door">@Resource.Courier_of_Nova_Poshta</label>
+                            <input id="Door" type="radio" name="TypeOfDelivery"/>
+                        </div>                        
+                    </div>
+                    <div class="DeliveryAdres">
+                        <label for="City">@Resource.City</label>
+                        <input id="City" oninput="SetCities(event)" />
+                        @*<input id="CityRef"/>*@
+                        <br />
+                        <label for="PostRef">@Resource.Choose_a_post_office</label>
+                        <input id="PostRef" />
+                    </div>
+                    <div class="DoorClass" hidden>
+                        <label >@Resource.Address</label>
+                        <input  />
+                    </div>
+                </div>
+            </div>
+            <div class="CartListAndButtons">
+                @await Component.InvokeAsync("CreateOrderCart", new {lang = CultureInt,context = @context})
+            </div>
+        </form>
+    </div>
+</div>

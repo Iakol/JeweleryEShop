@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33723.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jewelery", "Jewelery\Jewelery.csproj", "{D23B804C-DC23-4DF3-8D73-106E29D5CBAB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D23B804C-DC23-4DF3-8D73-106E29D5CBAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D23B804C-DC23-4DF3-8D73-106E29D5CBAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D23B804C-DC23-4DF3-8D73-106E29D5CBAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D23B804C-DC23-4DF3-8D73-106E29D5CBAB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		RESX_ResXSortingComparison = CurrentCulture
+		RESX_ExcelExportMode = MultipleSheets
+		RESX_NeutralResourcesLanguage = uk-UA
+		SolutionGuid = {A05B250A-FADF-46BB-B1CD-C6B21AD0B287}
+	EndGlobalSection
+EndGlobal

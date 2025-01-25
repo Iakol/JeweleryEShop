@@ -1,0 +1,102 @@
+﻿[
+  {
+    "outputFile": "wwwroot/scss/StyleSheet.css",
+    "inputFile": "wwwroot/scss/StyleSheet.scss"
+  },
+  {
+    "outputFile": "wwwroot/scss/CMSMenu.css",
+    "inputFile": "wwwroot/scss/CMSMenu.scss"
+  },
+  {
+    "outputFile": "wwwroot/scss/CMSLayout.css",
+    "inputFile": "wwwroot/scss/CMSLayout.scss"
+  },
+  {
+    "outputFile": "wwwroot/scss/CMSMain.css",
+    "inputFile": "wwwroot/scss/CMSMain.scss"
+  },
+  {
+    "outputFile": "wwwroot/js/CMS/ProductImageFunc.es5.js",
+    "inputFile": "wwwroot/js/CMS/ProductImageFunc.js"
+  },
+  {
+    "outputFile": "wwwroot/scss/CatalogCategoryComponent.css",
+    "inputFile": "wwwroot/scss/CatalogCategoryComponent.scss"
+  },
+  {
+    "outputFile": "wwwroot/scss/HeaderStyle.css",
+    "inputFile": "wwwroot/scss/HeaderStyle.scss"
+  },
+  {
+    "outputFile": "wwwroot/scss/CategoryStyle.css",
+    "inputFile": "wwwroot/scss/CategoryStyle.scss"
+  },
+  {
+    "outputFile": "wwwroot/scss/CatalogMainStyle.css",
+    "inputFile": "wwwroot/scss/CatalogMainStyle.scss"
+  },
+  {
+    "outputFile": "wwwroot/scss/ProductStyle.css",
+    "inputFile": "wwwroot/scss/ProductStyle.scss"
+  },
+  {
+    "outputFile": "wwwroot/scss/CartStyle.css",
+    "inputFile": "wwwroot/scss/CartStyle.scss"
+  },
+  {
+    "outputFile": "wwwroot/scss/FooterStyle.css",
+    "inputFile": "wwwroot/scss/FooterStyle.scss"
+  },
+  {
+    "outputFile": "wwwroot/scss/LayoutStyle.css",
+    "inputFile": "wwwroot/scss/LayoutStyle.scss"
+  },
+  {
+    "outputFile": "wwwroot/scss/CreateOrderStyle.css",
+    "inputFile": "wwwroot/scss/CreateOrderStyle.scss"
+  },
+  {
+    "outputFile": "wwwroot/scss/HomeStyle.css",
+    "inputFile": "wwwroot/scss/HomeStyle.scss"
+  },
+  {
+    "outputFile": "wwwroot/scss/TopStyle.css",
+    "inputFile": "wwwroot/scss/TopStyle.scss"
+  },
+  {
+    "outputFile": "wwwroot/scss/OrderManagment.css",
+    "inputFile": "wwwroot/scss/OrderManagment.scss"
+  },
+  {
+    "outputFile": "wwwroot/scss/CSMProductList.css",
+    "inputFile": "wwwroot/scss/CSMProductList.scss"
+  },
+  {
+    "outputFile": "wwwroot/scss/CSMCategoryListStyle.css",
+    "inputFile": "wwwroot/scss/CSMCategoryListStyle.scss"
+  },
+  {
+    "outputFile": "wwwroot/scss/CSMUserListStyle.css",
+    "inputFile": "wwwroot/scss/CSMUserListStyle.scss"
+  },
+  {
+    "outputFile": "wwwroot/scss/FasionStyle.css",
+    "inputFile": "wwwroot/scss/FasionStyle.scss"
+  },
+  {
+    "outputFile": "wwwroot/scss/AddProductStyle.css",
+    "inputFile": "wwwroot/scss/AddProductStyle.scss"
+  },
+  {
+    "outputFile": "wwwroot/scss/CSMDetermoneSizeStyle.css",
+    "inputFile": "wwwroot/scss/CSMDetermoneSizeStyle.scss"
+  },
+  {
+    "outputFile": "wwwroot/scss/CSMDetermoneSizeListStyle.css",
+    "inputFile": "wwwroot/scss/CSMDetermoneSizeListStyle.scss"
+  },
+  {
+    "outputFile": "wwwroot/scss/Variables.css",
+    "inputFile": "wwwroot/scss/Variables.scss"
+  }
+]

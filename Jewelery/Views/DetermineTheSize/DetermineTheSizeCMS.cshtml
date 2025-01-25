@@ -1,0 +1,120 @@
+﻿@using Jewelery.ViewModels.DTO.DetermineTheSizeEditor
+
+@{
+    Layout = "~/Views/Shared/_LayoutCSM.cshtml";
+}
+@model List<DetermineTheSizePageDTO>;
+
+<link rel="stylesheet" href="~/scss/CSMDetermoneSizeListStyle.css" />
+
+<div class="DetermineSizeListContainer">
+    <div >
+        <h4>DetermineSize</h4>
+    </div>
+    <div class="AddButtonDetermineSize">
+        <a class="DetermineTheSizeEditorButton" asp-action="DetermineTheSizeEditor" asp-controller="DetermineTheSize">Create new DetermineSize</a>
+    </div>
+    <div class="DetermineSizeList">
+        @if(Model.Count() > 0){
+            @foreach (var item in Model) 
+            {
+                <div class="DetermineSizeObjectContainer">
+                    <div class="DetermineSizeCredential">
+                        <div class="DetermineSizeNameContainer">
+                            @item.name
+                        </div>
+                        <div class="DetermineSizePreviewButtonsContainer">
+                            <button type="button" class="btn btn-primary PreviewButton" data-bs-toggle="modal" data-bs-target="#DetermineSizeCMSModalUKR_@item.id">
+                                Preview UKR
+                            </button>
+                            <button type="button" class="btn btn-primary PreviewButton" data-bs-toggle="modal" data-bs-target="#DetermineSizeCMSModalENG_@item.id">
+                                Preview ENG
+                            </button>
+                        </div>
+                        <div class="DetermineTheSizeButtonsContainer">
+                            <div class="DetermineTheSizeButtonConainer">
+                                <a class="DetermineTheSizeButton" asp-action="DetermineTheSizeEditor" asp-controller="DetermineTheSize" asp-route-id="@item.id">
+                                    Edit
+                                </a>
+                            </div>
+                            <div class="DetermineTheSizeButtonConainer">
+                                <a class="DetermineTheSizeButton" asp-action="DeleteDetermineTheSize" asp-controller="DetermineTheSize" asp-route-id="@item.id">
+                                    Delete
+                                </a>
+                            </div>
+                        </div>
+                                           
+                    </div>
+                    <div class="ModalContainer">
+                        <div class="modal fade" id="DetermineSizeCMSModalUKR_@item.id" tabindex="-1" aria-labelledby="#DetermineSizeCMSModalLabelUKR_@item.id" aria-hidden="false">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-body">
+                                        <div class="ModalHeader">
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="ContentContainer">
+                                            <h3>@item.TittleUKR</h3>
+                                            @foreach (var obj in item.Page)
+                                            {
+                                                <div>
+                                                    @if (obj.type == true)
+                                                    {
+                                                        <div class="PreviewPhotoContainer">
+                                                            <img src="@obj.valueUKR" />
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <p>@obj.valueUKR</p>
+                                                    }
+                                                </div>
+
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal fade" id="DetermineSizeCMSModalENG_@item.id" tabindex="-1" aria-labelledby="#DetermineSizeCMSModalLabelENG_@item.id" aria-hidden="false">
+                            <div class="modal-dialog">
+                                <div class="modal-content">                                    
+                                    <div class="modal-body">
+                                        <div class="ModalHeader">
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="ContentContainer">
+                                            <h3>@item.TittleENG ENG</h3>
+                                           @foreach (var obj in item.Page)
+                                           {
+                                               <div>
+                                                   @if (obj.type == true)
+                                                   {
+                                                        <div class="PreviewPhotoContainer">
+                                                            <img src="@obj.valueENG" />
+                                                        </div>
+                                                   }
+                                                   else
+                                                   {
+                                                       <p>@obj.valueENG</p>
+                                                   }
+                                               </div>
+
+                                           }
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div>
+                <h3>Determine List is Empty</h3>
+            </div>
+        }
+    </div>
+</div>

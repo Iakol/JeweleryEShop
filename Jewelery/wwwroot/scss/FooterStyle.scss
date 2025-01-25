@@ -1,0 +1,144 @@
+﻿.FooterClass {
+    width: 100%;
+    bottom: 0;
+    background-color: #1B1B1B;
+    color: white;
+    padding: 10vh 8vw;
+    height: 80vh;
+
+    .FooterContainer {
+        flex-direction: column;
+        justify-content: space-between;
+
+        .FooterMain {
+            display: flex;
+            justify-content: space-between;
+
+
+            .FooterLogo {
+                width: 40%;
+
+                div {
+                    margin-bottom: 5vh;
+                }
+
+                .FooterLogoContainer {
+                    .LogoMargo {
+                        font-size: 32px;
+                    }
+                }
+
+                .FooterPhone {
+                    a {
+                        text-decoration: none;
+                        font-size: 24px;
+                        color: white;
+
+                        &:visited {
+                            color: white;
+                        }
+                    }
+                }
+
+                .FooterEmail {
+                    a {
+                        text-decoration: none;
+                        font-size: 16px;
+                        color: white;
+
+                        &:visited {
+                            color: white;
+                        }
+                    }
+                }
+
+                .FooterPaymentImg {
+                    img {
+                        width: 4vw;
+                        height: 8vh;
+                    }
+                }
+
+                .MediaButtun {
+                    width: 20%;
+                    display: flex;
+                    justify-content: space-between;
+
+                    a {
+                        display: flex;
+                        width: 3vw;
+                        height: 6vh;
+                        background-color: white;
+                        justify-content: center;
+                        align-items: center;
+                        border-radius: 10px;
+
+
+                        i {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            width: 8vw;
+                            height: 16vh;
+                            color: black;
+                        }
+                    }
+                }
+            }
+
+            .FooterInfo {
+                width: 50%;
+                display: flex;
+                justify-content: space-between;
+
+                .FooterCatalog {
+                    font-family: "Montserrat", sans-serif;
+
+                    h4 {
+                        margin-bottom: 5vh;
+                    }
+
+                    .FooterCatalogList {
+                        padding: 0;
+                        display: flex;
+                        list-style: none;
+                        flex-wrap: wrap;
+                        flex-direction: column;
+                        height: 60%;
+                        margin-bottom: 12px;
+                        align-content: space-between;
+
+                        li {
+                            margin-right: 2vw;
+                            margin-bottom: 1vh;
+                        }
+                    }
+                }
+
+                .FooterGeneralInfoContainer {
+                    font-family: "Montserrat", sans-serif;
+
+                    h4 {
+                        margin-bottom: 5vh;
+                    }
+
+                    .FooterInfoList {
+                        padding: 0;
+                        display: flex;
+                        list-style: none;
+                        flex-wrap: wrap;
+                        flex-direction: column;
+                        height: 60%;
+                        margin-bottom: 12px;
+                        align-content: space-between;
+
+                        li {
+                            margin-right: 2vw;
+                            margin-bottom: 1vh;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

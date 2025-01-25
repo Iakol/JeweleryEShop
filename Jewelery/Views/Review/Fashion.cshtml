@@ -1,0 +1,62 @@
+﻿@using Jewelery.Models.Review;
+@model List<Fashion>
+@{
+    Layout = "~/Views/Shared/_LayoutCSM.cshtml";
+}
+<link rel="stylesheet" type="text/css" href="slick/slick.css" />
+<link rel="stylesheet" href="~/scss/FasionStyle.css" />
+
+
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+<script src="~/js/CMS/SoloPhotoPreview.js"></script>
+<script src="~/js/Carusel.js"></script>
+
+<div class="FashionContainer">
+    <button type="button" class="btn btn-primary AddFasionBTN" data-bs-toggle="modal" data-bs-target="#FashionModal">
+        Add Fashion
+    </button>
+    <div class="CaruselFashion" id="Carousel">
+        @foreach(var item in Model)
+        {
+            <div class="FashionContainer">
+                <div class="FashionImageContainer">
+                    <img class="FashionImage" src="@item.Image"/>
+                </div>
+                <div class="DeleteButton">
+                    <a class="FashionDeleteButton" asp-controller="Review" asp-action="DeleteFashion" asp-route-id="@item.Id">X</a>
+                </div>
+            </div>
+        }
+    </div>
+
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="FashionModal" tabindex="-1" aria-labelledby="FashionModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="FashionModalLabel">Add Fashion</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                @using (Html.BeginForm("AddFashion", "Review", FormMethod.Post, new { enctype = "multipart/form-data", id = "AddFashion" }))
+                {
+                    <div>
+                        <img src="#" alt="categoryPhoto" id="Preview" /> @*Js add display block*@
+                    </div>
+                    <input type="file" accept="image/*" name="Image" onchange="PreviewImage(event)" />
+                
+                }
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" form="AddFashion" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+

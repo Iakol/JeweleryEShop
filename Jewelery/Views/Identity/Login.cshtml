@@ -1,0 +1,33 @@
+﻿@model Jewelery.ViewModels.DTO.Identity.LogInDTOVM
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@using (Html.BeginForm("Login", "Identity", FormMethod.Post))
+{
+    <div>
+        @Html.LabelFor(model => model.Email,"Email")
+        @Html.EditorFor(model => model.Email)
+        @Html.ValidationMessageFor(model => model.Email)
+    </div>
+    <div>
+        @Html.LabelFor(model => model.Password,"Password")
+        @Html.PasswordFor(model => model.Password)
+        @Html.ValidationMessageFor(model => model.Password)
+    </div>
+    <div>
+        @Html.LabelFor(model => model.isPersistent,"isPersistent")
+        @Html.CheckBoxFor(model => model.isPersistent)
+    </div>
+    <div>
+        @Html.ValidationSummary()
+    </div>
+    <div>
+        <button type="submit">submit</button>
+    </div>
+    <div>
+        <a asp-action="Register" asp-controller="Identity">Not Have account , Create new</a>
+    </div>
+    
+}
+

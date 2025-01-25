@@ -1,0 +1,172 @@
+﻿@using Jewelery.Infrastructure.Enums;
+@using Jewelery.ViewModels.DTO.Order;
+@model OrderVMDTO
+@{
+    Layout = "~/Views/Shared/_LayoutCSM.cshtml";
+    int status = (int)Model.Status;
+}
+
+<script src="~/js/Order/SetOrderStatus.js"></script>
+
+<div class="MainContainer">
+    <div class="OrderInfo">
+        <div class="GeneralOrderInfo">
+            <div>
+                <span id="StatusSpan" data-status="@status">@Enum.GetName(typeof(OrderEnum),@Model.Status)</span>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#SetOrderStatusModal">
+                    Set Status
+                </button>
+            </div>
+            <div>
+                <span>Last update @Model.Update_at</span>
+                <span>Created @Model.Created_at</span>
+            </div>
+            <div>
+                <span id="OrderId" data-orderid="@Model.Order_id">Order id</span>
+                <span >@Model.Order_id</span>
+            </div>
+            <div>
+                <span>User Name</span>
+                @if (Model.User != null)
+                {
+                    <span>@Model.User.Name @Model.User.Second_Name</span>
+                }
+                else
+                {
+                    <span>Order did without registered user</span>
+                }
+            </div>            
+        </div>
+        <div class="DeliveryInfo">
+            <div>
+                <span>Delivery_Name</span>
+                <span>@Model.Delivery_detail.Delivery_Name</span>
+            </div>
+            <div>
+                <span>Delivery_Second_Name</span>
+                <span>@Model.Delivery_detail.Delivery_Second_Name</span>
+            </div>
+            <div>
+                <span>Delivery_Father_Name</span>
+                <span>@Model.Delivery_detail.Delivery_Father_Name</span>
+            </div>
+            <div>
+                <span>Email</span>
+                <span>@Model.Delivery_detail.Email</span>
+            </div>
+            <div>
+                <span>Phone_number</span>
+                <span>@Model.Delivery_detail.Phone_number</span>
+            </div>
+            <div>
+                <span>contactWithMe</span>
+                <span>@Model.Delivery_detail.contactWithMe</span>
+            </div>
+            <div>
+                <span>noteForOrder</span>
+                <span>@Model.Delivery_detail.noteForOrder</span>
+            </div>
+            <div>
+                <span>StoreOrDoorDelivery</span>
+                <span>@Model.Delivery_detail.StoreOrDoorDelivery</span>
+            </div>
+            <div>
+                <span>RecipientWarehouseIndex</span>
+                <span>@Model.Delivery_detail.RecipientWarehouseIndex</span>
+            </div>
+        </div>
+    </div>
+    <div class="OrderItems">
+        <div class="accordion" id="accordionExample">
+            @foreach (var item in Model.Order_Details)
+            {
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_@item.Order_detail_id" aria-expanded="false" aria-controls="collapse_@item.Order_detail_id">
+                            @item.Product_Name
+                        </button>
+                    </h2>
+                    <div id="collapse_@item.Order_detail_id" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <div>                                
+                                @if (item.Product_Photo_URL == null || item.Product_Photo_URL.Equals(""))
+                                {
+                                    <p>@item.Product_Name</p>
+                                }
+                                else
+                                {
+                                    <p>@item.Product_Name</p>
+                                    <img src="@item.Product_Photo_URL" alt="@item.Product_Name" />
+                                }
+                                @if (item.Product != null)
+                                {
+                                    <a > Go to product Page</a>
+                                }
+                                else
+                                {
+                                    <span>Product not found or already deleted</span>
+                                }
+                            </div>
+                            <div>
+                                <ul>
+                                    @foreach(var opt in item.Options)
+                                    {
+                                        <li>
+                                            <span>@opt.Atribute_Description</span>
+                                            <span>
+                                                <span>@opt.Size</span>
+                                                @if (opt.Unit == null || opt.Unit.Equals(""))
+                                                {
+                                                    <span>@opt.Unit</span>
+                                                }
+                                            </span>
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }                      
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="SetOrderStatusModal" tabindex="-1" aria-labelledby="SetOrderStatusModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="SetOrderStatusModalLabel">Modal title</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div id="StatusButtonContainer">
+                    <input type="radio" class="btn-check" value="0" name="Status" id="option1" autocomplete="off">
+                    <label class="btn btn-secondary" for="option1">Created</label>
+
+                    <input type="radio" class="btn-check" value="1" name="Status" id="option2" autocomplete="off">
+                    <label class="btn btn-info" for="option2">Paid</label>
+
+                    <input type="radio" class="btn-check" value="2" name="Status" id="option3" autocomplete="off">
+                    <label class="btn btn-warning" for="option3">ReadyToSend</label>
+
+                    <input type="radio" class="btn-check" value="3" name="Status" id="option4" autocomplete="off">
+                    <label class="btn btn-primary" for="option4">Sended</label>
+                    
+                    <input type="radio" class="btn-check" value="4" name="Status" id="option5" autocomplete="off">
+                    <label class="btn btn-success" for="option5">Received</label>
+
+                    <input type="radio" class="btn-check" value="5" name="Status" id="option6" autocomplete="off">
+                    <label class="btn btn-dark" for="option6">Closed</label>
+
+                    <input type="radio" class="btn-check" value="6" name="Status" id="option7" autocomplete="off">
+                    <label class="btn btn-danger" for="option7">Falue</label>
+                </div>
+            </div>
+            <div data-url="@Url.Action("SetOrderStatus","OrderManagment")" class="modal-footer" id="ModalFooterContainer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" id="SetStatusButton" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>

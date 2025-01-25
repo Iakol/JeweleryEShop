@@ -1,0 +1,27 @@
+﻿
+.Main {
+    font-family: "New Amsterdam", sans-serif;
+
+    .MainLabel {
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        font-family:inherit;
+    }
+
+    .Fillters {
+        form {
+            .submitFillters {
+                display: none;
+            }
+        }
+    }
+
+    .MainBody {
+        display: flex;
+        justify-content: space-between;
+
+        .Products {
+        }
+    }
+}

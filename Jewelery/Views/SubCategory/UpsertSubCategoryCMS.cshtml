@@ -1,0 +1,56 @@
+﻿@model Jewelery.Models.Product_model.SubCategory
+
+@{
+    Layout = "~/Views/Shared/_LayoutCSM.cshtml";
+}
+
+
+<div class="d-flex justify-content-center">
+    <label for="upsertform">
+        @if (Model.SubCategory_id == 0)
+        {
+            <span>Створити під категорію</span>
+        }
+        else
+        {
+            <span>Редагувати під категорію</span>
+        }
+    </label>
+    
+    <form id="upsertform" method="post">
+        <div>
+            <input type="hidden" placeholder="Ід категорії" asp-for="SubCategory_id" />
+            <span asp-validation-for="SubCategory_id"></span>
+        </div>
+        <div>
+            <input type="hidden" placeholder="Ід категорії" asp-for="Category_id" />
+            <span asp-validation-for="Category_id"></span>
+        </div>
+
+
+        <div>
+            <input type="text" placeholder="Назва категорії" asp-for="Name" />
+            <span asp-validation-for="Name"></span>
+        </div>
+        <div>
+            <textarea placeholder="Опис категорії" asp-for="Description"></textarea>
+            <span asp-validation-for="Description"></span>
+        </div>
+        <div>
+            <input type="text" asp-for="Image" />
+            <span asp-validation-for="Image"></span>
+        </div>
+        <div>
+            <button type="submit">
+                @if (Model.SubCategory_id == 0)
+                {
+                    <span>Створити</span>
+                }
+                else
+                {
+                    <span>Редагувати</span>
+                }
+            </button>
+        </div>
+    </form>
+</div>

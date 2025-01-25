@@ -1,0 +1,48 @@
+﻿.MainComponent .OrderSortContainer {
+  padding: 1vh 1vw;
+}
+.MainComponent .OrderSortContainer .OrderSortStastus {
+  display: flex;
+  padding: 1vh 1vw;
+  justify-content: space-between;
+}
+.MainComponent .OrderSortContainer .OrderSortStastus .StatusButton {
+  display: inline-block;
+  text-align: center;
+  border: solid 1px black;
+  cursor: pointer;
+  color: black;
+  padding: 1vh 1vw;
+  font-weight: 700;
+  width: 10vw;
+  border-radius: 1500px;
+}
+.MainComponent .OrderSortContainer .OrderSortStastus .StatusButtonSelected {
+  background-color: forestgreen;
+  color: white;
+}
+.MainComponent .OrderSortContainer .OrderSortValues {
+  background-color: rgba(76, 255, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  padding: 1vh 1vw;
+  min-height: 25vh;
+}
+.MainComponent .OrderSortContainer .OrderSortValues .SeachInputContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.MainComponent .OrderSortContainer .OrderSortValues .SeachInputContainer #SearchSubmitButton {
+  border: none;
+  border-radius: 1500px;
+  color: white;
+  background-color: rgb(64, 64, 64);
+  padding: 1vh 3vw;
+  width: 30%;
+}
+.MainComponent .OrderSortContainer .Ordering {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

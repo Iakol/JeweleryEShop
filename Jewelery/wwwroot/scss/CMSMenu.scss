@@ -1,0 +1,60 @@
+﻿
+
+.LeftBar {
+    width: 100%;
+    background-color: deepskyblue;
+    font-family: "Playfair Display SC", serif;
+    font-size: 18px;
+    height:100%;
+
+    .ExitButton {
+        display: block;
+        padding-left: 5px;
+        margin-top: 5px;
+        justify-items: center;
+        text-decoration: none;
+        color: black;
+        width: 100%;
+
+        &:hover {
+            background-color: AppWorkspace;
+        }
+
+        img {
+            display: inline;
+            height: 25px;
+            width: 25px;
+        }
+    }
+
+    nav {
+
+        ul {
+            list-style: none;
+            padding: 0px;
+
+
+            li {
+                padding-left: 5px;
+                margin-bottom: 5px;
+                justify-items: center;
+
+                &:hover {
+                    background-color: AppWorkspace;
+                }
+
+                a {
+                    text-decoration: none;
+                    color: black;
+                    width: 100%;
+
+                    img {
+                        display: inline;
+                        height: 25px;
+                        width: 25px;
+                    }
+                }
+            }
+        }
+    }
+}

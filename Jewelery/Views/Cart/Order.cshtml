@@ -1,0 +1,75 @@
+﻿@model Jewelery.ViewModels.DTO.Order.OrderFormDTO
+
+<div>
+    <div class="BreadCrumb">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item"><a href="#">Catalog</a></li>
+                <li class="breadcrumb-item"><a href="#">Cart</a></li>
+                <li class="breadcrumb-item" active><a href="#">Create Order</a></li>
+
+            </ol>
+        </nav>
+    </div>
+
+    <div>
+        <h1>Your Order</h1>
+    </div>
+    <div>
+        <div>
+            @using (Html.BeginForm("Order","Cart",FormMethod.Post))
+            {
+                <div id="OrderCred">
+                    <div>
+                        @Html.LabelFor(model => model.SecondName)
+                        @Html.EditorFor(model => model.SecondName)
+                    </div>
+                    <div>
+                        @Html.LabelFor(model => model.FirstName)
+                        @Html.EditorFor(model => model.FirstName)
+                    </div>
+                    <div>
+                        @Html.LabelFor(model => model.FathertName)
+                        @Html.EditorFor(model => model.FathertName)
+                    </div>
+                    <div>
+                        @Html.LabelFor(model => model.PhoneNumber)
+                        @Html.EditorFor(model => model.PhoneNumber)
+                    </div>
+                    <div>
+                        @Html.LabelFor(model => model.Email)
+                        @Html.EditorFor(model => model.Email)
+                    </div>
+                    <div>
+                        @Html.LabelFor(model => model.ConnectWithMe)
+                        @Html.EditorFor(model => model.ConnectWithMe)
+                    </div>
+                    <div>
+                        @Html.LabelFor(model => model.AdditionalInfo)
+                        @Html.EditorFor(model => model.AdditionalInfo)
+                    </div>
+                </div>
+                <div id="DeliveryCred">
+                    <div>
+                        @Html.LabelFor(model => model.DeliveryOption)
+                        @Html.RadioButtonFor(model => model.DeliveryOption,"OnWareHouse")
+                        @Html.RadioButtonFor(model => model.DeliveryOption,"ToTheDoor")
+                    </div>
+                    <div>
+                        @Html.LabelFor(model => model.City)
+                        <input type="text" list="City" name="City" onchange="SearchCity(event)" />
+                        <datalist id="ListOfCity">
+
+                        </datalist>
+                    </div>
+                </div>                     
+            }
+        </div>
+        <div>
+
+        </div>
+    </div>
+        
+
+</div>

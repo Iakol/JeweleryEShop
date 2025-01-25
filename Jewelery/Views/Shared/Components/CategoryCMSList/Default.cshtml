@@ -1,0 +1,109 @@
+﻿@using Jewelery.ViewModels.DTO.Category;
+@using Jewelery.localization;
+
+
+@model List<CategoryListCMS>
+
+@if (Model.Count == 0)
+{
+    <h4>@Resource.Category_list_is_empty</h4>
+}else
+{
+    <div class="accordion accordion-flush" id="accordionFlushExample">
+        @foreach (var item in Model)
+        {
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-heading_@item.Category_id">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse_@item.Category_id" aria-expanded="false" aria-controls="flush-collapse_@item.Category_id">
+                        @item.Name_UKR | @item.Name_ENG
+                    </button>
+                </h2>
+                <div id="flush-collapse_@item.Category_id" class="accordion-collapse collapse" aria-labelledby="flush-heading_@item.Category_id" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">                        
+                        <div class="CategoryInformationAndSubcategories">
+                            <div class="CategoryCred">
+                                <div>
+                                    <img class="CategoryImage" src="@item.Image">
+                                </div>
+                                <div class="CategoryDescription">
+                                    <h6>
+                                        Опис:
+                                    </h6>
+                                    <p>@item.Description_UKR</p>
+                                    <hr />
+                                    <h6>
+                                        Description:
+                                    </h6>
+                                    <p>@item.Description_ENG</p>
+                                </div>
+                                <div class="AcordionBodyCategoryButtons">
+                                    <a class="AnchorButton" asp-controller="Category" asp-action="EditCategory" asp-route-id="@item.Category_id"><img src="~/SVG//edit-svgrepo-com.svg" /></a>
+                                    <a class="AnchorButton DeleteButton" asp-controller="Category" asp-action="DeleteCategory" asp-route-id="@item.Category_id">X</a>
+                                </div>
+                            </div>
+
+                            <div class="CatagorySubcategortContainer">
+                                <div class="AddSubCategoryButtonContainer">
+                                    <a class="AddSubCategoryButton" asp-action="AddSubCategory" asp-controller="Category" asp-route-catId="@item.Category_id">Add Subcategory</a>
+                                </div>
+                                @if (@item.SubCategories.Count() >= 1)
+                                {
+                                    <div class="CatagorySubcategortContainerList">
+                                        <div class="TitleAndUpdateOrderSubcategoryContainer">
+                                            <h4>Subcategories</h4>
+                                            @if (@item.SubCategories.Count() > 1)
+                                            {
+                                                <a class="UpdateViewOrderForSubCategoriesButton" asp-action="UpdateViewOrderForSubCategories" asp-controller="Category" asp-route-cat_id="@item.Category_id">Обновити Порядок Відображення</a>
+                                            }
+                                        </div>
+                                        <div class="accordion accordion-flush" id="accordionFlushSubCat_@item.Category_id">
+                                            @foreach (var sbitem in item.SubCategories)
+                                            {                                        
+                                                <div class="accordion-item">
+                                                    <h2 class="accordion-header" id="flush-headingSC_@sbitem.SubCategory_id">
+                                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSC_@sbitem.SubCategory_id" aria-expanded="false" aria-controls="flush-collapseSC_@sbitem.SubCategory_id">
+                                                            @sbitem.Name_UKR | @sbitem.Name_ENG
+                                                        </button>
+                                                    </h2>
+                                                    <div id="flush-collapseSC_@sbitem.SubCategory_id" class="accordion-collapse collapse" aria-labelledby="flush-headingSC_@sbitem.SubCategory_id" data-bs-parent="#accordionFlushSC_@sbitem.SubCategory_id">
+                                                        <div class="accordion-body">
+                                                            <div class="SubCategoryCred">
+                                                                <div>
+                                                                    <img class="SubCategoryImage" src="@sbitem.Image">
+                                                                </div>
+                                                                <div class="SubCategoryDescription">
+                                                                    <h6>Опис: </h6>
+                                                                    <p>@sbitem.Description_UKR</p>
+                                                                    <hr/>
+                                                                    <h6>Description: </h6>
+                                                                    <p>@sbitem.Description_ENG</p>
+
+                                                                </div>
+                                                                <div class="AcordionBodySubCategoryButtons">
+                                                                    <a class="SubCategoryAnchorButton" asp-action="EditSubCategory" asp-controller="Category" asp-route-id="@sbitem.SubCategory_id"><img src="~/SVG//edit-svgrepo-com.svg" /></a>
+                                                                    <a class="SubCategoryAnchorButton SubCategoryDeleteButton" asp-action="DeleteSubCategory" asp-controller="Category" asp-route-id="@sbitem.SubCategory_id">X</a>
+                                                                </div>
+
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            }
+
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                            
+                       </div>
+                        
+                    </div>
+                </div>
+            </div>
+        }
+        
+    </div>
+    
+        
+}

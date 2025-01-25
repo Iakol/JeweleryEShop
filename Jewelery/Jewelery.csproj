@@ -1,0 +1,80 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="compilerconfig.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="bootstrap" Version="5.3.3" />
+    <PackageReference Include="Fancybox" Version="2.1.5" />
+    <PackageReference Include="jQuery.UI.Combined" Version="1.13.3" />
+    <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.3.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.18" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.18" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.18" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.18">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Identity.Core" Version="7.0.18" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+    <Folder Include="wwwroot\image\Product\" />
+    <Folder Include="wwwroot\image\SubCategory\" />
+    <Folder Include="wwwroot\image\Category\" />
+    <Folder Include="wwwroot\image\Fashion\" />
+    <Folder Include="wwwroot\image\DetermineTheSize\" />
+    <Folder Include="wwwroot\js\DataTable\" />
+    <Folder Include="wwwroot\js\Cookies\" />
+    <Folder Include="wwwroot\js\Category\" />
+    <Folder Include="SQL\" />
+    <Folder Include="wwwroot\lib\fancybox\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="compilerconfig.json" />
+    <None Include="wwwroot\lib\jquery.ui.combined\1.13.3\.nupkg.metadata" />
+    <None Include="wwwroot\lib\jquery.ui.combined\1.13.3\.signature.p7s" />
+    <None Include="wwwroot\lib\jquery.ui.combined\1.13.3\Content\Scripts\jquery-ui-1-13.3.js" />
+    <None Include="wwwroot\lib\jquery.ui.combined\1.13.3\Content\Scripts\jquery-ui-1.13.3.min.js" />
+    <None Include="wwwroot\lib\jquery.ui.combined\1.13.3\jquery.ui.combined.1.13.3.nupkg" />
+    <None Include="wwwroot\lib\jquery.ui.combined\1.13.3\jquery.ui.combined.1.13.3.nupkg.sha512" />
+    <None Include="wwwroot\lib\jquery.ui.combined\1.13.3\jquery.ui.combined.nuspec" />
+    <None Include="wwwroot\lib\jquery.ui.combined\1.13.3\Tools\common.ps1" />
+    <None Include="wwwroot\lib\jquery.ui.combined\1.13.3\Tools\install.ps1" />
+    <None Include="wwwroot\lib\jquery.ui.combined\1.13.3\Tools\uninstall.ps1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="localization\Resource.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="localization\Resource.en.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="localization\Resource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+
+
+</Project>
